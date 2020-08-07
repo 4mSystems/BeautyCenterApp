@@ -24,8 +24,9 @@ class subscribersController extends Controller
 
     public function index()
     {
+        $data = $this->objectName::all();
 
-        return view($this->folderView.'subscribers');
+        return view($this->folderView.'subscribers',compact('data'));
     }
 
     /**
@@ -35,7 +36,7 @@ class subscribersController extends Controller
      */
     public function create()
     {
-        //
+        return view($this->folderView.'addSubscriber');
     }
 
     /**
@@ -46,7 +47,18 @@ class subscribersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|double',
+            'period' => 'required|integer',
+        ]);
+
+        $input = $request->all();
+
+        $this->objectName::create($input);
+
+        return redirect()->route('subscribers.index')->with('success',$this->flash.' Created');
+
     }
 
     /**
@@ -68,7 +80,9 @@ class subscribersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = $this->objectName::find($id);
+
+        return view($this->folderView.'editSubscriber', compact('data'));
     }
 
     /**
@@ -80,7 +94,19 @@ class subscribersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|double',
+            'period' => 'required|integer',
+
+        ]);
+
+        $input = $request->all();
+
+        $this->objectName::find($id)->update($input);
+
+        return redirect()->route('subscribers.index')->with('success',$this->flash.' Updated');
+
     }
 
     /**
