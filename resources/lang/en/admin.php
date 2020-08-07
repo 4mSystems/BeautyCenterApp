@@ -5,4 +5,5 @@ return [
     'period' => 'period',
     'desc' => 'desc',
     'subAdd' => 'Add new Subscriber',
+    'edit' => 'edit',
 ];

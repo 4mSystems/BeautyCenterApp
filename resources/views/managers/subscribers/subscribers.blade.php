@@ -65,6 +65,10 @@
                                                 <td>{{$package->desc}}</td>
                                                 <td>
                                                     <a class='btn btn-raised btn-success btn-sml'
+                                                       href=" {{url('subscribers/'.$package->id.'/details')}}"><i
+                                                            ></i>Show Details</a>
+
+                                                    <a class='btn btn-raised btn-success btn-sml'
                                                        href=" {{url('subscribers/'.$package->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
 

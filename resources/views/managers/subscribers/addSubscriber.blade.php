@@ -36,25 +36,45 @@
                                         <div class="form-group">
                                             <label for="userinput5">Name</label>
                                             <input class="form-control border-primary" name ="name" type="text" placeholder="name"
-                                                   id="userinput5">
+                                            required   id="userinput5">
+                                            @if ($errors->has('name'))
+                                                <span class="danger" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                            @endif
                                         </div>
 
                                         <div class="form-group">
                                             <label for="userinput6">Price</label>
                                             <input class="form-control border-primary" name ="price" type="text" placeholder="price"
-                                                   id="userinput6">
+                                                required   id="userinput6">
+                                            @if ($errors->has('price'))
+                                                <span class="danger" role="alert">
+                                        <strong>{{ $errors->first('price') }}</strong>
+                                    </span>
+                                            @endif
                                         </div>
 
                                         <div class="form-group">
                                             <label>period</label>
                                             <input class="form-control border-primary" name ="period" id="userinput7" type="text"
-                                                   placeholder="period">
+                                                   required title="this field required"  placeholder="period">
+                                            @if ($errors->has('period'))
+                                                <span class="danger" role="alert">
+                                        <strong>{{ $errors->first('period') }}</strong>
+                                    </span>
+                                            @endif
                                         </div>
 
                                         <div class="form-group">
                                             <label for="userinput8">Discription</label>
                                             <textarea id="userinput8" rows="5" class="form-control border-primary"
                                                       name="desc" placeholder="Discription"></textarea>
+                                            @if ($errors->has('desc'))
+                                                <span class="danger" role="alert">
+                                        <strong>{{ $errors->first('desc') }}</strong>
+                                    </span>
+                                            @endif
                                         </div>
 
                                     </div>

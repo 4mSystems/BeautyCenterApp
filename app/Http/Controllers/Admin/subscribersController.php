@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\package_detail;
 use Illuminate\Http\Request;
 use App\package;
 
@@ -49,8 +50,8 @@ class subscribersController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'price' => 'required|double',
-            'period' => 'required|integer',
+            'price' => 'required|numeric',
+            'period' => 'required|numeric',
         ]);
 
         $input = $request->all();
@@ -61,43 +62,30 @@ class subscribersController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $data = $this->objectName::find($id);
 
-        return view($this->folderView.'editSubscriber', compact('data'));
+        return view($this->folderView.'detailsSubscriber', compact('data'));
+    }
+    public function details($id)
+    {
+        $data = package_detail::where('package_id',$id)->get();
+//        dd($data);
+        return view('managers.detailesSubscriber.detailsSubscriber',compact('id','data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required|string',
-            'price' => 'required|double',
-            'period' => 'required|integer',
+            'price' => 'required|numeric',
+            'period' => 'required|numeric',
 
         ]);
 
@@ -109,14 +97,11 @@ class subscribersController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $this->objectName::where('id',$id)->delete();
+        session()->flash('success', trans('Subscriber deleted successfully'));
+        return redirect(url('subscribers'));
     }
+
 }

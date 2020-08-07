@@ -41,7 +41,9 @@
                              '>
                                     <h3 class="card-title">{{trans('admin.employee')}} </h3>
                                 </div>
+                                @include('layouts.errors')
 
+                                @include('layouts.messages')
 
                                 <div class="" style=' padding-top: 10px;
                             padding-right: 15px;

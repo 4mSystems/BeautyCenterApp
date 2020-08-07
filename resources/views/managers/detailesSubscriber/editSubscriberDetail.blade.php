@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Update Subscriber</h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">Update Subscriber Detail</h4>
 
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
@@ -29,7 +29,7 @@
 
 
 
-                                {!! Form::model($data, ['route' => ['subscribers.update',$data->id] , 'method'=>'put']) !!}
+                                {!! Form::model($data, ['route' => ['DetailSubscriber.update',$data->id] , 'method'=>'put']) !!}
                                 {{ csrf_field() }}
                                     <div class="form-body">
 
@@ -38,7 +38,9 @@
 
                                             {!! Form::label('name', 'name') !!}
                                             {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>'Enter The Name']) !!}
-                                            @if ($errors->has('name'))
+                                            {!! Form::hidden('package_id',$data->package_id,['class'=>'form-control',]) !!}
+
+                                        @if ($errors->has('name'))
                                                 <span class="danger" role="alert">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -46,42 +48,19 @@
                                         </div>
 
                                         <div class="form-group">
-                                            {!! Form::label('Price', 'Price') !!}
-                                            {!! Form::text('price',$data->price,['class'=>'form-control', 'placeholder'=>'Enter The Price']) !!}
-                                            @if ($errors->has('price'))
+                                            {!! Form::label('limit', 'Limit') !!}
+                                            {!! Form::text('limit',$data->limit,['class'=>'form-control', 'placeholder'=>'Enter The limit']) !!}
+                                            @if ($errors->has('limit'))
                                                 <span class="danger" role="alert">
-                                        <strong>{{ $errors->first('price') }}</strong>
+                                        <strong>{{ $errors->first('limit') }}</strong>
                                     </span>
                                             @endif
                                         </div>
 
-                                        <div class="form-group">
-                                            {!! Form::label('period', 'period') !!}
-                                            {!! Form::text('period',$data->period,['class'=>'form-control', 'placeholder'=>'Enter The period']) !!}
-                                            @if ($errors->has('period'))
-                                                <span class="danger" role="alert">
-                                        <strong>{{ $errors->first('period') }}</strong>
-                                    </span>
-                                            @endif
-                                        </div>
-
-                                        <div class="form-group">
-                                            {!! Form::label('desc', 'Discription') !!}
-                                            {!! Form::textarea('desc',$data->desc,['class'=>'form-control', 'placeholder'=>'Enter The desc']) !!}
-                                            @if ($errors->has('desc'))
-                                                <span class="danger" role="alert">
-                                        <strong>{{ $errors->first('desc') }}</strong>
-                                    </span>
-                                            @endif
-                                        </div>
 
                                     </div>
 
                                     <div class="form-actions right">
-                                        <button type="button" class="btn btn-warning mr-1">
-                                            <i class="icon-cross2"></i> Cancel
-                                        </button>
-
                                         {{ Form::submit( trans('admin.edit') ,['class'=>'btn btn-info']) }}
                                         {{ Form::close() }}
                                     </div>
