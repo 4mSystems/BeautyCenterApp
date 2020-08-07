@@ -70,48 +70,33 @@
                                             <th>{{trans('admin.email')}}</th>
                                             <th>{{trans('admin.phone')}}</th>
                                             <th>{{trans('admin.address')}}</th>
-                                            <th>{{trans('admin.image')}}</th>
                                             <th>{{trans('admin.status')}}</th>
-                                            <th></th>
+
 
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($managers as $employees)
+                                        @foreach($salons as $employees)
                                             <tr>
                                                 <th scope="row">{{$employees->id}}</th>
                                                 <td>{{$employees->name}}</td>
                                                 <td>{{$employees->email}}</td>
                                                 <td>{{$employees->phone}}</td>
                                                 <td>{{$employees->address}}</td>
-                                                <td><img src="{{$employees->email}}" width="40" height="40"></td>
-                                                <td>{{$employees->status}}</td>
-                                                 <td><a class='btn btn-raised btn-success btn-sml'
-                                                       href=" {{url('managers/'.$employees->id.'/edit')}}"><i
-                                                            class="icon-edit"></i></a>
-
-                                                    <form method="get" id='delete-form-{{ $employees->id }}'
-                                                          action="{{url('managers/'.$employees->id.'/delete')}}"
-                                                          style='display: none;'>
-                                                    {{csrf_field()}}
-                                                    <!-- {{method_field('delete')}} -->
-                                                    </form>
-                                                    <button onclick="if(confirm('are you sure to delete this record?'))
-                                                        {
-                                                        event.preventDefault();
-                                                        document.getElementById('delete-form-{{ $employees->id }}').submit();
-                                                        }else {
-                                                        event.preventDefault();
-                                                        }
-
-                                                        "
-                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i
-                                                            class="icon-android-delete" aria-hidden='true'>
-                                                        </i>
 
 
-                                                    </button>
+                                                <td>
+                                                    @if($employees->status == "active")
+                                                    <a class='btn btn-raised btn-success btn-sml'
+                                                       href=" {{url('salons/'.$employees->id.'/edit')}}">{{$employees->status}}</a>
+
+                                                    @else
+                                                        <a class='btn btn-raised btn-danger btn-sml'
+                                                           href=" {{url('salons/'.$employees->id.'/edit')}}">{{$employees->status}}</a>
+
+                                                    @endif
                                                 </td>
+
 
                                             </tr>
                                         @endforeach

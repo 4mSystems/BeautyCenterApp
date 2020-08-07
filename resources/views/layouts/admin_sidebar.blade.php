@@ -22,7 +22,7 @@
                     </li>
                     <li><a  href="{{ URL::to('subscribers') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Subscribers</a>
                     </li>
-                    <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
+                    <li><a href="{{url('salons')}}" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Salons</a>
                     </li>
                     <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
                     </li>

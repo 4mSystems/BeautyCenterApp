@@ -60,7 +60,7 @@
 
             <div class="form-group">
             <strong>{{trans('admin.phone')}}</strong>
-             {{ Form::number('phone',$user_data->phone,["class"=>"form-control" ,'max'=>'9999999999999'   ]) }}
+                 {{ Form::number('phone',$user_data->phone,["class"=>"form-control" ,'max'=>'9999999999999'   ]) }}
             </div>
 
             <div class="form-group">
