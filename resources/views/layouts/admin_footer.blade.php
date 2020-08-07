@@ -1,6 +1,6 @@
 
 
-<footer class="footer footer-static footer-light navbar-border">
+<footer >
 </footer>
 
 <!-- BEGIN VENDOR JS-->
@@ -21,6 +21,8 @@
 <script src="{{ asset('/app-assets/js/core/app-menu.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/app-assets/js/core/app.js') }}" type="text/javascript"></script>
 <!-- END ROBUST JS-->
+<script src="{{ asset('/app-assets/js/scripts/pages/dashboard-lite.js') }}"
+        type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL JS-->
 @yield('scripts')
 <!-- END PAGE LEVEL JS-->

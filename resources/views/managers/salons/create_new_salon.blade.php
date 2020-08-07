@@ -1,6 +1,12 @@
 @extends('admin_temp')
 
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/colors/palette-gradient.css') }}">
+@endsection
 @section('content')
     <br>
     <div class="app-content content container-fluid">
@@ -48,7 +54,7 @@
 
 
                                             <div class="form-group">
-                                                <strong>{{trans('admin.managerName')}}</strong>
+                                                <strong>{{trans('admin.salonName')}}</strong>
                                                 {{ Form::text('name',old('name'),["class"=>"form-control" ,"required"]) }}
                                             </div>
 
@@ -79,7 +85,7 @@
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.image')}}</strong><br>
-                                                {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+                                                {{ Form::select('size', ['L' => 'Large', 'S' => 'Small'],["class"=>"form-control" ,"required" ]) }}
                                             </div>
 
 
@@ -88,4 +94,9 @@
                                         </div>
 
                                         @endsection
+
+                                        @section('scripts')
+                                            <script src="{{ asset('/app-assets/js/scripts/pages/dashboard-lite.js') }}"
+                                                    type="text/javascript"></script>
+@endsection
 
