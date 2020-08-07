@@ -1,45 +1,7 @@
 
-@extends('welcome')
+@extends('admin_temp')
 
 @section('content')
-@push('js')
-
-  <script type="text/javascript">
-
-  $(document).ready(function(){
-    @if(old('dept_id'))
-    $.ajax({
-      url:"{{url('employee/create')}}",
-      type:'get',
-      datatype:'html',
-      data:{dept_id:"{{old('dept_id')}}",select:"{{old('job_id')}}"},
-      success:function(data){
-        $('.job').html(data);
-      }
-    });
-    @endif
-$(document).on('change','.dept_id',function(){
-  var department=$('.dept_id option:selected').val();
-  if(department >0){
-    $.ajax({
-      url:"{{url('employee/create')}}",
-      type:'get',
-      datatype:'html',
-      data:{dept_id:department,select:''},
-      success:function(data){
-        $('.job').html(data);
-      }
-    });
-
-  }else {  $('.job').html('');}
-});
-  });
-
-
-  </script>
-
-
-@endpush
 <br>
 <div class="app-content content container-fluid">
                   <div class="breadcrumb-wrapper col-xs-12">
@@ -81,7 +43,7 @@ $(document).on('change','.dept_id',function(){
                              padding-left: 20px;
                              '>
 
-            {{ Form::open( ['url' => ['employee'],'method'=>'post'] ) }}
+            {{ Form::open( ['url' => ['managers'],'method'=>'post'] ) }}
             {{ csrf_field() }}
 
 
@@ -105,28 +67,9 @@ $(document).on('change','.dept_id',function(){
              {{ Form::number('salary',old('salary'),["class"=>"form-control" ,'max'=>'999999'  ]) }}
             </div>
 
-            <div class="form-group">
-            <strong>{{trans('admin.department')}}</strong>
-            {{ Form::select('dept_id',App\Department::pluck('name','id'),old('dept_id')
-            ,["class"=>"form-control dept_id" ,'placeholder'=>trans('admin.chooseDept') ]) }}
-            </div>
+
             <!-- /////  class of select is dept_id\\\\\\ -->
 
-
-
-
-            <div class="form-group">
-            <strong>{{trans('admin.job')}}</strong>
-
-          <span class='job'></sapn>
-            </div>
-
-
-            <div class="form-group">
-            <strong>{{trans('admin.bounuse')}}</strong>
-            {{ Form::select('bonuses_id',App\Bonuses::pluck('name','id'),old('bonuses_id')
-            ,["class"=>"form-control "]) }}
-            </div>
 
 
             <div class="form-group">

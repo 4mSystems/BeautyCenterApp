@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ManagerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','manager']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +34,8 @@ class ManagerController extends Controller
      */
     public function create()
     {
-        //
+        return view('managers.manager.create');
+
     }
 
     /**
