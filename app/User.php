@@ -25,8 +25,13 @@ class User extends Authenticatable
         'is_verfied',
         'added_by',
         'address',
+        'package_id'
     ];
+    public function  getPackage(){
 
+        return $this->hasOne('App\package','id','package_id');
+
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -30,11 +30,16 @@ Route::group([ 'middleware'=>['auth','manager'] ],
         Route::get('managers/{id}/delete','Manager\ManagerController@destroy');
 
         Route::resource('subscribers', 'Admin\subscribersController');
+
         Route::get('subscribers/{id}/delete','Admin\subscribersController@destroy');
         Route::get('subscribers/{id}/details','Admin\subscribersController@details');
 
         Route::resource('DetailSubscriber','Manager\DetailedSubscriber');
         Route::get('Detail/{id}/delete','Manager\DetailedSubscriber@destroy');
+
+        Route::resource('salons', 'Manager\SalonsController');
+
+        Route::resource('sponsered', 'Manager\SponseredAdsController');
 
 
     });
