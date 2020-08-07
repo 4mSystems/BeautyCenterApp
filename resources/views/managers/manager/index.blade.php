@@ -2,7 +2,8 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/colors/palette-gradient.css') }}">
 @endsection
 @section('content')
@@ -53,7 +54,8 @@
                             padding-right: 15px;
                              padding-left: 20px;
                              '>
-                                    <a href="{{url('managers/create')}} " class="btn btn-info btn-bg">{{trans('admin.createtitle')}} </a>
+                                    <a href="{{url('managers/create')}} "
+                                       class="btn btn-info btn-bg">{{trans('admin.createtitle')}} </a>
                                 </div>
 
                                 <div class="table-responsive" style=' padding-top: 10px;
@@ -95,8 +97,9 @@
                                                         }
 
                                                         "
-                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i class="icon-android-delete" aria-hidden='true'>
-                                                        </i >
+                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i
+                                                            class="icon-android-delete" aria-hidden='true'>
+                                                        </i>
 
 
                                                     </button>
@@ -112,10 +115,8 @@
                         </div>
 
 
-
-
-@endsection
-
+                        @endsection
                         @section('scripts')
-                            <script src="{{ asset('/app-assets/js/scripts/pages/dashboard-lite.js') }}" type="text/javascript"></script>
+                            <script src="{{ asset('/app-assets/js/scripts/pages/dashboard-lite.js') }}"
+                                    type="text/javascript"></script>
 @endsection

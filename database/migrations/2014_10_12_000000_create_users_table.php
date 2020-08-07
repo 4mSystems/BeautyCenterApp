@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+
             $table->enum('type',['manager','salon','customer'])->default('customer');
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
