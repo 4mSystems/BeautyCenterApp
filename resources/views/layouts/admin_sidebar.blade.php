@@ -18,7 +18,7 @@
             </li>
             <li class=" nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Page layouts</span></a>
                 <ul class="menu-content">
-                    <li><a href="layout-1-column.html" data-i18n="nav.page_layouts.1_column" class="menu-item">1 column</a>
+                    <li><a href="{{url('managers')}}" data-i18n="nav.page_layouts.1_column" class="menu-item">Manager</a>
                     </li>
                     <li><a  href="{{ URL::to('subscribers') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Subscribers</a>
                     </li>
