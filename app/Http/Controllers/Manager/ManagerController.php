@@ -46,7 +46,25 @@ class ManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate(\request(),
+            [
+                'name' => 'required|unique:users',
+                'phone' => 'numeric|required|unique:users',
+                'address' => 'required',
+                'email' => 'required|unique:users',
+                'password' => 'required|min:8|unique:users'
+
+            ]);
+
+        $data['password'] =  Hash::make(request('password'));
+        $data['type']= "manager";
+        $user = User::create($data);
+        $user->save();
+        session()->flash('success', trans('admin.addedsuccess'));
+        return redirect(url('managers'));
+
+
+
     }
 
     /**
