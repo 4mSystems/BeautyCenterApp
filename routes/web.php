@@ -32,6 +32,8 @@ Route::group([ 'middleware'=>['auth','manager'] ],
         Route::resource('subscribers', 'Admin\subscribersController');
         Route::resource('salons', 'Manager\SalonsController');
 
+            Route::resource('sponsered', 'Manager\SponseredAdsController');
+
 
     });
 

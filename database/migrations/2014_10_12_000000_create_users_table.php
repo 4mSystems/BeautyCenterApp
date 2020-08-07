@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
+            $table->bigInteger('package_id')->unsigned()->nullable();
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('restrict');
 
             $table->enum('type',['manager','salon','customer'])->default('customer');
             $table->string('lat')->nullable();

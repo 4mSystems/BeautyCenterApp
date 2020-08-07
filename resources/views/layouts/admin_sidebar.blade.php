@@ -24,7 +24,7 @@
                     </li>
                     <li><a href="{{url('salons')}}" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Salons</a>
                     </li>
-                    <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
+                    <li><a href="{{url('sponsered')}}" data-i18n="nav.page_layouts.static_layout" class="menu-item">sponsered</a>
                     </li>
                     <li class="navigation-divider"></li>
                     <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>

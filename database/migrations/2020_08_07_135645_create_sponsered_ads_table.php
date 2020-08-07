@@ -24,6 +24,7 @@ class CreateSponseredAdsTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->bigInteger('salon_id')->unsigned()->nullable();
             $table->foreign('salon_id')->references('id')->on('users')->onDelete('cascade');
+            $table->enum('status',['accepted','rejected','waiting'])->default('waiting');
 
             $table->timestamps();
         });

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Sponsered_ads;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class SalonsController extends Controller
+class SponseredAdsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,10 @@ class SalonsController extends Controller
      */
     public function index()
     {
-        $salons = User::where('type', 'salon')->get();
-        return view('managers.salons.salons', \compact('salons'));
+        $status="waiting";
+        $ads = Sponsered_ads::where('status',$status)->get();
+//        dd($ads);
+        return view('managers.ads.sponserd_ads', \compact('ads'));
 
     }
 
@@ -28,8 +30,7 @@ class SalonsController extends Controller
      */
     public function create()
     {
-        return view('managers.salons.create_new_salon');
-
+        //
     }
 
     /**
@@ -40,28 +41,7 @@ class SalonsController extends Controller
      */
     public function store(Request $request)
     {
-
-//        dd($request->all());
-
-        $data = $this->validate(\request(),
-            [
-                'name' => 'required|unique:users',
-                'phone' => 'numeric|required|unique:users',
-                'address' => 'required',
-                'email' => 'required|unique:users',
-                'password' => 'required|min:8',
-                'package_id'=>'required|exists:packages,id',
-
-            ]);
-
-        $data['password'] = Hash::make(request('password'));
-        $data['type'] = "salon";
-        $user = User::create($data);
-        $user->save();
-        session()->flash('success', trans('admin.addedsuccess'));
-        return redirect(url('salons'));
-
-
+        //
     }
 
     /**
@@ -83,19 +63,18 @@ class SalonsController extends Controller
      */
     public function edit($id)
     {
-       $user = User::where('id',$id)->first();
-       if($user->status == "active"){
-           $user->status = "deactive";
-           $user->save();
-       }else{
-           $user->status = "active";
-           $user->save();
+        $ads = Sponsered_ads::where('id',$id)->first();
+        if($ads->status == "accepted"){
+            $ads->status = "rejected";
+            $ads->save();
+        }else{
+            $ads->status = "accepted";
+            $ads->save();
 
-       }
-       session()->flash('success', trans('admin.statuschanged'));
+        }
+        session()->flash('success', trans('admin.statuschanged'));
 
-        return redirect(url('salons'));
-
+        return redirect(url('sponsered'));
     }
 
     /**

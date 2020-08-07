@@ -49,7 +49,7 @@
                              padding-left: 20px;
                              '>
 
-                                            {{ Form::open( ['url' => ['managers'],'method'=>'post', 'files'=>'true'] ) }}
+                                            {{ Form::open( ['url' => ['salons'],'method'=>'post', 'files'=>'true'] ) }}
                                             {{ csrf_field() }}
 
 
@@ -60,8 +60,7 @@
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.email')}}</strong>
-                                                {{ Form::email('email',old('email'),["class"=>"form-control" ,"required"
-                            ,'pattern'=>"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" ]) }}
+                                                {{ Form::email('email',old('email'),["class"=>"form-control" ,"required" ]) }}
                                             </div>
 
                                             <div class="form-group">
@@ -78,14 +77,14 @@
                                             <div class="form-group">
                                                 <strong>{{trans('admin.password')}}</strong><br>
                                                 <input type="password" name="password" class="form-control"
-                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                                       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                                       required>
+                                                        required>
                                             </div>
 
                                             <div class="form-group">
-                                                <strong>{{trans('admin.image')}}</strong><br>
-                                                {{ Form::select('size', ['L' => 'Large', 'S' => 'Small'],["class"=>"form-control" ,"required" ]) }}
+                                                <strong>{{trans('admin.package')}}</strong><br>
+                                                {{ Form::select('package_id',App\package::pluck('name','id'),old('package_id')
+                                    ,["class"=>"form-control dept_id" ,'placeholder'=>trans('admin.choosePackage') ]) }}
+
                                             </div>
 
 
