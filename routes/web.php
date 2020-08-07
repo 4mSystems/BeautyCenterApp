@@ -17,11 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::resource('Home', 'Admin\homeController');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('subscribers', 'Admin\subscribersController');
+
 
 
 Route::group([ 'middleware'=>['auth','manager'] ],
@@ -29,3 +30,4 @@ Route::group([ 'middleware'=>['auth','manager'] ],
         Route::resource('managers','Manager\ManagerController');
         Route::get('managers/{id}/delete','Manager\ManagerController@destroy');
     });
+

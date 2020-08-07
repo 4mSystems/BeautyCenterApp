@@ -20,7 +20,7 @@
                 <ul class="menu-content">
                     <li><a href="{{url('managers')}}" data-i18n="nav.page_layouts.1_column" class="menu-item">Manager</a>
                     </li>
-                    <li><a href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">2 columns</a>
+                    <li><a  href="{{ URL::to('subscribers') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Subscribers</a>
                     </li>
                     <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
                     </li>
@@ -159,7 +159,7 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="form-layout-basic.html"><i class="icon-paper"></i><span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Basic Forms</span></a>
+            <li class=" nav-item"><a  href="{{ URL::to('packages') }}"><i class="icon-paper"></i><span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Basic Forms</span></a>
             </li>
             <li class=" nav-item"><a href="table-basic.html"><i class="icon-table2"></i><span data-i18n="nav.bootstrap_tables.table_basic" class="menu-title">Basic Tables</span></a>
             </li>
