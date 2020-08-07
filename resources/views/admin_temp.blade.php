@@ -4,8 +4,9 @@
 
 @include('layouts.admin_sidebar')
 
-
 @yield('content')
 
+@include('layouts.errors')
+@include('layouts.messages')
 
 @include('layouts.admin_footer')

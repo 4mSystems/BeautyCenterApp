@@ -1,5 +1,12 @@
 @extends('admin_temp')
 
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/colors/palette-gradient.css') }}">
+@endsection
 @section('content')
     <br>
     <div class="app-content content container-fluid">
@@ -42,34 +49,43 @@
                              padding-left: 20px;
                              '>
 
-                                            {{ Form::open( ['url' => ['managers'],'method'=>'post'] ) }}
+                                            {{ Form::open( ['url' => ['managers'],'method'=>'post', 'files'=>'true'] ) }}
                                             {{ csrf_field() }}
 
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.managerName')}}</strong>
-                                                {{ Form::text('name',old('name'),["class"=>"form-control" ]) }}
+                                                {{ Form::text('name',old('name'),["class"=>"form-control" ,"required"]) }}
                                             </div>
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.email')}}</strong>
-                                                {{ Form::email('email',old('email'),["class"=>"form-control"  ]) }}
+                                                {{ Form::email('email',old('email'),["class"=>"form-control" ,"required"
+                            ,'pattern'=>"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" ]) }}
                                             </div>
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.phone')}}</strong>
-                                                {{ Form::number('phone',old('phone'),["class"=>"form-control" ,'max'=>'9999999999999'   ]) }}
+                                                {{ Form::number('phone',old('phone'),["class"=>"form-control" ,"required",'max'=>'9999999999999'   ]) }}
                                             </div>
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.address')}}</strong>
-                                                {{ Form::text('address',old('address'),["class"=>"form-control"  ]) }}
+                                                {{ Form::text('address',old('address'),["class"=>"form-control" ,"required" ]) }}
                                             </div>
 
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.password')}}</strong><br>
-                                                <input type="password" name="password" class="form-control">
+                                                <input type="password" name="password" class="form-control"
+                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                                       required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <strong>{{trans('admin.image')}}</strong><br>
+                                                {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
                                             </div>
 
 
@@ -77,4 +93,10 @@
                                             {{ Form::close() }}
                                         </div>
 
+                                        @endsection
+
+                                        @section('scripts')
+                                            <script src="{{ asset('/app-assets/js/scripts/pages/dashboard-lite.js') }}"
+                                                    type="text/javascript"></script>
 @endsection
+

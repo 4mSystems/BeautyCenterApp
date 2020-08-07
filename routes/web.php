@@ -28,6 +28,7 @@ Route::group([ 'middleware'=>['auth','manager'] ],
     function(){
         Route::resource('managers','Manager\ManagerController');
         Route::get('managers/{id}/delete','Manager\ManagerController@destroy');
+
         Route::resource('subscribers', 'Admin\subscribersController');
 
     });
