@@ -1,4 +1,11 @@
 @extends('admin_temp')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/colors/palette-gradient.css') }}">
+@endsection
 @section('content')
     <br>
     <div class="app-content content container-fluid">
@@ -7,7 +14,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.employee')}}
+                <li class="breadcrumb-item"> {{trans('admin.salons')}}
                 </li>
 
             </ol>
@@ -61,6 +68,10 @@
                                             <th>#</th>
                                             <th>{{trans('admin.name')}}</th>
                                             <th>{{trans('admin.email')}}</th>
+                                            <th>{{trans('admin.phone')}}</th>
+                                            <th>{{trans('admin.address')}}</th>
+                                            <th>{{trans('admin.image')}}</th>
+                                            <th>{{trans('admin.status')}}</th>
                                             <th></th>
 
                                         </tr>
@@ -71,7 +82,11 @@
                                                 <th scope="row">{{$employees->id}}</th>
                                                 <td>{{$employees->name}}</td>
                                                 <td>{{$employees->email}}</td>
-                                                <td><a class='btn btn-raised btn-success btn-sml'
+                                                <td>{{$employees->phone}}</td>
+                                                <td>{{$employees->address}}</td>
+                                                <td><img src="{{$employees->email}}" width="40" height="40"></td>
+                                                <td>{{$employees->status}}</td>
+                                                 <td><a class='btn btn-raised btn-success btn-sml'
                                                        href=" {{url('managers/'.$employees->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
 
@@ -110,3 +125,7 @@
 
                         @endsection
 
+                        @section('scripts')
+                            <script src="{{ asset('/app-assets/js/scripts/pages/dashboard-lite.js') }}"
+                                    type="text/javascript"></script>
+@endsection
