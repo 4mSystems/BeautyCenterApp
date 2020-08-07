@@ -17,8 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::resource('Home', 'Admin\homeController');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('subscribers', 'Admin\subscribersController');

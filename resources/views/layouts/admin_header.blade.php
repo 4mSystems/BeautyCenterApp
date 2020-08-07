@@ -30,11 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/colors.css') }}">
     <!-- END ROBUST CSS-->
-    <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/colors/palette-gradient.css') }}">
-    <!-- END Page Level CSS-->
+
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.css') }}">
     <!-- END Custom CSS-->
