@@ -22,3 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group([ 'middleware'=>['auth','manager'] ],
+    function(){
+        Route::get('managers','Manager\ManagerController@index');
+    });
