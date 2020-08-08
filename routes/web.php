@@ -42,5 +42,29 @@ Route::group([ 'middleware'=>['auth','manager'] ],
         Route::resource('sponsered', 'Manager\SponseredAdsController');
 
 
+
+    });
+
+
+
+Route::group([ 'middleware'=>['auth'] ],
+    function(){
+//lang
+Route::get('lang/{lang}',function($lang){
+
+    if(session()->has('lang')){
+        session()->forget('lang');
+    }
+    if($lang =='ar'){
+        session()->put('lang','ar');
+    }else{
+        session()->put('lang','en');
+
+    }
+    return back();
+
+
+});
+
     });
 
