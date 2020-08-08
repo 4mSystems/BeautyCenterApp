@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\App;
 
-class Lang
+class lang
 {
     /**
      * Handle an incoming request.

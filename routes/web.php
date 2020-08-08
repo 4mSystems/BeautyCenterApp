@@ -61,6 +61,7 @@ Route::get('lang/{lang}',function($lang){
         session()->put('lang','en');
 
     }
+
     return back();
 
 

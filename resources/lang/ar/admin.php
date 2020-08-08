@@ -1,9 +1,8 @@
 <?php
 return [
-    'name' => 'name',
+    'name' => 'الاسم',
     'price' => 'price',
     'period' => 'period',
     'desc' => 'desc',
     'subAdd' => 'Add new Subscriber',
-    'edit' => 'edit',
 ];
