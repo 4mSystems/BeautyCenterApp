@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Update Subscriber</h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">{{trans('admin.Update_Sub_title')}}</h4>
 
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
@@ -37,7 +37,7 @@
                                             <strong>{{trans('admin.name')}}</strong>
 
                                             {!! Form::label('name', 'name') !!}
-                                            {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>'Enter The Name']) !!}
+                                            {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>trans('admin.EnterName')]) !!}
                                             @if ($errors->has('name'))
                                                 <span class="danger" role="alert">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -47,7 +47,7 @@
 
                                         <div class="form-group">
                                             {!! Form::label('Price', 'Price') !!}
-                                            {!! Form::text('price',$data->price,['class'=>'form-control', 'placeholder'=>'Enter The Price']) !!}
+                                            {!! Form::text('price',$data->price,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPrice')]) !!}
                                             @if ($errors->has('price'))
                                                 <span class="danger" role="alert">
                                         <strong>{{ $errors->first('price') }}</strong>
@@ -57,7 +57,7 @@
 
                                         <div class="form-group">
                                             {!! Form::label('period', 'period') !!}
-                                            {!! Form::text('period',$data->period,['class'=>'form-control', 'placeholder'=>'Enter The period']) !!}
+                                            {!! Form::text('period',$data->period,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPeriod')]) !!}
                                             @if ($errors->has('period'))
                                                 <span class="danger" role="alert">
                                         <strong>{{ $errors->first('period') }}</strong>
@@ -67,7 +67,7 @@
 
                                         <div class="form-group">
                                             {!! Form::label('desc', 'Discription') !!}
-                                            {!! Form::textarea('desc',$data->desc,['class'=>'form-control', 'placeholder'=>'Enter The desc']) !!}
+                                            {!! Form::textarea('desc',$data->desc,['class'=>'form-control', 'placeholder'=>trans('admin.EnterDesc')]) !!}
                                             @if ($errors->has('desc'))
                                                 <span class="danger" role="alert">
                                         <strong>{{ $errors->first('desc') }}</strong>
@@ -82,7 +82,7 @@
                                             <i class="icon-cross2"></i> Cancel
                                         </button>
 
-                                        {{ Form::submit( trans('admin.edit') ,['class'=>'btn btn-info']) }}
+                                        {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-info']) }}
                                         {{ Form::close() }}
                                     </div>
                                 {!! Form::close() !!}

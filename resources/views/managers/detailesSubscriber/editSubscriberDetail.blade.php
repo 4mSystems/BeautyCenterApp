@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Update Subscriber Detail</h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">{{trans('admin.SubUpdateDetail')}}</h4>
 
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
@@ -37,7 +37,7 @@
                                             <strong>{{trans('admin.name')}}</strong>
 
                                             {!! Form::label('name', 'name') !!}
-                                            {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>'Enter The Name']) !!}
+                                            {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>trans('admin.EnterName')]) !!}
                                             {!! Form::hidden('package_id',$data->package_id,['class'=>'form-control',]) !!}
 
                                         @if ($errors->has('name'))
@@ -49,7 +49,7 @@
 
                                         <div class="form-group">
                                             {!! Form::label('limit', 'Limit') !!}
-                                            {!! Form::text('limit',$data->limit,['class'=>'form-control', 'placeholder'=>'Enter The limit']) !!}
+                                            {!! Form::text('limit',$data->limit,['class'=>'form-control', 'placeholder'=>trans('admin.EnterLimit')]) !!}
                                             @if ($errors->has('limit'))
                                                 <span class="danger" role="alert">
                                         <strong>{{ $errors->first('limit') }}</strong>
@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="form-actions right">
-                                        {{ Form::submit( trans('admin.edit') ,['class'=>'btn btn-info']) }}
+                                        {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-info']) }}
                                         {{ Form::close() }}
                                     </div>
                                 {!! Form::close() !!}

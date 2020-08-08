@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.employee')}}
+                <li class="breadcrumb-item"> {{trans('admin.nav_Manager')}}
                 </li>
 
             </ol>
@@ -39,7 +39,7 @@
                             padding-right: 15px;
                              padding-left: 20px;
                              '>
-                                    <h3 class="card-title">{{trans('admin.employee')}} </h3>
+                                    <h3 class="card-title">{{trans('admin.nav_Manager')}} </h3>
                                 </div>
                                 @include('layouts.errors')
 
@@ -50,7 +50,7 @@
                              padding-left: 20px;
                              '>
                                     <a href="{{url('managers/create')}} "
-                                       class="btn btn-info btn-bg">{{trans('admin.createtitle')}} </a>
+                                       class="btn btn-info btn-bg">{{trans('admin.Add_Manager')}} </a>
                                 </div>
 
                                 <div class="table-responsive" style=' padding-top: 10px;

@@ -1,12 +1,4 @@
 @extends('admin_temp')
-
-
-@section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/app-assets/css/core/colors/palette-gradient.css') }}">
-@endsection
 @section('content')
     <br>
     <div class="app-content content container-fluid">
@@ -14,9 +6,9 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{url('employee')}}">{{trans('admin.employee')}}</a>
+                <li class="breadcrumb-item"><a href="{{url('salons')}}">{{trans('admin.nav_Salons')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.Add')}}
+                <li class="breadcrumb-item"> {{trans('admin.Add_Salon')}}
                 </li>
 
             </ol>
@@ -41,7 +33,7 @@
                             padding-right: 15px;
                              padding-left: 20px;
                              '>
-                                            <h3 class="card-title">{{trans('admin.Add')}} </h3>
+                                            <h3 class="card-title">{{trans('admin.Add_Salon')}} </h3>
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body" style=' padding-top: 10px;
@@ -88,14 +80,10 @@
                                             </div>
 
 
-                                            {{ Form::submit( trans('admin.Add') ,['class'=>'btn btn-info']) }}
+                                            {{ Form::submit( trans('admin.public_Add') ,['class'=>'btn btn-info']) }}
                                             {{ Form::close() }}
                                         </div>
 
                                         @endsection
 
-                                        @section('scripts')
-                                            <script src="{{ asset('/app-assets/js/scripts/pages/dashboard-lite.js') }}"
-                                                    type="text/javascript"></script>
-@endsection
 

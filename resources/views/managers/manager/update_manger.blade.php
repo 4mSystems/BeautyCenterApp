@@ -35,7 +35,7 @@
                              padding-left: 20px;
                              '>
             <div class="card-header">
-              <h3 class="card-title">{{trans('admin.edit')}} </h3>
+              <h3 class="card-title">{{trans('admin.updateManager')}} </h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body" style=' padding-top: 10px;
@@ -48,7 +48,7 @@
 
 
             <div class="form-group">
-            <strong>{{trans('admin.empName')}}</strong>
+            <strong>{{trans('admin.name')}}</strong>
             {{ Form::text('name',$user_data->name,["class"=>"form-control" ]) }}
             </div>
 
@@ -75,7 +75,7 @@
                 </div>
 
 
-            {{ Form::submit( trans('admin.edit') ,['class'=>'btn btn-info']) }}
+            {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-info']) }}
             {{ Form::close() }}
             </div>
 

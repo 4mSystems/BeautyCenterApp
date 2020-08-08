@@ -5,32 +5,46 @@
 @section('content')
     {{--Main Menu--}}
 
+    <br>
+    <div class="app-content content container-fluid">
+        <div class="breadcrumb-wrapper col-xs-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{url('home')}}">{{trans('admin.home')}}</a>
+                </li>
+                <li class="breadcrumb-item"> {{trans('admin.nav_Subscribers')}}
+                </li>
+
+            </ol>
+        </div>
+    </div>
+
+
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
             <div class="content-header row">
             </div>
-            <div class="content-body"><!-- stats -->
 
-{{--                <h1>Subscribers</h1>--}}
-                @include('layouts.errors')
+            <div class="content-body">
+            @include('layouts.errors')
 
-                @include('layouts.messages')
-{{--                Write your content here ...--}}
-                <div class="col-md-12">
+            @include('layouts.messages')
+
+            <!-- stats -->
+                <div class="row">
+
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Subscribers</h4>
+                        <div class="card-body">
 
-                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body collapse in">
+                            <div class="card-body collapse in">
+
+
+                                <div style=' padding-top: 10px;
+                            padding-right: 15px;
+                             padding-left: 20px;
+                             '>
+                                    <h3 class="card-title">{{trans('admin.Sub_title')}} </h3>
+                                </div>
 
 
                                 <div class="" style=' padding-top: 10px;
@@ -39,6 +53,7 @@
                              '>
                                     <a href="{{url('subscribers/create')}} " class="btn btn-info btn-bg">{{trans('admin.subAdd')}} </a>
                                 </div>
+
                                 <div class="table-responsive" style=' padding-top: 10px;
                             padding-right: 15px;
                              padding-left: 20px;
@@ -66,7 +81,7 @@
                                                 <td>
                                                     <a class='btn btn-raised btn-success btn-sml'
                                                        href=" {{url('subscribers/'.$package->id.'/details')}}"><i
-                                                            ></i>Show Details</a>
+                                                        ></i>{{trans('admin.showDetails')}}</a>
 
                                                     <a class='btn btn-raised btn-success btn-sml'
                                                        href=" {{url('subscribers/'.$package->id.'/edit')}}"><i
@@ -99,19 +114,10 @@
                                         </tbody>
                                     </table>
 
-
-
-
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-
-
-            </div>
-        </div>
-    </div>
 
 @endsection
 

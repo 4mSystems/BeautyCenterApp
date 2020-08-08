@@ -3,6 +3,21 @@
 
 @section('content')
     {{--Main Menu--}}
+    <br>
+    <div class="app-content content container-fluid">
+        <div class="breadcrumb-wrapper col-xs-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{url('home')}}">{{trans('admin.home')}}</a>
+                </li>
+                <li class="breadcrumb-item"> <a href="{{url('subscribers')}}">{{trans('admin.nav_Subscribers')}}</a>
+                </li>
+                <li class="breadcrumb-item"> {{trans('admin.Sub_Details')}}
+                </li>
+
+            </ol>
+        </div>
+    </div>
 
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
@@ -18,7 +33,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">Subscriber Details</h4>
+                            <h4 class="card-title" id="basic-layout-colored-form-control">{{trans('admin.Sub_Details')}}</h4>
 
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
@@ -36,33 +51,33 @@
                             padding-right: 15px;
                              padding-left: 20px;
                              '>
-                                <h4 class="form-section"><i class="icon-plus"></i> Add Detail</h4>
+                                <h4 class="form-section"><i class="icon-plus"></i>{{trans('admin.addDetail')}}</h4>
                                 <form role="form" class="form-horizontal" method="POST"
                                       action="{{ URL::to('DetailSubscriber') }}">
                                     @csrf
                                     <input type="hidden" id="package_id" class="form-control border-primary"
-                                           value="{{$id}}" placeholder="package_id" name="package_id">
+                                           value="{{$id}}" placeholder={{trans('admin.package_id')}} name="package_id">
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="userinput1">Name</label>
+                                                <label for="userinput1">{{trans('admin.name')}}</label>
                                                 <input type="text" id="name" class="form-control border-primary"
-                                                       placeholder="Name" name="name">
+                                                       placeholder={{trans('admin.name')}} name="name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="userinput2">Limit</label>
+                                                <label for="userinput2">{{trans('admin.Company')}}</label>
                                                 <input type="text" id="limit" class="form-control border-primary"
-                                                       placeholder="Company" name="limit">
+                                                       placeholder={{trans('admin.Company')}} name="limit">
                                             </div>
                                         </div>
                                     </div>
 
                                         <div class="form-actions right" style="margin: 10px">
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="icon-check2"></i> Add
+                                                <i class="icon-check2"></i> {{trans('admin.public_Add')}}
                                             </button>
 
                                     </div>
@@ -76,7 +91,7 @@
                                 <table class="table">
                                     <thead class="bg-info">
                                     <tr>
-                                        <th>#</th>
+                                        <th>{{trans('admin.Public_HashNum')}}</th>
                                         <th>{{trans('admin.name')}}</th>
                                         <th>{{trans('admin.limit')}}</th>
                                         <th></th>

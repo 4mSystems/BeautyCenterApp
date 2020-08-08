@@ -7,7 +7,7 @@
     <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Login Page - Robust Free Bootstrap Admin Template</title>
+    <title>{{trans('admin.public_web_title')}}</title>
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('/app-assets/images/ico/apple-icon-60.png') }}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/app-assets/images/ico/apple-icon-76.png') }}">
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('/app-assets/images/ico/apple-icon-120.png') }}">
@@ -51,14 +51,14 @@
                             <div class="card-title text-xs-center">
                                 <div class="p-1"><img src="{{ asset('/app-assets/images/logo/robust-logo-dark.png') }}" alt="branding logo"></div>
                             </div>
-                            <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Login with Robust</span></h6>
+                            <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>{{trans('admin.loginTitle')}}</span></h6>
                         </div>
                         <div class="card-body collapse in">
                             <div class="card-block">
                                 <form class="form-horizontal form-simple" method="POST" action="{{route('login') }}" novalidate>
                                     @csrf
                                     <fieldset class="form-group position-relative has-icon-left mb-0">
-                                        <input type="email" name="email" value="{{ old('email') }}" class="form-control form-control-lg input-lg" id="email" placeholder="Your Email" required>
+                                        <input type="email" name="email" value="{{ old('email') }}" class="form-control form-control-lg input-lg" id="email" placeholder={{trans('admin.loginEmail')}} required>
                                         <div class="form-control-position">
                                             <i class="icon-head"></i>
                                         </div>
@@ -69,7 +69,7 @@
                                         @enderror
                                     </fieldset>
                                     <fieldset class="form-group position-relative has-icon-left">
-                                        <input type="password" class="form-control form-control-lg input-lg" name="password" id="password" placeholder="Enter Password" required>
+                                        <input type="password" class="form-control form-control-lg input-lg" name="password" id="password" placeholder={{trans('admin.loginPassword')}} required>
                                         <div class="form-control-position">
                                             <i class="icon-key3"></i>
                                         </div>
@@ -83,23 +83,23 @@
                                         <div class="col-md-6 col-xs-12 text-xs-center text-md-left">
                                             <fieldset>
                                                 <input type="checkbox" id="remember" name="remember" class="chk-remember" {{ old('remember') ? 'checked' : '' }}>
-                                                <label for="remember-me"> Remember Me</label>
+                                                <label for="remember-me"> {{trans('admin.loginRemember')}}</label>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-6 col-xs-12 text-xs-center text-md-right">
                                             @if (Route::has('password.request'))
-                                                <a href="{{ route('password.request') }}" class="card-link">Forgot Password?</a>
+                                                <a href="{{ route('password.request') }}" class="card-link">{{trans('admin.loginForgetPass')}}</a>
                                             @endif
                                         </div>
                                     </fieldset>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> {{trans('admin.login')}}</button>
                                 </form>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="">
-                                <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html" class="card-link">Recover password</a></p>
-                                <p class="float-sm-right text-xs-center m-0">New to Robust? <a href="register-simple.html" class="card-link">Sign Up</a></p>
+                                <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html" class="card-link">{{trans('admin.loginRecove')}}</a></p>
+                                <p class="float-sm-right text-xs-center m-0"> <a href="register-simple.html" class="card-link">{{trans('admin.loginSign')}}</a></p>
                             </div>
                         </div>
                     </div>

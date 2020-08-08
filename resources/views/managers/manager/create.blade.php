@@ -8,9 +8,9 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{url('employee')}}">{{trans('admin.employee')}}</a>
+                <li class="breadcrumb-item"><a href="{{url('managers')}}">{{trans('admin.nav_Manager')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.Add')}}
+                <li class="breadcrumb-item"> {{trans('admin.Add_Manager')}}
                 </li>
 
             </ol>
@@ -35,7 +35,7 @@
                             padding-right: 15px;
                              padding-left: 20px;
                              '>
-                                            <h3 class="card-title">{{trans('admin.Add')}} </h3>
+                                            <h3 class="card-title">{{trans('admin.Add_Manager')}} </h3>
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body" style=' padding-top: 10px;
@@ -83,7 +83,7 @@
                                             </div>
 
 
-                                            {{ Form::submit( trans('admin.Add') ,['class'=>'btn btn-info']) }}
+                                            {{ Form::submit( trans('admin.public_Add') ,['class'=>'btn btn-info']) }}
                                             {{ Form::close() }}
                                         </div>
 
