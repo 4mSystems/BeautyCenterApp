@@ -11,8 +11,8 @@
                 <ul class="menu-content">
                     <li><a href="{{url('managers')}}" data-i18n="nav.page_layouts.1_column" class="menu-item">{{trans('admin.nav_Manager')}}</a>
                     </li>
-                    <li><a  href="{{ URL::to('subscribers') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">{{trans('admin.nav_Subscribers')}}</a>
-                    </li>
+{{--                    <li><a  href="{{ URL::to('subscribers') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">{{trans('admin.nav_Subscribers')}}</a>--}}
+{{--                    </li>--}}
                     <li><a href="{{url('salons')}}" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">{{trans('admin.nav_Salons')}}</a>
                     </li>
                     <li><a href="{{url('sponsered')}}" data-i18n="nav.page_layouts.static_layout" class="menu-item">{{trans('admin.nav_sponsered')}}</a>
