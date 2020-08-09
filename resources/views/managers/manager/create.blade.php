@@ -37,6 +37,10 @@
                              '>
                                             <h3 class="card-title">{{trans('admin.Add_Manager')}} </h3>
                                         </div>
+
+                                    @include('layouts.errors')
+
+                                    @include('layouts.messages')
                                         <!-- /.card-header -->
                                         <div class="card-body" style=' padding-top: 10px;
                             padding-right: 15px;
@@ -54,8 +58,7 @@
 
                                             <div class="form-group">
                                                 <strong>{{trans('admin.email')}}</strong>
-                                                {{ Form::email('email',old('email'),["class"=>"form-control" ,"required"
-                            ,'pattern'=>"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" ]) }}
+                                                {{ Form::email('email',old('email'),["class"=>"form-control" ,"required" ]) }}
                                             </div>
 
                                             <div class="form-group">
@@ -72,9 +75,7 @@
                                             <div class="form-group">
                                                 <strong>{{trans('admin.password')}}</strong><br>
                                                 <input type="password" name="password" class="form-control"
-                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                                       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                                       required>
+                                                        required>
                                             </div>
 
                                             <div class="form-group">

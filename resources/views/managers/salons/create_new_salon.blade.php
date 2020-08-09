@@ -35,7 +35,12 @@
                              '>
                                             <h3 class="card-title">{{trans('admin.Add_Salon')}} </h3>
                                         </div>
-                                        <!-- /.card-header -->
+
+                                    @include('layouts.errors')
+
+                                    @include('layouts.messages')
+
+                                    <!-- /.card-header -->
                                         <div class="card-body" style=' padding-top: 10px;
                             padding-right: 15px;
                              padding-left: 20px;

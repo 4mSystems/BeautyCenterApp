@@ -71,7 +71,7 @@ class subscribersController extends Controller
     {
         $data = $this->objectName::find($id);
 
-        return view($this->folderView.'detailsSubscriber', compact('data'));
+        return view($this->folderView.'editSubscriber', compact('data'));
     }
     public function details($id)
     {
@@ -93,7 +93,7 @@ class subscribersController extends Controller
 
         $this->objectName::find($id)->update($input);
 
-        return redirect()->route('subscribers.index')->with('success',$this->flash.' Updated');
+        return redirect()->route('subscribers.index')->with('success',trans('admin.updated'));
 
     }
 

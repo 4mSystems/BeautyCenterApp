@@ -44,13 +44,6 @@
                                 </div>
 
 
-                                <div class="" style=' padding-top: 10px;
-                            padding-right: 15px;
-                             padding-left: 20px;
-                             '>
-                                    <a href="{{url('sponsered/create')}} "
-                                       class="btn btn-info btn-bg">{{trans('admin.add_new_sponser')}} </a>
-                                </div>
 
                                 <div class="table-responsive" style=' padding-top: 10px;
                             padding-right: 15px;

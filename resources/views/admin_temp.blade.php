@@ -5,5 +5,7 @@
 @include('layouts.admin_sidebar')
 
 @yield('content')
+{{--@include('layouts.messages')--}}
+{{--@include('layouts.errors')--}}
 
 @include('layouts.admin_footer')

@@ -83,11 +83,12 @@
                                                 <td>
                                                     @if($employees->status == "active")
                                                     <a class='btn btn-raised btn-success btn-sml'
-                                                       href=" {{url('salons/'.$employees->id.'/edit')}}">{{$employees->status}}</a>
+                                                       href=" {{url('salons/'.$employees->id.'/edit')}}">{{trans('admin.'.$employees->status)}}</a>
 
                                                     @else
                                                         <a class='btn btn-raised btn-danger btn-sml'
-                                                           href=" {{url('salons/'.$employees->id.'/edit')}}">{{$employees->status}}</a>
+                                                           href=" {{url('salons/'.$employees->id.'/edit')}}">
+                                                            {{trans('admin.'.$employees->status)}}</a>
 
                                                     @endif
                                                 </td>

@@ -97,7 +97,7 @@
                                     <fieldset class="form-group position-relative has-icon-left mb-0">
                                         <input type="email" name="email" value="{{ old('email') }}"
                                                class="form-control form-control-lg input-lg" id="email"
-                                               placeholder={{trans('admin.loginEmail')}} required>
+                                               placeholder="{{trans('admin.loginEmail')}}" required>
                                         <div class="form-control-position">
                                             <i class="icon-head"></i>
                                         </div>
@@ -110,7 +110,7 @@
                                     <fieldset class="form-group position-relative has-icon-left">
                                         <input type="password" class="form-control form-control-lg input-lg"
                                                name="password" id="password"
-                                               placeholder={{trans('admin.loginPassword')}} required>
+                                               placeholder="{{trans('admin.loginPassword')}}" required>
                                         <div class="form-control-position">
                                             <i class="icon-key3"></i>
                                         </div>
