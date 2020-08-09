@@ -11,7 +11,7 @@ return [
     //nav
 
     'nav_home' => 'Home page',
-    'nav_pages' => 'Pages',
+    'nav_pages' => 'control',
     'nav_Manager' => 'Managers',
     'nav_Subscribers' => 'Subscribers',
     'nav_Salons' => 'Salons',

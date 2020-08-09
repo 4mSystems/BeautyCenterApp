@@ -11,7 +11,7 @@ return [
     //nav
 
     'nav_home' => 'الصفحة الرئيسية',
-    'nav_pages' => 'الصفحات',
+    'nav_pages' => 'التحكم',
     'nav_Manager' => 'المديرين',
     'nav_Subscribers' => 'المشتركين',
     'nav_Salons' => 'الصالونات',

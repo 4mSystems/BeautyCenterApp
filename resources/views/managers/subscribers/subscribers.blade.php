@@ -54,10 +54,7 @@
                                     <a href="{{url('subscribers/create')}} " class="btn btn-info btn-bg">{{trans('admin.subAdd')}} </a>
                                 </div>
 
-                                <div class="table-responsive" style=' padding-top: 10px;
-                            padding-right: 15px;
-                             padding-left: 20px;
-                             '>
+                                <div class="table-responsive" style=' padding-top: 10px;padding-right: 15px;padding-left: 20px;'>
                                     <table class="table">
                                         <thead class="bg-info">
                                         <tr>
