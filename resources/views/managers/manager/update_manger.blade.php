@@ -37,6 +37,10 @@
             <div class="card-header">
               <h3 class="card-title">{{trans('admin.updateManager')}} </h3>
             </div>
+
+          @include('layouts.errors')
+
+          @include('layouts.messages')
             <!-- /.card-header -->
             <div class="card-body" style=' padding-top: 10px;
                             padding-right: 15px;

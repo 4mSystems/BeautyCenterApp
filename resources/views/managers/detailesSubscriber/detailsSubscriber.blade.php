@@ -47,43 +47,43 @@
                         <div class="card-body collapse in">
 
 
-                            <div class="" style=' padding-top: 10px;
-                            padding-right: 15px;
-                             padding-left: 20px;
-                             '>
-                                <h4 class="form-section"><i class="icon-plus"></i>{{trans('admin.addDetail')}}</h4>
-                                <form role="form" class="form-horizontal" method="POST"
-                                      action="{{ URL::to('DetailSubscriber') }}">
-                                    @csrf
-                                    <input type="hidden" id="package_id" class="form-control border-primary"
-                                           value="{{$id}}" placeholder={{trans('admin.package_id')}} name="package_id">
+{{--                            <div class="" style=' padding-top: 10px;--}}
+{{--                            padding-right: 15px;--}}
+{{--                             padding-left: 20px;--}}
+{{--                             '>--}}
+{{--                                <h4 class="form-section"><i class="icon-plus"></i>{{trans('admin.addDetail')}}</h4>--}}
+{{--                                <form role="form" class="form-horizontal" method="POST"--}}
+{{--                                      action="{{ URL::to('DetailSubscriber') }}">--}}
+{{--                                    @csrf--}}
+{{--                                    <input type="hidden" id="package_id" class="form-control border-primary"--}}
+{{--                                           value="{{$id}}" placeholder={{trans('admin.package_id')}} name="package_id">--}}
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="userinput1">{{trans('admin.name')}}</label>
-                                                <input type="text" id="name" class="form-control border-primary"
-                                                       placeholder={{trans('admin.name')}} name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="userinput2">{{trans('admin.Company')}}</label>
-                                                <input type="text" id="limit" class="form-control border-primary"
-                                                       placeholder={{trans('admin.Company')}} name="limit">
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="userinput1">{{trans('admin.name')}}</label>--}}
+{{--                                                <input type="text" id="name" class="form-control border-primary"--}}
+{{--                                                       placeholder={{trans('admin.name')}} name="name">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="userinput2">{{trans('admin.Company')}}</label>--}}
+{{--                                                <input type="text" id="limit" class="form-control border-primary"--}}
+{{--                                                       placeholder={{trans('admin.Company')}} name="limit">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                        <div class="form-actions right" style="margin: 10px">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="icon-check2"></i> {{trans('admin.public_Add')}}
-                                            </button>
+{{--                                        <div class="form-actions right" style="margin: 10px">--}}
+{{--                                            <button type="submit" class="btn btn-primary">--}}
+{{--                                                <i class="icon-check2"></i> {{trans('admin.public_Add')}}--}}
+{{--                                            </button>--}}
 
-                                    </div>
-                                </form>
+{{--                                    </div>--}}
+{{--                                </form>--}}
 
-                            </div>
+{{--                            </div>--}}
                             <div class="table-responsive" style=' padding-top: 10px;
                             padding-right: 15px;
                              padding-left: 20px;

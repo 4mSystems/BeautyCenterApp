@@ -137,7 +137,6 @@
                              <th>{{trans('admin.address')}}</th>
                              <th>{{trans('admin.status')}}</th>
 
-
                          </tr>
                          </thead>
                          <tbody>

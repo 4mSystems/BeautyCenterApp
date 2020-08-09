@@ -25,6 +25,10 @@
                             </div>
                         </div>
                         <div class="card-body collapse in">
+
+                            @include('layouts.errors')
+
+                            @include('layouts.messages')
                             <div class="card-block">
 
 

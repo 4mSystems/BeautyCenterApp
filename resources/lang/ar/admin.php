@@ -11,11 +11,13 @@ return [
     //nav
 
     'nav_home' => 'الصفحة الرئيسية',
-    'nav_pages' => 'التحكم',
+
+    'nav_pages' => 'تحكم المشرفين',
+
     'nav_Manager' => 'المديرين',
-    'nav_Subscribers' => 'المشتركين',
+    'nav_Subscribers' => 'الباقات',
     'nav_Salons' => 'الصالونات',
-    'nav_sponsered' => 'الممولين',
+    'nav_sponsered' => 'الاعلانات المموله',
 
 
     //Home PAge
@@ -27,11 +29,13 @@ return [
     'desc' => 'الوصف',
 
 //    Subscribers page
-    'Sub_title' => 'المشتركين',
+    'Sub_title' => 'الباقات',
     'subAdd' => 'اضافة مشترك جديد',
     'Add_sub_title' => 'اضافة مشترك',
     'Update_Sub_title' => 'مشتركتعديل ',
     'salon' => 'صالون',
+    'updated' => 'تم التعديل بنجاح',
+
 
     //sponser
 
@@ -42,10 +46,12 @@ return [
     'status' => 'الحالة',
     'showDetails' => 'اظهار التفاصيل',
     'package' => 'الباقة',
+    'statuschanged'=>' تم تغيير الحاله',
+
 
 //    detailes Subscriber page
 
-    'Sub_Details' => 'تفاصيل المشترك',
+    'Sub_Details' => 'تفاصيل الباقه',
     'addDetail' => 'اضافة تفاصيل جديدة',
     'limit' => 'العدد',
     'package_id' => 'package id',
@@ -56,7 +62,7 @@ return [
     'EnterDesc' => 'ادخل الوصف',
     'EnterLimit' => 'ادخل العدد',
 
-    'SubUpdateDetail' => 'تعديل تفاصيل المشترك',
+    'SubUpdateDetail' => 'تعديل تفاصيل الباقه',
 
 //    Manager page
     'Add_Manager' => 'اضافة مدير جديد',
@@ -72,6 +78,9 @@ return [
     // Salon page
     'Add_Salon' => 'اضافة صالون',
     'salonName' => 'اسم الصالون',
+    'active'=>'مفعل',
+    'choosePackage'=>'اختر باقه',
+    'deactive'=>'غير مفعل',
 
     //login page
     'loginTitle' => 'صفحة تسجيل الدخول',

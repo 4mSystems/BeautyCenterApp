@@ -11,11 +11,13 @@ return [
     //nav
 
     'nav_home' => 'Home page',
-    'nav_pages' => 'control',
+
+    'nav_pages' => 'Manager Controll',
+
     'nav_Manager' => 'Managers',
-    'nav_Subscribers' => 'Subscribers',
+    'nav_Subscribers' => 'Packages',
     'nav_Salons' => 'Salons',
-    'nav_sponsered' => 'sponsered',
+    'nav_sponsered' => 'sponsered ads',
 
 
     //Home PAge
@@ -32,6 +34,7 @@ return [
     'Add_sub_title' => 'Add  Subscriber',
     'Update_Sub_title' => 'Update Subscriber',
     'salon' => 'salon',
+    'updated' => 'updated succesfully',
 
     //sponser
 
@@ -42,10 +45,11 @@ return [
     'status' => 'status',
     'showDetails' => 'Show Details',
     'package' => 'package',
+    'statuschanged'=>'status changed',
 
 //    detailes Subscriber page
 
-    'Sub_Details' => 'Subscriber Details',
+    'Sub_Details' => 'package Details',
     'addDetail' => 'Add New Detail',
     'limit' => 'limit',
     'package_id' => 'package id',
@@ -72,10 +76,13 @@ return [
     // Salon page
     'Add_Salon' => 'Add Salon',
     'salonName' => 'Salon Name',
+    'active'=>'active',
+    'deactive'=>'deactive',
+    'choosePackage'=>'choose Package',
+
 
     //login page
-    'loginTitle' => 'Login with Robust',
-    'loginEmail' => 'Your Email',
+    'loginTitle' => 'Login to your account',
     'loginEmail' => 'Your Email',
     'loginPassword' => 'Enter Password',
     'loginForgetPass' => 'Forgot Password?',
@@ -84,8 +91,6 @@ return [
     'loginSign' => 'Sign Up',
     'loginRemember' => 'Remember Me',
     'logout' => 'logout',
-
-
 
 
 ];
