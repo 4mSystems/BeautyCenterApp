@@ -20,6 +20,15 @@ return [
     'nav_sponsered' => 'sponsered ads',
 
 
+
+//messages
+    'addedsuccess' => 'Data Added Successfully',
+    'statuschanged' => 'Status Changed Successfully',
+    'deleteSuccess' => 'Data Deleted Successfully',
+    'updatSuccess' => 'Data Updated Successfully',
+
+
+
     //Home PAge
     'home' => 'Home page',
 

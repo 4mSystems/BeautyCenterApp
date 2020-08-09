@@ -39,7 +39,7 @@ class DetailedSubscriber extends Controller
         $package_id =$input['package_id'];
         $this->objectName::create($input);
 
-        return redirect()->back()->with('success', 'Added Successfully');
+        return redirect()->back()->with('success', trans('admin. addedsuccess'));
 
     }
 
@@ -70,13 +70,13 @@ class DetailedSubscriber extends Controller
 
         $data = package_detail::where('package_id',$package_id)->get();
 
-        session()->flash('success','Data Updated Successfully');
+        session()->flash('success',trans('admin. updatSuccess'));
         return view('managers.detailesSubscriber.detailsSubscriber',compact('id','data'));
     }
 
     public function destroy($id)
     {
         $this->objectName::where('id',$id)->delete();
-        return redirect()->back()->with('success', 'Deleted Successfully');
+        return redirect()->back()->with('success', trans('admin.deleteSuccess'));
     }
 }

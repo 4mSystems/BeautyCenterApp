@@ -58,7 +58,7 @@ class subscribersController extends Controller
 
         $this->objectName::create($input);
 
-        return redirect()->route('subscribers.index')->with('success',$this->flash.' Created');
+        return redirect()->route('subscribers.index')->with('success',trans('admin. addedsuccess'));
 
     }
 
@@ -93,14 +93,14 @@ class subscribersController extends Controller
 
         $this->objectName::find($id)->update($input);
 
-        return redirect()->route('subscribers.index')->with('success',trans('admin.updated'));
+        return redirect()->route('subscribers.index')->with('success',trans('admin. updatSuccess'));
 
     }
 
     public function destroy($id)
     {
         $this->objectName::where('id',$id)->delete();
-        session()->flash('success', trans('Subscriber deleted successfully'));
+        session()->flash('success', trans('admin. deleteSuccess'));
         return redirect(url('subscribers'));
     }
 

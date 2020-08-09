@@ -20,6 +20,13 @@ return [
     'nav_sponsered' => 'الاعلانات المموله',
 
 
+//messages
+    'addedsuccess' => 'تم الاضافة بنجاح',
+    'statuschanged' => 'تم تعديل الحالة',
+    'deleteSuccess' => 'تم الحذف بنجاح',
+    'updatSuccess' => 'تم التعديل بنجاح',
+
+
     //Home PAge
     'home' => 'الصفحة الرئيسية',
 
