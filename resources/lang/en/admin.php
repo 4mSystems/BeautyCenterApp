@@ -74,8 +74,7 @@ return [
     'salonName' => 'Salon Name',
 
     //login page
-    'loginTitle' => 'Login with Robust',
-    'loginEmail' => 'Your Email',
+    'loginTitle' => 'Login to your account',
     'loginEmail' => 'Your Email',
     'loginPassword' => 'Enter Password',
     'loginForgetPass' => 'Forgot Password?',
@@ -84,8 +83,6 @@ return [
     'loginSign' => 'Sign Up',
     'loginRemember' => 'Remember Me',
     'logout' => 'logout',
-
-
 
 
 ];
