@@ -10,11 +10,11 @@ return [
 
     //nav
 
-    'nav_home' => 'Home page',
+    'nav_home' => 'Dashboard',
 
     'nav_pages' => 'Manager Controll',
 
-    'nav_Manager' => 'Managers',
+    'nav_Manager' => 'Admins',
     'nav_Subscribers' => 'Packages',
     'nav_Salons' => 'Salons',
     'nav_sponsered' => 'sponsered ads',
@@ -53,7 +53,6 @@ return [
     'status' => 'status',
     'showDetails' => 'Show Details',
     'package' => 'package',
-    'statuschanged' => 'status changed',
 
 //    detailes Subscriber page
 
@@ -89,15 +88,15 @@ return [
 
 
 //    Manager page
-    'Add_Manager' => 'Add New Manager',
+    'Add_Manager' => 'Add New Admin',
     'addEmployee' => 'Add New Employee',
-    'managerName' => 'Manager Name',
+    'managerName' => 'Admin Name',
     'email' => 'Email',
     'phone' => 'Phone',
     'address' => 'Address',
     'password' => 'Password',
     'image' => 'image',
-    'updateManager' => 'Update Manager',
+    'updateManager' => 'Update Admin',
 
     // Salon page
     'Add_Salon' => 'Add Salon',

@@ -102,11 +102,12 @@
                                             <i class="icon-head"></i>
                                         </div>
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <span role="alert">
+                                        <strong class="red">{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </fieldset>
+                                    <br>
                                     <fieldset class="form-group position-relative has-icon-left">
                                         <input type="password" class="form-control form-control-lg input-lg"
                                                name="password" id="password"
@@ -115,8 +116,8 @@
                                             <i class="icon-key3"></i>
                                         </div>
                                         @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <span role="alert">
+                                        <strong class="red">{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </fieldset>
@@ -135,19 +136,22 @@
                                             @endif
                                         </div>
                                     </fieldset>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i
-                                            class="icon-unlock2"></i> {{trans('admin.login')}}</button>
+                                    <div class="form-actions center">
+                                        <button type="submit" class="btn btn-primary"><i
+                                                class="icon-unlock2"></i> {{trans('admin.login')}}</button>
+
+                                    </div>
                                 </form>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="">
-                                <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html"
-                                                                               class="card-link">{{trans('admin.loginRecove')}}</a>
-                                </p>
-                                <p class="float-sm-right text-xs-center m-0"><a href="register-simple.html"
-                                                                                class="card-link">{{trans('admin.loginSign')}}</a>
-                                </p>
+{{--                                <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html"--}}
+{{--                                                                               class="card-link">{{trans('admin.loginRecove')}}</a>--}}
+{{--                                </p>--}}
+{{--                                <p class="float-sm-right text-xs-center m-0"><a href="register-simple.html"--}}
+{{--                                                                                class="card-link">{{trans('admin.loginSign')}}</a>--}}
+{{--                                </p>--}}
                             </div>
                         </div>
                     </div>

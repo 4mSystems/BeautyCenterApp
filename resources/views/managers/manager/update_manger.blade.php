@@ -56,8 +56,6 @@
                             <img src="{{ asset('uploads/users/'.$user_data->image) }}" alt=""
                                  width="100px" height="80px">
                         </div>
-
-
                         {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
                         {{ Form::close() }}
                     </div>
