@@ -62,8 +62,7 @@
                                             <th>{{trans('admin.name')}}</th>
                                             <th>{{trans('admin.price')}}</th>
                                             <th>{{trans('admin.period')}}</th>
-                                            <th>{{trans('admin.desc')}}</th>
-                                            <th></th>
+                                             <th></th>
 
                                         </tr>
                                         </thead>
@@ -74,36 +73,35 @@
                                                 <td>{{$package->name}}</td>
                                                 <td>{{$package->price}}</td>
                                                 <td>{{$package->period}}</td>
-                                                <td>{{$package->desc}}</td>
-                                                <td>
-                                                    <a class='btn btn-raised btn-success btn-sml'
+                                                 <td>
+                                                    <a class='btn btn-raised btn-outline-secondary btn-sml'
                                                        href=" {{url('subscribers/'.$package->id.'/details')}}"><i
                                                         ></i>{{trans('admin.showDetails')}}</a>
 
-                                                    <a class='btn btn-raised btn-success btn-sml'
+                                                    <a class='btn btn-raised btn-outline-success btn-sml'
                                                        href=" {{url('subscribers/'.$package->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
 
-                                                    <form method="get" id='delete-form-{{ $package->id }}'
-                                                          action="{{url('subscribers/'.$package->id.'/delete')}}"
-                                                          style='display: none;'>
-                                                    {{csrf_field()}}
-                                                    <!-- {{method_field('delete')}} -->
-                                                    </form>
-                                                    <button onclick="if(confirm('are you sure to delete this record?'))
-                                                        {
-                                                        event.preventDefault();
-                                                        document.getElementById('delete-form-{{ $package->id }}').submit();
-                                                        }else {
-                                                        event.preventDefault();
-                                                        }
+{{--                                                    <form method="get" id='delete-form-{{ $package->id }}'--}}
+{{--                                                          action="{{url('subscribers/'.$package->id.'/delete')}}"--}}
+{{--                                                          style='display: none;'>--}}
+{{--                                                    {{csrf_field()}}--}}
+{{--                                                    <!-- {{method_field('delete')}} -->--}}
+{{--                                                    </form>--}}
+{{--                                                    <button onclick="if(confirm('are you sure to delete this record?'))--}}
+{{--                                                        {--}}
+{{--                                                        event.preventDefault();--}}
+{{--                                                        document.getElementById('delete-form-{{ $package->id }}').submit();--}}
+{{--                                                        }else {--}}
+{{--                                                        event.preventDefault();--}}
+{{--                                                        }--}}
 
-                                                        "
-                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i class="icon-android-delete" aria-hidden='true'>
-                                                        </i >
+{{--                                                        "--}}
+{{--                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i class="icon-android-delete" aria-hidden='true'>--}}
+{{--                                                        </i >--}}
 
 
-                                                    </button>
+{{--                                                    </button>--}}
                                                 </td>
 
                                             </tr>

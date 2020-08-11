@@ -75,8 +75,7 @@ class subscribersController extends Controller
     }
     public function details($id)
     {
-        $data = package_detail::where('package_id',$id)->get();
-//        dd($data);
+        $data = package_detail::where('package_id',$id)->first();
         return view('managers.detailesSubscriber.detailsSubscriber',compact('id','data'));
     }
 

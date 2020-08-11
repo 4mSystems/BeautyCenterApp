@@ -39,9 +39,11 @@ return [
     'Sub_title' => 'الباقات',
     'subAdd' => 'اضافة مشترك جديد',
     'Add_sub_title' => 'اضافة مشترك',
-    'Update_Sub_title' => 'مشتركتعديل ',
+    'Update_Sub_title' => ' تعديل الباقة ',
     'salon' => 'صالون',
     'updated' => 'تم التعديل بنجاح',
+
+    'editPackge'=>'تعديل الباقة',
 
 
     //sponser
@@ -70,6 +72,24 @@ return [
     'EnterLimit' => 'ادخل العدد',
 
     'SubUpdateDetail' => 'تعديل تفاصيل الباقه',
+
+    'salonLocation' => 'موقع الصالون',
+    'addProducts' => 'اضافة منتجات',
+    'addCategories' => 'اضافة اقسام',
+    'reserveService' => 'حجز خدمه',
+    'buyProduct' => 'شراء منتجات',
+    'ePay' => 'الدفع الاليكترونى',
+    'followOrders' => 'متابعة الطلبات',
+    'points' => 'نقاط الولاء',
+    'sellingPoints' => 'نقاط البيع',
+    'barcode' => 'باركود مجموعه الخصم',
+    'hr' => 'شؤون موظفين',
+    'branches' => 'اضافه افرع الصالون',
+    'productAlerts' => 'التنبيهات بالمنتجات والخصومات',
+    'sms' => 'اضافة سيرفر رسائل sms للدعايه للصالون',
+    'chatting' => 'المحادثة المباشرة للعملاء من داخل التطبيق',
+    'description'=>'الوصف',
+
 
 //    Manager page
     'Add_Manager' => 'اضافة مدير جديد',

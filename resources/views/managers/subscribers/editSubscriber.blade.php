@@ -4,6 +4,20 @@
     {{--Main Menu--}}
 
     <div class="app-content content container-fluid">
+
+        <div class="breadcrumb-wrapper col-xs-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{url('home')}}">{{trans('admin.home')}}</a>
+                </li>
+                <li class="breadcrumb-item"><a href="{{url('subscribers')}}">{{trans('admin.nav_Subscribers')}}</a>
+                </li>
+                <li class="breadcrumb-item"> {{trans('admin.editPackge')}}
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="app-content content container-fluid">
         <div class="content-wrapper">
             <div class="content-header row">
             </div>
@@ -19,7 +33,6 @@
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
                                     <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
                                 </ul>
                             </div>
@@ -36,7 +49,6 @@
                                         <div class="form-group">
                                             <strong>{{trans('admin.name')}}</strong>
 
-                                            {!! Form::label('name', 'name') !!}
                                             {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>trans('admin.EnterName')]) !!}
                                             @if ($errors->has('name'))
                                                 <span class="danger" role="alert">
@@ -46,7 +58,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            {!! Form::label('Price', 'Price') !!}
+                                            <strong>{{trans('admin.price')}}</strong>
                                             {!! Form::text('price',$data->price,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPrice')]) !!}
                                             @if ($errors->has('price'))
                                                 <span class="danger" role="alert">
@@ -56,7 +68,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            {!! Form::label('period', 'period') !!}
+                                            <strong>{{trans('admin.period')}}</strong>
                                             {!! Form::text('period',$data->period,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPeriod')]) !!}
                                             @if ($errors->has('period'))
                                                 <span class="danger" role="alert">
@@ -66,7 +78,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            {!! Form::label('desc', 'Discription') !!}
+                                            <strong>{{trans('admin.description')}}</strong>
                                             {!! Form::textarea('desc',$data->desc,['class'=>'form-control', 'placeholder'=>trans('admin.EnterDesc')]) !!}
                                             @if ($errors->has('desc'))
                                                 <span class="danger" role="alert">
@@ -78,9 +90,6 @@
                                     </div>
 
                                     <div class="form-actions right">
-                                        <button type="button" class="btn btn-warning mr-1">
-                                            <i class="icon-cross2"></i> Cancel
-                                        </button>
 
                                         {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-info']) }}
                                         {{ Form::close() }}

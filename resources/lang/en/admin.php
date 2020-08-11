@@ -20,13 +20,11 @@ return [
     'nav_sponsered' => 'sponsered ads',
 
 
-
 //messages
     'addedsuccess' => 'Data Added Successfully',
     'statuschanged' => 'Status Changed Successfully',
     'deleteSuccess' => 'Data Deleted Successfully',
     'updatSuccess' => 'Data Updated Successfully',
-
 
 
     //Home PAge
@@ -44,6 +42,7 @@ return [
     'Update_Sub_title' => 'Update Subscriber',
     'salon' => 'salon',
     'updated' => 'updated succesfully',
+    'editPackge'=>'edit Package',
 
     //sponser
 
@@ -54,7 +53,7 @@ return [
     'status' => 'status',
     'showDetails' => 'Show Details',
     'package' => 'package',
-    'statuschanged'=>'status changed',
+    'statuschanged' => 'status changed',
 
 //    detailes Subscriber page
 
@@ -71,6 +70,24 @@ return [
 
     'SubUpdateDetail' => 'Update Subscriber Detail',
 
+    'salonLocation' => 'salon Location',
+    'addProducts' => 'add Products',
+    'addCategories' => 'add Categories',
+    'reserveService' => 'reserve Service',
+    'buyProduct' => 'buy Product',
+    'ePay' => 'E-Pay',
+    'followOrders' => 'follow Orders',
+    'points' => 'points',
+    'sellingPoints' => 'selling Points',
+    'barcode' => 'barcode',
+    'hr' => 'hr',
+    'branches' => 'branches',
+    'productAlerts' => 'product Alerts',
+    'sms' => 'sms',
+    'chatting' => 'chatting',
+    'description'=>'Description',
+
+
 //    Manager page
     'Add_Manager' => 'Add New Manager',
     'addEmployee' => 'Add New Employee',
@@ -85,9 +102,9 @@ return [
     // Salon page
     'Add_Salon' => 'Add Salon',
     'salonName' => 'Salon Name',
-    'active'=>'active',
-    'deactive'=>'deactive',
-    'choosePackage'=>'choose Package',
+    'active' => 'active',
+    'deactive' => 'deactive',
+    'choosePackage' => 'choose Package',
 
 
     //login page
