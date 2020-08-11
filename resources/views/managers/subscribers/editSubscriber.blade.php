@@ -22,12 +22,11 @@
             <div class="content-header row">
             </div>
             <div class="content-body"><!-- stats -->
-
-
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" id="basic-layout-colored-form-control">{{trans('admin.Update_Sub_title')}}</h4>
+                            <h4 class="card-title"
+                                id="basic-layout-colored-form-control">{{trans('admin.Update_Sub_title')}}</h4>
 
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
@@ -39,63 +38,54 @@
                         </div>
                         <div class="card-body collapse in">
                             <div class="card-block">
-
-
-
                                 {!! Form::model($data, ['route' => ['subscribers.update',$data->id] , 'method'=>'put']) !!}
                                 {{ csrf_field() }}
-                                    <div class="form-body">
+                                <div class="form-body">
 
-                                        <div class="form-group">
-                                            <strong>{{trans('admin.name')}}</strong>
+                                    <div class="form-group">
+                                        <strong>{{trans('admin.name')}}</strong>
 
-                                            {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>trans('admin.EnterName')]) !!}
-                                            @if ($errors->has('name'))
-                                                <span class="danger" role="alert">
+                                        {!! Form::text('name',$data->name,['class'=>'form-control', 'placeholder'=>trans('admin.EnterName')]) !!}
+                                        @if ($errors->has('name'))
+                                            <span class="danger" role="alert">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
+                                        @endif
+                                    </div>
 
-                                        <div class="form-group">
-                                            <strong>{{trans('admin.price')}}</strong>
-                                            {!! Form::text('price',$data->price,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPrice')]) !!}
-                                            @if ($errors->has('price'))
-                                                <span class="danger" role="alert">
+                                    <div class="form-group">
+                                        <strong>{{trans('admin.price')}}</strong>
+                                        {!! Form::text('price',$data->price,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPrice')]) !!}
+                                        @if ($errors->has('price'))
+                                            <span class="danger" role="alert">
                                         <strong>{{ $errors->first('price') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
+                                        @endif
+                                    </div>
 
-                                        <div class="form-group">
-                                            <strong>{{trans('admin.period')}}</strong>
-                                            {!! Form::text('period',$data->period,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPeriod')]) !!}
-                                            @if ($errors->has('period'))
-                                                <span class="danger" role="alert">
+                                    <div class="form-group">
+                                        <strong>{{trans('admin.period')}}</strong>
+                                        {!! Form::text('period',$data->period,['class'=>'form-control', 'placeholder'=>trans('admin.EnterPeriod')]) !!}
+                                        @if ($errors->has('period'))
+                                            <span class="danger" role="alert">
                                         <strong>{{ $errors->first('period') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
+                                        @endif
+                                    </div>
 
-                                        <div class="form-group">
-                                            <strong>{{trans('admin.description')}}</strong>
-                                            {!! Form::textarea('desc',$data->desc,['class'=>'form-control', 'placeholder'=>trans('admin.EnterDesc')]) !!}
-                                            @if ($errors->has('desc'))
-                                                <span class="danger" role="alert">
+                                    <div class="form-group">
+                                        <strong>{{trans('admin.description')}}</strong>
+                                        {!! Form::textarea('desc',$data->desc,['class'=>'form-control', 'placeholder'=>trans('admin.EnterDesc')]) !!}
+                                        @if ($errors->has('desc'))
+                                            <span class="danger" role="alert">
                                         <strong>{{ $errors->first('desc') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
-
+                                        @endif
                                     </div>
 
-                                    <div class="form-actions right">
-
-                                        {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-info']) }}
-                                        {{ Form::close() }}
-                                    </div>
+                                </div>
+                                {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
                                 {!! Form::close() !!}
-
                             </div>
                         </div>
                     </div>
