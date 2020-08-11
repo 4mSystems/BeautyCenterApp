@@ -16,7 +16,6 @@ class CreatePackageDetailsTable extends Migration
         Schema::create('package_details', function (Blueprint $table) {
             $table->id();
 
-
             $table->enum('salonLocation',['yes','no'])->default('no');
             $table->enum('addProducts',['yes','no'])->default('no');
             $table->enum('addCategories',['yes','no'])->default('no');

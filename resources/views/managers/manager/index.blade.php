@@ -30,51 +30,45 @@
                 <div class="row">
 
                     <div class="card">
+                        <div class="card-header">
+                            <a href="{{url('managers/create')}} "
+                               class="btn btn-info btn-bg">{{trans('admin.Add_Manager')}} </a>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="card-body">
 
                             <div class="card-body collapse in">
 
-
-                                <div style=' padding-top: 10px;
-                            padding-right: 15px;
-                             padding-left: 20px;
-                             '>
-                                    <h3 class="card-title">{{trans('admin.nav_Manager')}} </h3>
-                                </div>
                                 @include('layouts.errors')
 
                                 @include('layouts.messages')
 
-                                <div class="" style=' padding-top: 10px;
-                            padding-right: 15px;
-                             padding-left: 20px;
-                             '>
-                                    <a href="{{url('managers/create')}} "
-                                       class="btn btn-info btn-bg">{{trans('admin.Add_Manager')}} </a>
-                                </div>
 
-                                <div class="table-responsive" style=' padding-top: 10px;
-                            padding-right: 15px;
-                             padding-left: 20px;
-                             '>
-                                    <table class="table">
-                                        <thead class="bg-info">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered mb-0">
+                                        <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>{{trans('admin.name')}}</th>
-                                            <th>{{trans('admin.email')}}</th>
-                                            <th></th>
+                                            <th class="text-lg-center">#</th>
+                                            <th class="text-lg-center">{{trans('admin.name')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.email')}}</th>
+                                            <th class="text-lg-center"></th>
 
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($managers as $employees)
                                             <tr>
-                                                <th scope="row">{{$employees->id}}</th>
-                                                <td>{{$employees->name}}</td>
-                                                <td>{{$employees->email}}</td>
-                                                <td><a class='btn btn-raised btn-success btn-sml'
-                                                       href=" {{url('managers/'.$employees->id.'/edit')}}"><i
+                                                <th scope="row" class="text-lg-center">{{$employees->id}}</th>
+                                                <td class="text-lg-center">{{$employees->name}}</td>
+                                                <td class="text-lg-center">{{$employees->email}}</td>
+                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'
+                                                                              href=" {{url('managers/'.$employees->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
 
                                                     <form method="get" id='delete-form-{{ $employees->id }}'
@@ -110,5 +104,5 @@
                         </div>
 
 
-                        @endsection
+@endsection
 
