@@ -18,7 +18,7 @@ class serviceController extends Controller
     {
         $this->middleware('auth');
         $this->objectName = $model;
-        $this->folderView = 'managers.services.';
+        $this->folderView = 'salon.services.';
         $this->flash = 'Services Data Has Been ';
 
     }
