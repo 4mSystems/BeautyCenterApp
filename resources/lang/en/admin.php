@@ -19,12 +19,13 @@ return [
     'nav_cat' => 'Categories',
     'nav_serv' => 'Services',
     'nav_prod' => 'Products',
+    'nav_reservations' => 'Reservations',
 
 
 //   payment status
     'noStatus' => 'payment not done',
     'yesStatus' => 'payment done',
-    'selectType'=>'select type',
+    'selectType' => 'select type',
 
 //    services
     'serv_title' => 'Services',
@@ -65,7 +66,7 @@ return [
     'Update_Sub_title' => 'Update Subscriber',
     'salon' => 'salon',
     'updated' => 'updated succesfully',
-    'editPackge'=>'edit Package',
+    'editPackge' => 'edit Package',
 
     //    Categories page
     'cat_title' => 'Categories',
@@ -115,7 +116,7 @@ return [
     'productAlerts' => 'product Alerts',
     'sms' => 'sms',
     'chatting' => 'chatting',
-    'description'=>'Description',
+    'description' => 'Description',
 
 
 //    Manager page
@@ -148,7 +149,13 @@ return [
     'loginSign' => 'Sign Up',
     'loginRemember' => 'Remember Me',
     'logout' => 'logout',
-
-
+//reservations
+    'client_name' => ' Client name',
+    'reservation_date' => 'Date',
+    'reservation_type' => 'Type',
+    'reservation_status' => 'Status',
+    // Reviews
+    'reviews'=>'Reviews',
+    'write_review'=>'Write your review',
 ];
 

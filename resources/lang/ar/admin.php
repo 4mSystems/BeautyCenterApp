@@ -19,11 +19,12 @@ return [
     'nav_cat' => 'التصنيفات',
     'nav_serv' => 'الخدمات',
     'nav_prod' => 'المنتجات',
+    'nav_reservations' => 'الحجوزات',
 
 //   payment status
     'noStatus' => 'لم يتم الدفع',
     'yesStatus' => 'تم الدفع',
-    'selectType'=>'اختر النوع',
+    'selectType' => 'اختر النوع',
 
 
 //    services
@@ -67,7 +68,7 @@ return [
     'salon' => 'صالون',
     'updated' => 'تم التعديل بنجاح',
 
-    'editPackge'=>'تعديل الباقة',
+    'editPackge' => 'تعديل الباقة',
 
 
     //sponser
@@ -79,7 +80,7 @@ return [
     'status' => 'الحالة',
     'showDetails' => 'اظهار التفاصيل',
     'package' => 'الباقة',
-    'statuschanged'=>' تم تغيير الحاله',
+    'statuschanged' => ' تم تغيير الحاله',
 
     //    Categories page
     'cat_title' => 'التصنيفات',
@@ -119,7 +120,7 @@ return [
     'productAlerts' => 'التنبيهات بالمنتجات والخصومات',
     'sms' => 'اضافة سيرفر رسائل sms للدعايه للصالون',
     'chatting' => 'المحادثة المباشرة للعملاء من داخل التطبيق',
-    'description'=>'الوصف',
+    'description' => 'الوصف',
 
 
 //    Manager page
@@ -136,9 +137,9 @@ return [
     // Salon page
     'Add_Salon' => 'اضافة صالون',
     'salonName' => 'اسم الصالون',
-    'active'=>'مفعل',
-    'choosePackage'=>'اختر باقه',
-    'deactive'=>'غير مفعل',
+    'active' => 'مفعل',
+    'choosePackage' => 'اختر باقه',
+    'deactive' => 'غير مفعل',
     'payStatus' => 'حالة الدفع',
 
     //login page
@@ -151,8 +152,11 @@ return [
     'loginSign' => 'تسجيل جديد',
     'loginRemember' => 'تذكرنى',
     'logout' => 'تسجيل الخروج',
-
-
+//reservations
+    'client_name' => 'إسم العميل',
+    'reservation_date' => 'تاريخ الحجز',
+    'reservation_type' => 'النوع',
+    'reservation_status' => 'الحاله',
 
 
 ];

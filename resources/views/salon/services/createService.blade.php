@@ -32,34 +32,28 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <strong>{{trans('admin.name')}}</strong>
-                            {{ Form::text('name',old('name'),["class"=>"form-control" ,"required"]) }}
+                            {{ Form::text('name',old('name'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.name') ]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_image')}}</strong>
-                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control round' ,"required",'placeholder'=>trans('admin.serv_image') )) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_time')}}</strong>
-                            {{ Form::text('time',old('time'),["class"=>"form-control" ,"required"]) }}
+                            {{ Form::text('time',old('time'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.serv_time') ]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_price_before')}}</strong>
-                            {{ Form::number('price_before',old('price_before'),["class"=>"form-control" ,"required"]) }}
+                            {{ Form::number('price_before',old('price_before'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.serv_price_before') ]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_cat_name')}}</strong>
                             {{ Form::select('cat_id',App\Category::pluck('name','id'),old('cat_id')
-                             ,["class"=>"form-control dept_id" ,'placeholder'=>trans('admin.serv_choose_Category') ]) }}
+                            ,["class"=>"form-control dept_id round" ,'placeholder'=>trans('admin.serv_choose_Category') ]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.desc')}}</strong>
-                            {{ Form::textarea('desc',old('desc'),["class"=>"form-control" ,"required"]) }}
+                            {{ Form::textarea('desc',old('desc'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc') ]) }}
                         </div>
                         <div class="center">
                             {{ Form::submit( trans('admin.public_Add') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}

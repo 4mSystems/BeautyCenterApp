@@ -44,24 +44,36 @@
             @endif
 
             @if(Auth::user()->type == "salon")
-            <li class=" nav-item">
-                <a href="{{url('categories')}}"><i class="icon-users"></i>
-                    <span data-i18n="nav.dash.main"
-                          class="menu-title">{{trans('admin.nav_cat')}}</span></a>
+                <li class=" nav-item">
+                    <a href="{{url('categories')}}"><i class="icon-ios-list"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_cat')}}</span></a>
 
-            </li>
-            <li class=" nav-item">
-                <a href="{{url('services')}}"><i class="icon-users"></i>
-                    <span data-i18n="nav.dash.main"
-                          class="menu-title">{{trans('admin.nav_serv')}}</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="{{url('services')}}"><i class="icon-ios-paper"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_serv')}}</span></a>
 
-            </li>
-            <li class=" nav-item">
-                <a href="{{url('products')}}"><i class="icon-users"></i>
-                    <span data-i18n="nav.dash.main"
-                          class="menu-title">{{trans('admin.nav_prod')}}</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="{{url('products')}}"><i class="icon-ios-medkit"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_prod')}}</span></a>
 
-            </li>
+                </li>
+                <li class=" nav-item">
+                    <a href="{{url('reservations')}}"><i class="icon-ios-timer"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_reservations')}}</span></a>
+
+                </li>
+                <li class=" nav-item">
+                    <a href="{{url('reviews')}}"><i class="icon-ios-timer"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_reservations')}}</span></a>
+
+                </li>
             @endif
 
         </ul>

@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth', 'manager']],
     });
 
 
-Route::group(['middleware' => ['auth','salon']],
+Route::group(['middleware' => ['auth', 'salon']],
     function () {
 
 
@@ -55,8 +55,10 @@ Route::group(['middleware' => ['auth','salon']],
 //         Product Page
         Route::resource('products', 'Salons\productsController');
         Route::get('products/{id}/delete', 'Salons\productsController@destroy');
-
-
+//         Reservation Page
+        Route::resource('reservations', 'Salons\ReservationController');
+        // Reviews Page
+        Route::resource('reviews', 'Salons\ReviewsController');
 
     });
 
