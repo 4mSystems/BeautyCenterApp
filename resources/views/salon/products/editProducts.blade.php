@@ -27,17 +27,12 @@
             <!-- /.card-header -->
                 <div class="card-body">
                     <div class="card-block">
-                        {!! Form::model($user_data, ['route' => ['services.update',$user_data->id] , 'method'=>'put' ,'files'=> true]) !!}
+                        {!! Form::model($user_data, ['route' => ['products.update',$user_data->id] , 'method'=>'put' ,'files'=> true]) !!}
                         {{ csrf_field() }}
 
                         <div class="form-group">
                             <strong>{{trans('admin.name')}}</strong>
                             {{ Form::text('name',$user_data->name,["class"=>"form-control" ,"required"]) }}
-                        </div>
-
-                        <div class="form-group">
-                            <strong>{{trans('admin.prod_image')}}</strong>
-                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control')) }}
                         </div>
 
                         <div class="form-group">
@@ -56,6 +51,15 @@
                             {{ Form::textarea('desc',$user_data->desc,["class"=>"form-control" ,"required"]) }}
                         </div>
 
+                        <div class="form-group">
+                            <strong>{{trans('admin.prod_image')}}</strong>
+                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control')) }}
+
+                            @if(!empty($user_data->main_image))
+                                <img src="{{ url('uploads/product/'.$user_data->main_image) }}" style="width:250px;height:250px;" />
+
+                            @endif
+                        </div>
                         {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
                         {{ Form::close() }}
                     </div>

@@ -1,8 +1,8 @@
 @extends('admin_temp')
 
-
 @section('content')
     <br>
+
     <div class="app-content content container-fluid">
         <div class="breadcrumb-wrapper col-xs-12">
             <ol class="breadcrumb">
@@ -10,9 +10,8 @@
                 </li>
                 <li class="breadcrumb-item"><a href="{{url('categories')}}">{{trans('admin.nav_cat')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.add_cat')}}
+                <li class="breadcrumb-item"> {{trans('admin.update_cat')}}
                 </li>
-
             </ol>
         </div>
     </div>
@@ -20,7 +19,7 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.add_cat')}} </h3>
+                    <h3 class="card-title">{{trans('admin.update_cat')}} </h3>
                 </div>
             @include('layouts.errors')
 
@@ -28,33 +27,40 @@
             <!-- /.card-header -->
                 <div class="card-body">
                     <div class="card-block">
-                        {{ Form::open( ['url' => ['categories'],'method'=>'post', 'files'=>'true'] ) }}
+                        {!! Form::model($user_data, ['route' => ['categories.update',$user_data->id] , 'method'=>'put' ,'files'=> true]) !!}
                         {{ csrf_field() }}
-
 
                         <div class="form-group">
                             <strong>{{trans('admin.name')}}</strong>
-                            {{ Form::text('name',old('name'),["class"=>"form-control" ,"required"]) }}
+                            {{ Form::text('name',$user_data->name,["class"=>"form-control"]) }}
                         </div>
 
                         <div class="form-group">
                             <strong>{{trans('admin.type')}}</strong>
-                            {{ Form::text('type',old('type'),["class"=>"form-control" ,"required"]) }}
+                            {!! Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.service')] ,$user_data->type ,['class'=>'form-control',null]) !!}
+
                         </div>
+
+
                         <div class="form-group">
                             <strong>{{trans('admin.cat_image')}}</strong>
                             {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+                            @if(!empty($user_data->image))
+                                <img src="{{ url('uploads/categories/'.$user_data->image) }}" style="width:250px;height:250px;" />
+
+                            @endif
+
                         </div>
 
-                        <div class="center">
-                            {{ Form::submit( trans('admin.public_Add') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
 
-                        </div>
+
+                        {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
                         {{ Form::close() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
 

@@ -35,10 +35,6 @@
                             {{ Form::text('name',$user_data->name,["class"=>"form-control" ,"required"]) }}
                         </div>
 
-                        <div class="form-group">
-                            <strong>{{trans('admin.serv_image')}}</strong>
-                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
-                        </div>
 
                         <div class="form-group">
                             <strong>{{trans('admin.serv_time')}}</strong>
@@ -59,6 +55,18 @@
                         <div class="form-group">
                             <strong>{{trans('admin.desc')}}</strong>
                             {{ Form::textarea('desc',$user_data->desc,["class"=>"form-control" ,"required"]) }}
+                        </div>
+
+                        <div class="form-group">
+                            <strong>{{trans('admin.serv_image')}}</strong>
+                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+
+                            @if(!empty($user_data->image))
+                                <img src="{{ url('uploads/services/'.$user_data->image) }}" style="width:250px;height:250px;" />
+
+                            @endif
+
+
                         </div>
 
                         {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}

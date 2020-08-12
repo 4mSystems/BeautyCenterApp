@@ -7,6 +7,7 @@ return [
     'public_save' => 'حفظ',
     'public_cancel' => 'الغاء',
     'Public_HashNum' => '#',
+    'deleteConfirmation'=>'هل انت متاكد من حذف التصنيف وكامل المنتجات والخدمات بداخلة؟',
 
     //nav
 
@@ -36,6 +37,7 @@ return [
     'serv_cat_name' => 'اسم التصنيف',
     'serv_update' => 'تعديل الخدمة',
     'serv_choose_Category' => 'أختر تصنيف',
+    'confirmation'=>'هل انت متاكد؟',
 
     //    Products
     'prod_title' => 'المنتجات',
@@ -85,7 +87,9 @@ return [
     //sponser
 
     'add_new_sponser' => 'اضافة ممول جديد',
-    'product' => 'المنتج',
+    'product' => 'منتج',
+    'service'=>'خدمة',
+
     'paymentAmount' => 'مبلغ الدفع',
     'paymentInfo' => 'بيانات الدفع',
     'status' => 'الحالة',

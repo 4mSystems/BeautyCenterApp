@@ -19,7 +19,7 @@
                                             <span>{{trans('admin.nav_Manager')}}</span>
                                         </div>
                                         <div class="media-right media-middle">
-                                            <i class="icon-bag2 pink font-large-2 float-xs-right"></i>
+                                            <i class="icon-user1 teal font-large-2 float-xs-right"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                             <span>{{trans('admin.nav_Subscribers')}}</span>
                                         </div>
                                         <div class="media-right media-middle">
-                                            <i class="icon-user1 teal font-large-2 float-xs-right"></i>
+                                            <i class="icon-bag2 pink font-large-2 float-xs-right"></i>
                                         </div>
                                     </div>
                                 </div>
