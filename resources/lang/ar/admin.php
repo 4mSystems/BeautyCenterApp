@@ -11,13 +11,20 @@ return [
     //nav
 
     'nav_home' => 'الصفحة الرئيسية',
-
     'nav_pages' => 'تحكم المشرفين',
-
     'nav_Manager' => 'المديرين',
     'nav_Subscribers' => 'الباقات',
     'nav_Salons' => 'الصالونات',
     'nav_sponsered' => 'الاعلانات المموله',
+    'nav_cat' => 'التصنيفلت',
+
+
+//   payment status
+    'noStatus' => 'لم يتم الدفع',
+    'yesStatus' => 'تم الدفع',
+    'selectType'=>'اختر النوع',
+
+
 
 
 //messages
@@ -108,6 +115,7 @@ return [
     'active'=>'مفعل',
     'choosePackage'=>'اختر باقه',
     'deactive'=>'غير مفعل',
+    'payStatus' => 'حالة الدفع',
 
     //login page
     'loginTitle' => 'صفحة تسجيل الدخول',

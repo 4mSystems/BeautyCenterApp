@@ -28,7 +28,6 @@ Route::group(['middleware' => ['auth', 'manager']],
         Route::get('managers/{id}/delete', 'Manager\ManagerController@destroy');
 
         Route::resource('subscribers', 'Admin\subscribersController');
-
         Route::get('subscribers/{id}/delete', 'Admin\subscribersController@destroy');
         Route::get('subscribers/{id}/details', 'Admin\subscribersController@details');
 
@@ -38,6 +37,10 @@ Route::group(['middleware' => ['auth', 'manager']],
         Route::resource('salons', 'Manager\SalonsController');
 
         Route::resource('sponsered', 'Manager\SponseredAdsController');
+
+//        category routes
+        Route::resource('categories', 'Manager\CategoryController');
+        Route::get('categories/{id}/delete', 'Manager\CategoryController@destroy');
 
 
     });

@@ -11,14 +11,18 @@ return [
     //nav
 
     'nav_home' => 'Dashboard',
-
     'nav_pages' => 'Manager Controll',
-
     'nav_Manager' => 'Admins',
     'nav_Subscribers' => 'Packages',
     'nav_Salons' => 'Salons',
     'nav_sponsered' => 'sponsered ads',
+    'nav_cat' => 'Categories',
 
+
+//   payment status
+    'noStatus' => 'payment not done',
+    'yesStatus' => 'payment done',
+    'selectType'=>'select type',
 
 //messages
     'addedsuccess' => 'Data Added Successfully',
@@ -44,7 +48,13 @@ return [
     'updated' => 'updated succesfully',
     'editPackge'=>'edit Package',
 
-    //sponser
+    //    Categories page
+    'cat_title' => 'Categories',
+    'add_cat' => 'Add New Category',
+    'type' => 'type',
+    'salon_name' => 'salon name',
+
+    //sponsero
 
     'add_new_sponser' => 'add new sponser',
     'product' => 'product',
@@ -104,6 +114,7 @@ return [
     'active' => 'active',
     'deactive' => 'deactive',
     'choosePackage' => 'choose Package',
+    'payStatus' => 'Payment status',
 
 
     //login page

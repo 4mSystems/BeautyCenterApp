@@ -10,11 +10,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password', 'phone', 'type', 'image',
         'lat',
@@ -25,27 +20,29 @@ class User extends Authenticatable
         'is_verfied',
         'added_by',
         'address',
-        'package_id'
+        'package_id',
+        'salon_payment_status'
     ];
     public function  getPackage(){
 
         return $this->hasOne('App\package','id','package_id');
 
     }
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+
+    public function getSalon_payment_statusAttribute($value)
+    {
+
+        if ($value == 'yes') {
+            return trans('admin.yesStatus');
+        } else if ($value == 'no'){
+            return trans('admin.noStatus');
+        }
+    }
+
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

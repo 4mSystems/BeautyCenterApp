@@ -40,6 +40,13 @@
 
             </li>
 
+            <li class=" nav-item">
+                <a href="{{url('categories')}}"><i class="icon-users"></i>
+                    <span data-i18n="nav.dash.main"
+                          class="menu-title">{{trans('admin.nav_cat')}}</span></a>
+
+            </li>
+
 
         </ul>
 
