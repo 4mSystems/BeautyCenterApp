@@ -53,7 +53,7 @@ class CategoryController extends Controller
         $data = $this->validate(\request(),
             [
                 'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,bmp',
-                'name' => 'required|unique:users',
+                'name' => 'required|unique:categories',
                 'type' => 'required|in:product,service',
 
             ]);
@@ -109,7 +109,7 @@ class CategoryController extends Controller
         $data = $this->validate(\request(),
             [
                 'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,bmp',
-                'name' => 'required|unique:users,name,'.$id,
+                'name' => 'required|unique:categories,name,'.$id,
                 'type' => 'required|in:product,service',
 
             ]);

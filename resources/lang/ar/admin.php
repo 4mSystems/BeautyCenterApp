@@ -37,6 +37,7 @@ return [
     'serv_cat_name' => 'اسم التصنيف',
     'serv_update' => 'تعديل الخدمة',
     'serv_choose_Category' => 'أختر تصنيف',
+    'confirmation'=>'هل انت متاكد؟',
 
     //    Products
     'prod_title' => 'المنتجات',

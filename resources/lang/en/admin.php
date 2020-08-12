@@ -37,6 +37,7 @@ return [
     'serv_cat_name' => 'Category name',
     'serv_update' => 'edit service',
     'serv_choose_Category' => 'choose Category',
+    'confirmation'=>'are you sure to delete?',
 
     //    Products
     'prod_title' => 'Products',

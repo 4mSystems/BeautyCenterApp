@@ -17,11 +17,15 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('desc');
-            $table->string('main_image');
-            $table->double('price_after');
+            $table->string('main_image')->nullable();
+            $table->double('price_after')->nullable();
             $table->double('price_before');
             $table->bigInteger('cat_id')->unsigned();
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
+
+            $table->bigInteger('salon_id')->unsigned();
+            $table->foreign('salon_id')->references('id')->on('users')->onDelete('cascade');
+
 
             $table->timestamps();
         });
