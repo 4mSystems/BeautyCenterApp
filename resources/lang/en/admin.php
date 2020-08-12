@@ -17,12 +17,31 @@ return [
     'nav_Salons' => 'Salons',
     'nav_sponsered' => 'sponsered ads',
     'nav_cat' => 'Categories',
+    'nav_serv' => 'Services',
+    'nav_prod' => 'Products',
 
 
 //   payment status
     'noStatus' => 'payment not done',
     'yesStatus' => 'payment done',
     'selectType'=>'select type',
+
+//    services
+    'serv_title' => 'Services',
+    'serv_add' => 'Add New Service',
+    'serv_time' => 'Time',
+    'serv_image' => 'sevice image',
+    'serv_price_after' => 'Price after',
+    'serv_price_before' => 'Price',
+    'serv_cat_name' => 'Category name',
+    'serv_update' => 'edit service',
+    'serv_choose_Category' => 'choose Category',
+
+    //    Products
+    'prod_title' => 'Products',
+    'prod_add' => 'Add New Product',
+    'prod_update' => 'edit product',
+    'prod_image' => 'main product image',
 
 //messages
     'addedsuccess' => 'Data Added Successfully',
@@ -53,6 +72,8 @@ return [
     'add_cat' => 'Add New Category',
     'type' => 'type',
     'salon_name' => 'salon name',
+    'update_cat' => 'edit category',
+    'cat_image' => 'category image',
 
     //sponsero
 

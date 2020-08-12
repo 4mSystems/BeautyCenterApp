@@ -39,8 +39,14 @@ Route::group(['middleware' => ['auth', 'manager']],
         Route::resource('sponsered', 'Manager\SponseredAdsController');
 
 //        category routes
-        Route::resource('categories', 'Manager\CategoryController');
-        Route::get('categories/{id}/delete', 'Manager\CategoryController@destroy');
+        Route::resource('categories', 'Salons\CategoryController');
+        Route::get('categories/{id}/delete', 'Salons\CategoryController@destroy');
+//         Service Page
+        Route::resource('services', 'Salons\serviceController');
+        Route::get('services/{id}/delete', 'Salons\serviceController@destroy');
+//         Product Page
+        Route::resource('products', 'Salons\productsController');
+        Route::get('products/{id}/delete', 'Salons\productsController@destroy');
 
 
     });

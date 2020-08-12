@@ -8,9 +8,9 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{url('managers')}}">{{trans('admin.nav_cat')}}</a>
+                <li class="breadcrumb-item"><a href="{{url('categories')}}">{{trans('admin.nav_cat')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.Add_Manager')}}
+                <li class="breadcrumb-item"> {{trans('admin.add_cat')}}
                 </li>
 
             </ol>
@@ -20,7 +20,7 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.Add_Manager')}} </h3>
+                    <h3 class="card-title">{{trans('admin.add_cat')}} </h3>
                 </div>
             @include('layouts.errors')
 
@@ -28,39 +28,21 @@
             <!-- /.card-header -->
                 <div class="card-body">
                     <div class="card-block">
-                        {{ Form::open( ['url' => ['managers'],'method'=>'post', 'files'=>'true'] ) }}
+                        {{ Form::open( ['url' => ['categories'],'method'=>'post', 'files'=>'true'] ) }}
                         {{ csrf_field() }}
 
 
                         <div class="form-group">
-                            <strong>{{trans('admin.managerName')}}</strong>
+                            <strong>{{trans('admin.name')}}</strong>
                             {{ Form::text('name',old('name'),["class"=>"form-control" ,"required"]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.email')}}</strong>
-                            {{ Form::email('email',old('email'),["class"=>"form-control" ,"required" ]) }}
+                            <strong>{{trans('admin.type')}}</strong>
+                            {{ Form::text('type',old('type'),["class"=>"form-control" ,"required"]) }}
                         </div>
-
                         <div class="form-group">
-                            <strong>{{trans('admin.phone')}}</strong>
-                            {{ Form::number('phone',old('phone'),["class"=>"form-control" ,"required",'max'=>'9999999999999'   ]) }}
-                        </div>
-
-                        <div class="form-group">
-                            <strong>{{trans('admin.address')}}</strong>
-                            {{ Form::text('address',old('address'),["class"=>"form-control" ,"required" ]) }}
-                        </div>
-
-
-                        <div class="form-group">
-                            <strong>{{trans('admin.password')}}</strong><br>
-                            <input type="password" name="password" class="form-control"
-                                   required>
-                        </div>
-
-                        <div class="form-group">
-                            <strong>{{trans('admin.image')}}</strong><br>
+                            <strong>{{trans('admin.cat_image')}}</strong>
                             {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
                         </div>
 

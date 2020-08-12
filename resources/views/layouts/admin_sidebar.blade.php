@@ -46,6 +46,18 @@
                           class="menu-title">{{trans('admin.nav_cat')}}</span></a>
 
             </li>
+            <li class=" nav-item">
+                <a href="{{url('services')}}"><i class="icon-users"></i>
+                    <span data-i18n="nav.dash.main"
+                          class="menu-title">{{trans('admin.nav_serv')}}</span></a>
+
+            </li>
+            <li class=" nav-item">
+                <a href="{{url('products')}}"><i class="icon-users"></i>
+                    <span data-i18n="nav.dash.main"
+                          class="menu-title">{{trans('admin.nav_prod')}}</span></a>
+
+            </li>
 
 
         </ul>

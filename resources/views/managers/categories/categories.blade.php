@@ -57,7 +57,7 @@
                                             <th class="text-lg-center">{{trans('admin.Public_HashNum')}}</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.type')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.salon_name')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.cat_image')}}</th>
                                             <th class="text-lg-center"></th>
 
                                         </tr>
@@ -70,11 +70,11 @@
 {{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
 {{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
 {{--                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'--}}
-{{--                                                                              href=" {{url('categories/'.$employees->id.'/edit')}}"><i--}}
+{{--                                                                              href=" {{url('categories/'.$cat->id.'/edit')}}"><i--}}
 {{--                                                            class="icon-edit"></i></a>--}}
 
-{{--                                                    <form method="get" id='delete-form-{{ $employees->id }}'--}}
-{{--                                                          action="{{url('categories/'.$employees->id.'/delete')}}"--}}
+{{--                                                    <form method="get" id='delete-form-{{ $cat->id }}'--}}
+{{--                                                          action="{{url('categories/'.$cat->id.'/delete')}}"--}}
 {{--                                                          style='display: none;'>--}}
 {{--                                                    {{csrf_field()}}--}}
 {{--                                                    <!-- {{method_field('delete')}} -->--}}
@@ -82,7 +82,7 @@
 {{--                                                    <button onclick="if(confirm('are you sure to delete this record?'))--}}
 {{--                                                        {--}}
 {{--                                                        event.preventDefault();--}}
-{{--                                                        document.getElementById('delete-form-{{ $employees->id }}').submit();--}}
+{{--                                                        document.getElementById('delete-form-{{ $cat->id }}').submit();--}}
 {{--                                                        }else {--}}
 {{--                                                        event.preventDefault();--}}
 {{--                                                        }--}}
