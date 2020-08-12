@@ -18,7 +18,7 @@ class productsController extends Controller
     {
         $this->middleware('auth');
         $this->objectName = $model;
-        $this->folderView = 'managers.products.';
+        $this->folderView = 'salon.products.';
         $this->flash = 'Category Data Has Been ';
 
     }

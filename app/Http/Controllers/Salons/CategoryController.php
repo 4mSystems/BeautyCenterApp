@@ -18,7 +18,7 @@ class CategoryController extends Controller
     {
         $this->middleware('auth');
         $this->objectName = $model;
-        $this->folderView = 'managers.categories.';
+        $this->folderView = 'salon.categories.';
         $this->flash = 'Category Data Has Been ';
 
     }
