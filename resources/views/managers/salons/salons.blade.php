@@ -50,6 +50,7 @@
                                         <th class="text-lg-center">{{trans('admin.phone')}}</th>
                                         <th class="text-lg-center">{{trans('admin.address')}}</th>
                                         <th class="text-lg-center">{{trans('admin.status')}}</th>
+                                        <th class="text-lg-center">{{trans('admin.payStatus')}}</th>
 
 
                                     </tr>
@@ -75,6 +76,23 @@
                                                         {{trans('admin.'.$employees->status)}}</a>
 
                                                 @endif
+                                            </td>
+
+                                            <td class="text-lg-center">
+                                                @if($employees->salon_payment_status == "no")
+
+                                                    <div class="tag tag-danger text-sm-center">
+
+                                                        {{trans('admin.noStatus')}}
+                                                    </div>
+
+
+                                                @else
+                                                    <div class="tag tag-success text-sm-center">
+                                                    {{trans('admin.yesStatus')}}
+                                                    </div>
+                                                @endif
+
                                             </td>
 
 

@@ -11,13 +11,37 @@ return [
     //nav
 
     'nav_home' => 'الصفحة الرئيسية',
-
     'nav_pages' => 'تحكم المشرفين',
-
     'nav_Manager' => 'المديرين',
     'nav_Subscribers' => 'الباقات',
     'nav_Salons' => 'الصالونات',
     'nav_sponsered' => 'الاعلانات المموله',
+    'nav_cat' => 'التصنيفات',
+    'nav_serv' => 'الخدمات',
+    'nav_prod' => 'المنتجات',
+
+//   payment status
+    'noStatus' => 'لم يتم الدفع',
+    'yesStatus' => 'تم الدفع',
+    'selectType'=>'اختر النوع',
+
+
+//    services
+    'serv_title' => 'الخدمات',
+    'serv_add' => 'اضافة خدمة جديدة',
+    'serv_time' => 'الوقت',
+    'serv_image' => 'صورة الخدمة',
+    'serv_price_after' => 'السعر بعد الخصم',
+    'serv_price_before' => 'السعر',
+    'serv_cat_name' => 'اسم التصنيف',
+    'serv_update' => 'تعديل الخدمة',
+    'serv_choose_Category' => 'أختر تصنيف',
+
+    //    Products
+    'prod_title' => 'المنتجات',
+    'prod_add' => 'اضافة منتج جديد',
+    'prod_update' => 'تعديل المنتج',
+    'prod_image' => 'الصورة الاساسية للمنتج',
 
 
 //messages
@@ -57,6 +81,13 @@ return [
     'package' => 'الباقة',
     'statuschanged'=>' تم تغيير الحاله',
 
+    //    Categories page
+    'cat_title' => 'التصنيفات',
+    'add_cat' => 'اضافة تصنيف جديد',
+    'type' => 'النوع',
+    'salon_name' => 'اسم الصالون',
+    'update_cat' => 'تعديل التصنيف',
+    'cat_image' => 'صورة التصنيف',
 
 //    detailes Subscriber page
 
@@ -108,6 +139,7 @@ return [
     'active'=>'مفعل',
     'choosePackage'=>'اختر باقه',
     'deactive'=>'غير مفعل',
+    'payStatus' => 'حالة الدفع',
 
     //login page
     'loginTitle' => 'صفحة تسجيل الدخول',

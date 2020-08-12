@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->foreign('package_id')->references('id')->on('packages')->onDelete('restrict');
 
             $table->enum('type',['manager','salon','customer'])->default('customer');
+            $table->enum('salon_payment_status',['yes','no'])->default('no');
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
             $table->time('open_from')->nullable();

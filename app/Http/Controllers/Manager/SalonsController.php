@@ -36,6 +36,7 @@ class SalonsController extends Controller
                 'email' => 'required|unique:users',
                 'password' => 'required|min:8',
                 'package_id'=>'required|exists:packages,id',
+                'salon_payment_status'=>'required',
 
             ]);
 

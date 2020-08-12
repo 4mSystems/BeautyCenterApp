@@ -74,6 +74,17 @@
 
                                     </div>
 
+                                    <div class="form-group">
+                                        <strong>{{trans('admin.payStatus')}}</strong><br>
+
+                                        <select id="salon_payment_status" name="salon_payment_status" required
+                                                class="form-control">
+                                            <option value="no">{{trans('admin.noStatus')}}</option>
+                                            <option value="yes">{{trans('admin.yesStatus')}}</option>
+                                        </select>
+                                        <span class="text-danger" id=type_error"></span>
+                                    </div>
+
 
                                     {{ Form::submit( trans('admin.public_Add') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
                                     {{ Form::close() }}
