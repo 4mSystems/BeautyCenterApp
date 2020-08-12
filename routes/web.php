@@ -55,9 +55,9 @@ Route::group(['middleware' => ['auth', 'manager']],
 Route::group(['middleware' => ['auth']],
     function () {
 //lang
-
-
+        Route::resource('salon_profile', 'salons\salonProfileController');
     });
+
 
 Route::get('lang/{lang}', function ($lang) {
 

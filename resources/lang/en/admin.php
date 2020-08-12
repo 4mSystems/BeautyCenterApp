@@ -58,6 +58,17 @@ return [
     'period' => 'period',
     'desc' => 'description',
 
+//    Profile page
+    'prof_title' => 'Profile page',
+    'prof_basic_info' => 'Basic info',
+    'prof_fullName' => 'Full Name',
+    'prof_Opening_Time' => 'Opening Time',
+    'prof_open_from' => 'From',
+    'prof_open_to' => 'To',
+    'prof_Password' => 'Password',
+    'prof_Your_password' => 'Your password',
+
+
 //    Subscribers page
     'Sub_title' => 'Subscribers',
     'subAdd' => 'Add new Subscriber',

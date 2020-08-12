@@ -48,9 +48,9 @@
                             <span class="user-name">{{Auth::user()->name}}</span></a>
                         <div class="dropdown-menu dropdown-menu-right">
 
+                            <a href="{{url('salon_profile')}}" class="dropdown-item"><i class="icon-head">
+                                </i> {{trans('admin.prof_title')}}</a>
 
-                            <a href="#" class="dropdown-item"><i class="icon-head">
-                                </i> Edit Profile</a>
                             <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="{{ route('logout') }}"
                                                                    onclick="event.preventDefault();

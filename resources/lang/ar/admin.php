@@ -59,6 +59,18 @@ return [
     'period' => 'الفترة',
     'desc' => 'الوصف',
 
+
+//    Profile page
+    'prof_title' => 'الصفحة الشخصية',
+    'prof_basic_info' => 'المعلومات الاساسية',
+    'prof_fullName' => 'الاسم بالكامل',
+    'prof_Opening_Time' => 'وقت الفتح',
+    'prof_open_from' => 'من',
+    'prof_open_to' => 'الى',
+    'prof_Password' => 'الرقم السرى',
+    'prof_Your_password' => 'رقمك السرى',
+
+
 //    Subscribers page
     'Sub_title' => 'الباقات',
     'subAdd' => 'اضافة مشترك جديد',
