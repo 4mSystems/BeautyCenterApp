@@ -68,9 +68,9 @@
                                             <tr>
                                                 <th scope="row" class="text-lg-center">{{$cat->id}}</th>
                                                 <td class="text-lg-center">{{$cat->name}}</td>
-                                                <td class="text-lg-center">{{$cat->price_befor}}</td>
-                                                <td class="text-lg-center">{{$cat->cat_id}}</td>
-                                                <td class="text-lg-center">{{$cat->salon_id}}</td>
+                                                <td class="text-lg-center">{{$cat->price_before}}</td>
+                                                <td class="text-lg-center">{{$cat->getCategory->name}}</td>
+                                                <td class="text-lg-center">{{$cat->getSalon->name}}</td>
                                                 <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'
                                                                               href=" {{url('products/'.$cat->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
