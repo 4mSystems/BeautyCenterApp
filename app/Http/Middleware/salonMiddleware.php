@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class managerMiddleware
+class salonMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class managerMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->type=='manager' ){
+        if(Auth::check() && Auth::user()->type=='salon' ){
             return $next($request);
         }else{
             return redirect()->route('login');
-        }    }
+        }       }
 }

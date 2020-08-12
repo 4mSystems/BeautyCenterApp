@@ -12,34 +12,38 @@
 
             </li>
 
-            <li class=" nav-item">
-                <a href="{{url('managers')}}"><i class="icon-users"></i>
-                    <span data-i18n="nav.dash.main"
-                          class="menu-title">{{trans('admin.nav_Manager')}}</span></a>
+            @if(Auth::user()->type == "manager")
+                <li class=" nav-item">
+                    <a href="{{url('managers')}}"><i class="icon-users"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_Manager')}}</span></a>
 
-            </li>
+                </li>
 
-            <li class=" nav-item">
-                <a href="{{url('subscribers')}}"><i class="icon-briefcase4"></i>
-                    <span data-i18n="nav.dash.main"
-                          class="menu-title">{{trans('admin.nav_Subscribers')}}</span></a>
+                <li class=" nav-item">
+                    <a href="{{url('subscribers')}}"><i class="icon-briefcase4"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_Subscribers')}}</span></a>
 
-            </li>
+                </li>
 
-            <li class=" nav-item">
-                <a href="{{url('salons')}}"><i class="icon-weather24"></i>
-                    <span data-i18n="nav.dash.main"
-                          class="menu-title">{{trans('admin.nav_Salons')}}</span></a>
+                <li class=" nav-item">
+                    <a href="{{url('salons')}}"><i class="icon-weather24"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_Salons')}}</span></a>
 
-            </li>
+                </li>
 
-            <li class=" nav-item">
-                <a href="{{url('sponsered')}}"><i class="icon-cash"></i>
-                    <span data-i18n="nav.dash.main"
-                          class="menu-title">{{trans('admin.nav_sponsered')}}</span></a>
+                <li class=" nav-item">
+                    <a href="{{url('sponsered')}}"><i class="icon-cash"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_sponsered')}}</span></a>
 
-            </li>
+                </li>
 
+            @endif
+
+            @if(Auth::user()->type == "salon")
             <li class=" nav-item">
                 <a href="{{url('categories')}}"><i class="icon-users"></i>
                     <span data-i18n="nav.dash.main"
@@ -58,7 +62,7 @@
                           class="menu-title">{{trans('admin.nav_prod')}}</span></a>
 
             </li>
-
+            @endif
 
         </ul>
 
