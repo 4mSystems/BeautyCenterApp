@@ -68,12 +68,6 @@
                               class="menu-title">{{trans('admin.nav_reservations')}}</span></a>
 
                 </li>
-                <li class=" nav-item">
-                    <a href="{{url('reviews')}}"><i class="icon-ios-timer"></i>
-                        <span data-i18n="nav.dash.main"
-                              class="menu-title">{{trans('admin.nav_reservations')}}</span></a>
-
-                </li>
             @endif
 
         </ul>

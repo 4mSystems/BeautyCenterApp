@@ -10,7 +10,7 @@
                 </li>
                 <li class="breadcrumb-item"><a href="{{url('products')}}">{{trans('admin.nav_prod')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.prod_update')}}
+                <li class="breadcrumb-item"> {{trans('admin.prod_Offer')}}
                 </li>
             </ol>
         </div>
@@ -19,7 +19,7 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.prod_update')}} </h3>
+                    <h3 class="card-title">{{trans('admin.prod_Offer')}} </h3>
                 </div>
             @include('layouts.errors')
 
@@ -31,24 +31,30 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            {{ Form::text('name',$user_data->name,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.name') ]) }}
+                            {{ Form::label('name',$user_data->name,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.name') ]) }}
+                            {{ Form::hidden('name',$user_data->name,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.name') ]) }}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::number('price_before',$user_data->price_before,["class"=>"form-control round" ,"step"=>"0.01" ,"required",'placeholder'=>trans('admin.serv_price_before') ]) }}
+                            {{ Form::label('price_before',$user_data->price_before,["class"=>"form-control round" ,"step"=>"0.01" ,"required",'placeholder'=>trans('admin.serv_price_before') ]) }}
+                            {{ Form::hidden('price_before',$user_data->price_before,["class"=>"form-control round" ,"step"=>"0.01" ,"required",'placeholder'=>trans('admin.serv_price_before') ]) }}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::select('cat_id',App\Category::pluck('name','id'),$user_data->cat_id
-                            ,["class"=>"form-control dept_id round" ,'placeholder'=>trans('admin.serv_choose_Category') ]) }}
+                            {{ Form::number('price_after',$user_data->price_after,["class"=>"form-control round" ,"step"=>"0.01" ,'placeholder'=>trans('admin.serv_price_after') ]) }}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::textarea('desc',$user_data->desc,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc')]) }}
+                            {{ Form::hidden('cat_id',$user_data->cat_id,["class"=>"form-control round" ,"step"=>"0.01" ,"required",'placeholder'=>trans('admin.serv_price_before') ]) }}
+
                         </div>
 
                         <div class="form-group">
-                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control')) }}
+                            {{ Form::hidden('desc',$user_data->desc,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc')]) }}
+                        </div>
+
+                        <div class="form-group">
+{{--                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control')) }}--}}
 
                             @if(!empty($user_data->main_image))
                                 <img src="{{ url('uploads/product/'.$user_data->main_image) }}" style="width:250px;height:250px;" />

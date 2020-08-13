@@ -40,6 +40,9 @@ return [
     'serv_update' => 'edit service',
     'serv_choose_Category' => 'choose Category',
     'confirmation'=>'are you sure to delete?',
+    'offer'=>'Offer',
+    'prod_Offer'=>'product Offer',
+    'ser_Offer'=>'service Offer',
 
     // Products
     'prod_title' => 'Products',

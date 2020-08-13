@@ -82,7 +82,9 @@ class productsController extends Controller
      */
     public function show($id)
     {
-        //
+        $user_data = Product::where('id', $id)->first();
+        return view($this->folderView.'offerProducts', \compact('user_data'));
+
     }
 
     /**

@@ -73,7 +73,18 @@
                                                 <td class="text-lg-center">{{$cat->price_before}}</td>
                                                 <td class="text-lg-center">{{$cat->getCategory->name}}</td>
                                                 <td class="text-lg-center">{{$cat->getSalon->name}}</td>
-                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'
+                                                <td class="text-lg-center">
+
+                                                    <a data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="{{trans('admin.offer')}}"
+
+                                                       class='btn btn-raised btn-info btn-sml'
+                                                       href=" {{url('services/'.$cat->id)}}"><i
+                                                            class="icon-android-bar"></i></a>
+
+
+                                                    <a class='btn btn-raised btn-success btn-sml'
                                                                               href=" {{url('services/'.$cat->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
 

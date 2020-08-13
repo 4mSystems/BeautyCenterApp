@@ -40,6 +40,11 @@ return [
     'serv_update' => 'تعديل الخدمة',
     'serv_choose_Category' => 'أختر تصنيف',
     'confirmation' => 'هل انت متاكد؟',
+    'offer'=>'اضافه عرض',
+
+    'prod_Offer'=>' اضافه عرض للمنتج',
+    'ser_Offer'=>' اضافة عرض للخدمه',
+
 
     // Products
     'prod_title' => 'المنتجات',
