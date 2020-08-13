@@ -61,7 +61,9 @@ class salonProfileController extends Controller
                 'phone' => 'numeric|required|unique:users,phone,'.$id,
                 'address' => 'required',
                 'email' => 'required|unique:users,email,'.$id,
-                'password' => 'sometimes|nullable',
+
+                'password' => 'sometimes|nullable|confirmed|min:6',
+
                 'open_from' => '',
                 'open_to' => 'after:open_from',
             ]);
@@ -79,15 +81,12 @@ class salonProfileController extends Controller
         }
 
         if($request['password'] != null  && $request['password_confirmation'] != null ){
-            $data = $this->validate(\request(),
-                [
-                    'password' => 'confirmed|min:6',
-                ]);
+
 
             $pass= Hash::make(request('password'));
             $data['password'] = $pass;
 
-            auth()->logout();
+//            auth()->logout();
 
         }else
         {
