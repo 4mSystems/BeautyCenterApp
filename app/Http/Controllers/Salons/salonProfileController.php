@@ -30,44 +30,22 @@ class salonProfileController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
@@ -100,14 +78,21 @@ class salonProfileController extends Controller
             $data['image'] = $fileNewName;
         }
 
-        if($request['password'] != null){
+        if($request['password'] != null  && $request['password_confirmation'] != null ){
+            $data = $this->validate(\request(),
+                [
+                    'password' => 'confirmed|min:6',
+                ]);
 
             $pass= Hash::make(request('password'));
             $data['password'] = $pass;
 
+            auth()->logout();
+
         }else
         {
             unset($data['password']);
+            unset($data['password_confirmation']);
         }
         User::where('id', $id)->update($data);
 

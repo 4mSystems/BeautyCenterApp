@@ -27,7 +27,7 @@ class CategoryController extends Controller
     }
     public function index()
     {
-        $categories = Category::where('salon_id',Auth::user()->id)->get();
+        $categories = Category::where('salon_id',Auth::user()->id)->simplePaginate(10);
         return view($this->folderView.'categories',\compact('categories'));
 
     }
