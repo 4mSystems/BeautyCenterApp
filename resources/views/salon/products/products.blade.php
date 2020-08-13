@@ -74,6 +74,17 @@
 
                                                 <td class="text-lg-center">
 
+
+                                                    <a data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="{{trans('admin.offer')}}"
+
+                                                       class='btn btn-raised btn-info btn-sml'
+                                                       href=" {{url('products/'.$cat->id)}}"><i
+                                                            class="icon-android-bar"></i></a>
+
+
+
                                                     <a class='btn btn-raised btn-primary btn-sml'
                                                        href=" {{url('product_images/'.$cat->id)}}"><i
                                                             class="icon-image4" data-toggle="tooltip" data-placement="top" title="{{trans('admin.prod_showImage')}}"></i></a>

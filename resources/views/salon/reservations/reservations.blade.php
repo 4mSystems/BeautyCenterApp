@@ -49,7 +49,8 @@
                                        href="{{url('reservation/finished')}}">{{trans('admin.finished')}}</a>
                                 </div>
                             </div>
-                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <a class="heading-elements-toggle">
+                                <i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>

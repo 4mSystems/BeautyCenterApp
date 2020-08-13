@@ -92,7 +92,9 @@ class serviceController extends Controller
      */
     public function show($id)
     {
-        //
+        $user_data = Service::where('id', $id)->first();
+        return view($this->folderView.'offerService',compact('user_data'));
+
     }
 
     /**

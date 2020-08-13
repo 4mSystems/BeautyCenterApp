@@ -10,7 +10,7 @@
                 </li>
                 <li class="breadcrumb-item"><a href="{{url('services')}}">{{trans('admin.nav_serv')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.serv_update')}}
+                <li class="breadcrumb-item"> {{trans('admin.ser_Offer')}}
                 </li>
             </ol>
         </div>
@@ -19,7 +19,7 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.serv_update')}} </h3>
+                    <h3 class="card-title">{{trans('admin.ser_Offer')}} </h3>
                 </div>
             @include('layouts.errors')
 
@@ -32,34 +32,41 @@
 
                         <div class="form-group">
                             <strong>{{trans('admin.name')}}</strong>
-                            {{ Form::text('name',$user_data->name,["class"=>"form-control" ,"required"]) }}
+                            {{ Form::label('name',$user_data->name,["class"=>"form-control" ,"required"]) }}
+                            {{ Form::hidden('name',$user_data->name,["class"=>"form-control" ,"required"]) }}
                         </div>
 
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_time')}}</strong>
-                            {{ Form::text('time',$user_data->time,["class"=>"form-control" ,"required"]) }}
+{{--                            <strong>{{trans('admin.serv_time')}}</strong>--}}
+                            {{ Form::hidden('time',$user_data->time,["class"=>"form-control" ,"required"]) }}
                         </div>
 
                         <div class="form-group">
                             <strong>{{trans('admin.serv_price_before')}}</strong>
-                            {{ Form::number('price_before',$user_data->price_before,["class"=>"form-control" ,"step"=>"0.01" ,"required"]) }}
+                            {{ Form::hidden('price_before',$user_data->price_before,["class"=>"form-control" ,"required"]) }}
+                            {{ Form::label('price_before',$user_data->price_before,["class"=>"form-control" ,"required"]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_cat_name')}}</strong>
-                            {{ Form::select('cat_id',App\Category::pluck('name','id'),$user_data->cat_id
-                             ,["class"=>"form-control dept_id" ,'placeholder'=>trans('admin.serv_choose_Category') ]) }}
+                            <strong>{{trans('admin.serv_price_after')}}</strong>
+                            {{ Form::number('price_after',$user_data->price_after,["class"=>"form-control","step"=>"0.01" ,"required"]) }}
+                        </div>
+
+
+                        <div class="form-group">
+{{--                            <strong>{{trans('admin.serv_price_after')}}</strong>--}}
+                            {{ Form::hidden('cat_id',$user_data->cat_id,["class"=>"form-control" ]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.desc')}}</strong>
-                            {{ Form::textarea('desc',$user_data->desc,["class"=>"form-control" ,"required"]) }}
+{{--                            <strong>{{trans('admin.desc')}}</strong>--}}
+                            {{ Form::hidden('desc',$user_data->desc,["class"=>"form-control" ,"required"]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_image')}}</strong>
-                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+{{--                            <strong>{{trans('admin.serv_image')}}</strong>--}}
+{{--                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}--}}
 
                             @if(!empty($user_data->image))
                                 <img src="{{ url('uploads/services/'.$user_data->image) }}" style="width:250px;height:250px;" />

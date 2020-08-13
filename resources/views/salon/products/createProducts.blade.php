@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                             {{ Form::number('price_before',old('price_before'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.serv_price_before') ]) }}
+                             {{ Form::number('price_before',old('price_before'),["class"=>"form-control round" ,"step"=>"0.01" ,"required",'placeholder'=>trans('admin.serv_price_before') ]) }}
                         </div>
 
                         <div class="form-group">
