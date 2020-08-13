@@ -37,13 +37,22 @@
 
                         <div class="form-group">
                             <strong>{{trans('admin.type')}}</strong>
-                            {{ Form::text('type',$user_data->type,["class"=>"form-control"]) }}
+                            {!! Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.service')] ,$user_data->type ,['class'=>'form-control',null]) !!}
+
                         </div>
 
+
                         <div class="form-group">
-                            <strong>{{trans('admin.salon_name')}}</strong>
-                            {{ Form::text('salon_name',$user_data->salon_name,["class"=>"form-control"  ]) }}
+                            <strong>{{trans('admin.cat_image')}}</strong>
+                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+                            @if(!empty($user_data->image))
+                                <img src="{{ url('uploads/categories/'.$user_data->image) }}" style="width:250px;height:250px;" />
+
+                            @endif
+
                         </div>
+
+
 
                         {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
                         {{ Form::close() }}

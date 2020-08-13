@@ -57,47 +57,45 @@
                                             <th class="text-lg-center">{{trans('admin.Public_HashNum')}}</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.type')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.cat_image')}}</th>
                                             <th class="text-lg-center"></th>
 
                                         </tr>
                                         </thead>
                                         <tbody>
-{{--                                        @foreach($categories as $cat)--}}
-{{--                                            <tr>--}}
-{{--                                                <th scope="row" class="text-lg-center">{{$cat->id}}</th>--}}
-{{--                                                <td class="text-lg-center">{{$cat->name}}</td>--}}
-{{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
-{{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
-{{--                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'--}}
-{{--                                                                              href=" {{url('categories/'.$cat->id.'/edit')}}"><i--}}
-{{--                                                            class="icon-edit"></i></a>--}}
+                                        @foreach($categories as $cat)
+                                            <tr>
+                                                <th scope="row" class="text-lg-center">{{$cat->id}}</th>
+                                                <td class="text-lg-center">{{$cat->name}}</td>
+                                                <td class="text-lg-center">{{trans('admin.'.$cat->type)}}</td>
+                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'
+                                                                              href=" {{url('categories/'.$cat->id.'/edit')}}"><i
+                                                            class="icon-edit"></i></a>
 
-{{--                                                    <form method="get" id='delete-form-{{ $cat->id }}'--}}
-{{--                                                          action="{{url('categories/'.$cat->id.'/delete')}}"--}}
-{{--                                                          style='display: none;'>--}}
-{{--                                                    {{csrf_field()}}--}}
-{{--                                                    <!-- {{method_field('delete')}} -->--}}
-{{--                                                    </form>--}}
-{{--                                                    <button onclick="if(confirm('are you sure to delete this record?'))--}}
-{{--                                                        {--}}
-{{--                                                        event.preventDefault();--}}
-{{--                                                        document.getElementById('delete-form-{{ $cat->id }}').submit();--}}
-{{--                                                        }else {--}}
-{{--                                                        event.preventDefault();--}}
-{{--                                                        }--}}
+                                                    <form method="get" id='delete-form-{{ $cat->id }}'
+                                                          action="{{url('categories/'.$cat->id.'/delete')}}"
+                                                          style='display: none;'>
+                                                    {{csrf_field()}}
+                                                    <!-- {{method_field('delete')}} -->
+                                                    </form>
+                                                    <button onclick="if(confirm('{{trans('admin.deleteConfirmation')}}'))
+                                                        {
+                                                        event.preventDefault();
+                                                        document.getElementById('delete-form-{{ $cat->id }}').submit();
+                                                        }else {
+                                                        event.preventDefault();
+                                                        }
 
-{{--                                                        "--}}
-{{--                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i--}}
-{{--                                                            class="icon-android-delete" aria-hidden='true'>--}}
-{{--                                                        </i>--}}
+                                                        "
+                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i
+                                                            class="icon-android-delete" aria-hidden='true'>
+                                                        </i>
 
 
-{{--                                                    </button>--}}
-{{--                                                </td>--}}
+                                                    </button>
+                                                </td>
 
-{{--                                            </tr>--}}
-{{--                                        @endforeach--}}
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
 

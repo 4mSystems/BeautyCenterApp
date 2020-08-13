@@ -39,7 +39,8 @@
 
                         <div class="form-group">
                             <strong>{{trans('admin.type')}}</strong>
-                            {{ Form::text('type',old('type'),["class"=>"form-control" ,"required"]) }}
+                            {{ Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.service')],null ,
+                            ['class'=>'form-control',null]) }}
                         </div>
                         <div class="form-group">
                             <strong>{{trans('admin.cat_image')}}</strong>

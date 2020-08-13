@@ -7,6 +7,7 @@ return [
     'public_save' => 'Save',
     'public_cancel' => 'Cancel',
     'Public_HashNum' => '#',
+    'deleteConfirmation'=>'Are you sure to delete the category and all the products and services included?',
 
     //nav
 
@@ -37,6 +38,7 @@ return [
     'serv_cat_name' => 'Category name',
     'serv_update' => 'edit service',
     'serv_choose_Category' => 'choose Category',
+    'confirmation'=>'are you sure to delete?',
 
     //    Products
     'prod_title' => 'Products',
@@ -80,6 +82,7 @@ return [
 
     'add_new_sponser' => 'add new sponser',
     'product' => 'product',
+    'service'=>'Service',
     'paymentAmount' => 'payment Amount',
     'paymentInfo' => 'payment Info',
     'status' => 'status',

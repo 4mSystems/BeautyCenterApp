@@ -56,50 +56,50 @@
                                         <tr>
                                             <th class="text-lg-center">{{trans('admin.Public_HashNum')}}</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.desc')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.prod_image')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_price_before')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_cat_name')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.salon')}}</th>
                                             <th class="text-lg-center"></th>
 
                                         </tr>
                                         </thead>
                                         <tbody>
-{{--                                        @foreach($categories as $cat)--}}
-{{--                                            <tr>--}}
-{{--                                                <th scope="row" class="text-lg-center">{{$cat->id}}</th>--}}
-{{--                                                <td class="text-lg-center">{{$cat->name}}</td>--}}
-{{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
-{{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
-{{--                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'--}}
-{{--                                                                              href=" {{url('products/'.$cat->id.'/edit')}}"><i--}}
-{{--                                                            class="icon-edit"></i></a>--}}
+                                        @foreach($product as $cat)
+                                            <tr>
+                                                <th scope="row" class="text-lg-center">{{$cat->id}}</th>
+                                                <td class="text-lg-center">{{$cat->name}}</td>
+                                                <td class="text-lg-center">{{$cat->price_before}}</td>
+                                                <td class="text-lg-center">{{$cat->getCategory->name}}</td>
+                                                <td class="text-lg-center">{{$cat->getSalon->name}}</td>
+                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'
+                                                                              href=" {{url('products/'.$cat->id.'/edit')}}"><i
+                                                            class="icon-edit"></i></a>
 
-{{--                                                    <form method="get" id='delete-form-{{ $cat->id }}'--}}
-{{--                                                          action="{{url('products/'.$cat->id.'/delete')}}"--}}
-{{--                                                          style='display: none;'>--}}
-{{--                                                    {{csrf_field()}}--}}
-{{--                                                    <!-- {{method_field('delete')}} -->--}}
-{{--                                                    </form>--}}
-{{--                                                    <button onclick="if(confirm('are you sure to delete this record?'))--}}
-{{--                                                        {--}}
-{{--                                                        event.preventDefault();--}}
-{{--                                                        document.getElementById('delete-form-{{ $cat->id }}').submit();--}}
-{{--                                                        }else {--}}
-{{--                                                        event.preventDefault();--}}
-{{--                                                        }--}}
+                                                    <form method="get" id='delete-form-{{ $cat->id }}'
+                                                          action="{{url('products/'.$cat->id.'/delete')}}"
+                                                          style='display: none;'>
+                                                    {{csrf_field()}}
+                                                    <!-- {{method_field('delete')}} -->
+                                                    </form>
+                                                    <button onclick="if(confirm('{{trans('admin.confirmation')}}'))
+                                                        {
+                                                        event.preventDefault();
+                                                        document.getElementById('delete-form-{{ $cat->id }}').submit();
+                                                        }else {
+                                                        event.preventDefault();
+                                                        }
 
-{{--                                                        "--}}
-{{--                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i--}}
-{{--                                                            class="icon-android-delete" aria-hidden='true'>--}}
-{{--                                                        </i>--}}
+                                                        "
+                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i
+                                                            class="icon-android-delete" aria-hidden='true'>
+                                                        </i>
 
 
-{{--                                                    </button>--}}
-{{--                                                </td>--}}
+                                                    </button>
+                                                </td>
 
-{{--                                            </tr>--}}
-{{--                                        @endforeach--}}
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
 

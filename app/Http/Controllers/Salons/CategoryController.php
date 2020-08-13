@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Salons;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CategoryController extends Controller
 {
@@ -24,9 +27,8 @@ class CategoryController extends Controller
     }
     public function index()
     {
-//        $categories = Category::all();
-//        \compact('categories')
-        return view($this->folderView.'categories');
+        $categories = Category::where('salon_id',Auth::user()->id)->get();
+        return view($this->folderView.'categories',\compact('categories'));
 
     }
 
@@ -48,7 +50,35 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate(\request(),
+            [
+                'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,bmp',
+                'name' => 'required|unique:categories',
+                'type' => 'required|in:product,service',
+
+            ]);
+
+        if ($request['image'] != null) {
+            // This is Image Information ...
+            $file = $request->file('image');
+            $name = $file->getClientOriginalName();
+            $ext = $file->getClientOriginalExtension();
+
+            // Move Image To Folder ..
+            $fileNewName = 'img_' . time() . '.' . $ext;
+            $file->move(public_path('uploads/categories'), $fileNewName);
+
+
+            $data['image'] = $fileNewName;
+
+        }
+        $data['salon_id'] = Auth::user()->id;
+        $cat = Category::create($data);
+        $cat->save();
+        session()->flash('success', trans('admin.addedsuccess'));
+        return redirect(url('categories'));
+
+
     }
 
     /**
@@ -70,14 +100,39 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-//        $cat = Category::where('id', $id)->first();
-//        , \compact('cat')
-        return view($this->folderView.'editCategory');
+        $user_data = Category::where('id', $id)->first();
+        return view($this->folderView.'editCategory', \compact('user_data'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $this->validate(\request(),
+            [
+                'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,bmp',
+                'name' => 'required|unique:categories,name,'.$id,
+                'type' => 'required|in:product,service',
+
+            ]);
+
+        if ($request['image'] != null) {
+            // This is Image Information ...
+            $file = $request->file('image');
+            $name = $file->getClientOriginalName();
+            $ext = $file->getClientOriginalExtension();
+
+            // Move Image To Folder ..
+            $fileNewName = 'img_' . time() . '.' . $ext;
+            $file->move(public_path('uploads/categories'), $fileNewName);
+
+
+            $data['image'] = $fileNewName;
+
+        }
+//        $data['salon_id'] = Auth::user()->id;
+        $cat = Category::where('id',$id)->update($data);
+//        $cat->save();
+        session()->flash('success', trans('admin.updatSuccess'));
+        return redirect(url('categories'));
     }
 
     /**
@@ -88,6 +143,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Category::where('id', $id)->first();
+        $cat->delete();
+        session()->flash('success', trans('admin.deleteSuccess'));
+        return redirect(url('categories'));
+
     }
 }

@@ -17,12 +17,17 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('desc');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('time');
-            $table->double('price_after');
+            $table->double('price_after')->nullable();
             $table->double('price_before');
             $table->bigInteger('cat_id')->unsigned();
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
+
+            $table->bigInteger('salon_id')->unsigned();
+            $table->foreign('salon_id')->references('id')->on('users')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }
