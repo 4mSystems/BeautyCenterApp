@@ -25,7 +25,7 @@ class serviceController extends Controller
     }
     public function index()
     {
-        $services = Service::where('salon_id',Auth::user()->id)->paginate(10);
+        $services = Service::where('salon_id',Auth::user()->id)->simplePaginate(10);
         return view($this->folderView.'services',compact('services'));
 
     }

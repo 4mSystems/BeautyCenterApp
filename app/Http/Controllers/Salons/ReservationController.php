@@ -26,7 +26,7 @@ class ReservationController extends Controller
     {
         session()->put('reser_status', 'all');
 
-        $reservations = $this->objectName::where('salon_id', auth()->user()->id)->paginate(10);
+        $reservations = $this->objectName::where('salon_id', auth()->user()->id)->simplePaginate(10);
         return view($this->folderView . 'reservations', compact('reservations'));
     }
 
