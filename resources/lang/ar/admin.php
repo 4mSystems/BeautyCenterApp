@@ -44,6 +44,10 @@ return [
     'prod_add' => 'اضافة منتج جديد',
     'prod_update' => 'تعديل المنتج',
     'prod_image' => 'الصورة الاساسية للمنتج',
+    'prod_showImage' => '  صور المنتج',
+    'prod_image_choose' => 'أختر الصور',
+    'prod_photos' => 'الصور',
+    'prod_deleteChoosen' => 'حذف المحدد',
 
 
 //messages

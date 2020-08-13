@@ -44,12 +44,17 @@ return [
     'prod_add' => 'Add New Product',
     'prod_update' => 'edit product',
     'prod_image' => 'main product image',
+    'prod_showImage' => 'product image',
+    'prod_image_choose' => 'Choose Images',
+    'prod_photos' => 'Images',
+    'prod_deleteChoosen' => 'Delete Choosen',
 
 //messages
     'addedsuccess' => 'Data Added Successfully',
     'statuschanged' => 'Status Changed Successfully',
     'deleteSuccess' => 'Data Deleted Successfully',
     'updatSuccess' => 'Data Updated Successfully',
+    'photoAddedSuccess' => 'Image added Successfuly',
 
 
     //Home PAge

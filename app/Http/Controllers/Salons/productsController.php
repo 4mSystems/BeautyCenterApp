@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Salons;
 
 use App\Http\Controllers\Controller;
+use App\Image;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,22 +32,11 @@ class productsController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view($this->folderView.'createProducts');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $data = $this->validate(\request(),
@@ -154,4 +144,65 @@ class productsController extends Controller
         session()->flash('success', trans('admin.deleteSuccess'));
         return redirect(url('products'));
     }
+
+    public function showProductImage($id)
+    {
+        $productImage = Image::where('product_id',$id)->get();
+        $product_id = $id ;
+
+        return view($this->folderView.'product_images',compact('productImage','product_id'));
+    }
+
+    public function MoveImage($request_file)
+    {
+        $file = $request_file;
+        $name = $file->getClientOriginalName();
+        $ext = $file->getClientOriginalExtension();
+        // Move Image To Folder ..
+        $fileNewName = 'img_' . time() . '.' . $ext;
+        $file->move(public_path('uploads/product/Detailimage'), $fileNewName);
+
+        return $fileNewName;
+    }
+
+    public function storeProductImage(Request $request,$id){
+
+        $request->validate([
+            'image' => 'required',
+        ]);
+
+        $input = $request->all();
+
+        foreach ($input['image'] as $ima) {
+            # code...
+            $gallery['image'] = $this->MoveImage($ima);
+            $gallery['product_id'] = $id;
+
+            Image::create($gallery);
+        }
+
+
+        return redirect()->back()->with('success',trans('admin.addedsuccess'));
+
+    }
+    public function destroyProductImage(Request $request)
+    {
+
+        $request->validate([
+            'deleteImages' => 'required',
+        ]);
+
+        $input = $request->all();
+
+        foreach ($input['deleteImages'] as $image_id) {
+
+            image::find($image_id)->delete();
+
+        }
+
+
+        return redirect()->back()->with('success',trans('admin.deleteSuccess'));
+
+    }
+
 }

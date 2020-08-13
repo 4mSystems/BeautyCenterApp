@@ -55,7 +55,11 @@ Route::group(['middleware' => ['auth','salon']],
 //         Product Page
         Route::resource('products', 'Salons\productsController');
         Route::get('products/{id}/delete', 'Salons\productsController@destroy');
+        Route::get('product_images/{id}', 'Salons\productsController@showProductImage');
+        Route::post('Add_product_images/{id}','Salons\productsController@storeProductImage');
+        Route::post('destroy_Product_images','Salons\productsController@destroyProductImage');
 
+        Route::resource('salon_profile', 'salons\salonProfileController');
 
 
     });
@@ -64,7 +68,7 @@ Route::group(['middleware' => ['auth','salon']],
 Route::group(['middleware' => ['auth']],
     function () {
 //lang
-        Route::resource('salon_profile', 'salons\salonProfileController');
+
 
     });
 
