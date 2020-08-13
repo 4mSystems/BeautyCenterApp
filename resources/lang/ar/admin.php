@@ -192,7 +192,10 @@ return [
     'rejectReservation' => 'رفض',
     'cancelReservation' => 'إلغاء',
     'finishReservation' => 'انتهاء',
-
-
+    //Offers
+    'nav_offers' => 'العروض',
+    'products_offers' => 'عروض المنتجات',
+    'services_offers' => 'عروض الخدمات',
+    'delete_offer' => 'إلغاء العرض',
 ];
 

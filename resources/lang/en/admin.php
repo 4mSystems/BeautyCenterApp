@@ -7,7 +7,7 @@ return [
     'public_save' => 'Save',
     'public_cancel' => 'Cancel',
     'Public_HashNum' => '#',
-    'deleteConfirmation'=>'Are you sure to delete the category and all the products and services included?',
+    'deleteConfirmation' => 'Are you sure to delete the category and all the products and services included?',
 
     //nav
 
@@ -38,10 +38,10 @@ return [
     'serv_cat_name' => 'Category name',
     'serv_update' => 'edit service',
     'serv_choose_Category' => 'choose Category',
-    'confirmation'=>'are you sure to delete?',
-    'offer'=>'Offer',
-    'prod_Offer'=>'product Offer',
-    'ser_Offer'=>'service Offer',
+    'confirmation' => 'are you sure to delete?',
+    'offer' => 'Offer',
+    'prod_Offer' => 'product Offer',
+    'ser_Offer' => 'service Offer',
 
     //    Products
     'prod_title' => 'Products',
@@ -101,7 +101,7 @@ return [
 
     'add_new_sponser' => 'add new sponser',
     'product' => 'product',
-    'service'=>'Service',
+    'service' => 'Service',
     'paymentAmount' => 'payment Amount',
     'paymentInfo' => 'payment Info',
     'status' => 'status',
@@ -188,7 +188,12 @@ return [
     'finishReservation' => 'Finish',
 
     // Reviews
-    'reviews'=>'Reviews',
-    'write_review'=>'Write your review',
+    'reviews' => 'Reviews',
+    'write_review' => 'Write your review',
+    //Offers
+    'nav_offers' => 'Offers',
+    'products_offers' => 'Products offers',
+    'services_offers' => 'Services offers',
+    'delete_offer' => 'Delete offer',
 ];
 

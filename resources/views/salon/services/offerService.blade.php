@@ -31,26 +31,22 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <strong>{{trans('admin.name')}}</strong>
-                            {{ Form::label('name',$user_data->name,["class"=>"form-control" ,"required"]) }}
-                            {{ Form::hidden('name',$user_data->name,["class"=>"form-control" ,"required"]) }}
+                              {{ Form::hidden('name',$user_data->name,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.name')]) }}
                         </div>
 
 
                         <div class="form-group">
-{{--                            <strong>{{trans('admin.serv_time')}}</strong>--}}
-                            {{ Form::hidden('time',$user_data->time,["class"=>"form-control" ,"required"]) }}
+                             {{ Form::hidden('time',$user_data->time,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.serv_time')]) }}
                         </div>
 
                         <div class="form-group">
                             <strong>{{trans('admin.serv_price_before')}}</strong>
                             {{ Form::hidden('price_before',$user_data->price_before,["class"=>"form-control" ,"required"]) }}
-                            {{ Form::label('price_before',$user_data->price_before,["class"=>"form-control" ,"required"]) }}
+                            {{ Form::label('price_before',$user_data->price_before,["class"=>"form-control round" ,"required"]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.serv_price_after')}}</strong>
-                            {{ Form::number('price_after',$user_data->price_after,["class"=>"form-control","step"=>"0.01" ,"required"]) }}
+                             {{ Form::number('price_after',$user_data->price_after,["class"=>"form-control round","step"=>"0.01" ,"required",'placeholder'=>trans('admin.serv_price_after')]) }}
                         </div>
 
 
