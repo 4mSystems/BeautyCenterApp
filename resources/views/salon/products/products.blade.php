@@ -28,6 +28,9 @@
 
                 <!-- stats -->
                 <div class="row">
+                    @include('layouts.errors')
+
+                    @include('layouts.messages')
 
                     <div class="card">
                         <div class="card-header">
@@ -45,9 +48,6 @@
 
                             <div class="card-body collapse in">
 
-                                @include('layouts.errors')
-
-                                @include('layouts.messages')
 
 
                                 <div class="table-responsive">
@@ -58,7 +58,7 @@
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_price_before')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_cat_name')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.salon')}}</th>
+{{--                                            <th class="text-lg-center">{{trans('admin.salon')}}</th>--}}
                                             <th class="text-lg-center"></th>
 
                                         </tr>
@@ -70,8 +70,15 @@
                                                 <td class="text-lg-center">{{$cat->name}}</td>
                                                 <td class="text-lg-center">{{$cat->price_before}}</td>
                                                 <td class="text-lg-center">{{$cat->getCategory->name}}</td>
-                                                <td class="text-lg-center">{{$cat->getSalon->name}}</td>
-                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'
+{{--                                                <td class="text-lg-center">{{$cat->getSalon->name}}</td>--}}
+
+                                                <td class="text-lg-center">
+
+                                                    <a class='btn btn-raised btn-primary btn-sml'
+                                                       href=" {{url('product_images/'.$cat->id)}}"><i
+                                                            class="icon-image4" data-toggle="tooltip" data-placement="top" title="{{trans('admin.prod_showImage')}}"></i></a>
+
+                                                    <a class='btn btn-raised btn-success btn-sml'
                                                                               href=" {{url('products/'.$cat->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
 

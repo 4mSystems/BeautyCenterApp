@@ -116,8 +116,6 @@ class ManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-//        dd($request->all());
         $data = $this->validate(\request(),
             [
                 'name' => 'required|unique:users,name,' . $id,
@@ -149,13 +147,6 @@ class ManagerController extends Controller
         return redirect(url('managers'));
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         User::where('id',$id)->delete();

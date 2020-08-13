@@ -45,12 +45,17 @@ return [
     'prod_add' => 'Add New Product',
     'prod_update' => 'edit product',
     'prod_image' => 'main product image',
+    'prod_showImage' => 'product image',
+    'prod_image_choose' => 'Choose Images',
+    'prod_photos' => 'Images',
+    'prod_deleteChoosen' => 'Delete Choosen',
 
 //messages
     'addedsuccess' => 'Data Added Successfully',
     'statuschanged' => 'Status Changed Successfully',
     'deleteSuccess' => 'Data Deleted Successfully',
     'updatSuccess' => 'Data Updated Successfully',
+    'photoAddedSuccess' => 'Image added Successfuly',
 
 
     //Home PAge
@@ -60,6 +65,17 @@ return [
     'price' => 'price',
     'period' => 'period',
     'desc' => 'description',
+
+//    Profile page
+    'prof_title' => 'Profile page',
+    'prof_basic_info' => 'Basic info',
+    'prof_fullName' => 'Full Name',
+    'prof_Opening_Time' => 'Opening Time',
+    'prof_open_from' => 'From',
+    'prof_open_to' => 'To',
+    'prof_Password' => 'Password',
+    'prof_Your_password' => 'Your password',
+
 
 //    Subscribers page
     'Sub_title' => 'Subscribers',
