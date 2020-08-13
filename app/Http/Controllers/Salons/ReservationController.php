@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Salons;
 
 use App\Reservation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -68,7 +69,18 @@ class ReservationController extends Controller
     public function edit($id, $status)
     {
         $input['status'] = $status;
-        $data = $this->objectName::findOrFail($id)->update($input);
+        if ($status == 'canceled') {
+            $today_date = Carbon::now();
+            $today_string = $today_date->toDateString();
+            $reserve = $this->objectName::where('id', $id)->first();
+            if ($today_string === $reserve->date) {
+//                if (strtotime($reserve->time) >= strtotime($today_date->toTimeString())){
+                dd((new Carbon($reserve->time))->diff(new Carbon($today_date->toTimeString()))->format('%H:%i'));
+//                }
+            } else {
+                $data = $this->objectName::findOrFail($id)->update($input);
+            }
+        }
         if ($data) {
             session()->flash('success', trans('admin.statuschanged'));
         } else {

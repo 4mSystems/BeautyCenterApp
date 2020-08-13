@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{url('reservations')}}">{{trans('admin.nav_reservations')}}</a>
+                <li class="breadcrumb-item">{{trans('admin.nav_reservations')}}
                 </li>
 
             </ol>
@@ -38,7 +38,9 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"
-                                       href="{{url('reservation/waiting')}}">{{trans('admin.waiting')}}</a>
+                                       href="{{url('reservations')}}">{{trans('admin.all')}}</a><a
+                                        class="dropdown-item"
+                                        href="{{url('reservation/waiting')}}">{{trans('admin.waiting')}}</a>
                                     <a class="dropdown-item"
                                        href="{{url('reservation/accepted')}}">{{trans('admin.accepted')}}</a>
                                     <a class="dropdown-item"
@@ -92,7 +94,8 @@
                                                 @else
                                                     <td class="text-lg-center">{{$reserve->getProduct->name}}</td>
                                                 @endif
-                                                <td class="text-lg-center"><a href="{{url('reviews/'.$reserve->getUser->id)}}"
+                                                <td class="text-lg-center"><a
+                                                        href="{{url('reviews/'.$reserve->getUser->id)}}"
                                                         class="info">{{$reserve->getUser->name}}   </a></td>
                                                 <td class="text-lg-center">{{$reserve->time}}</td>
                                                 <td class="text-lg-center">{{$reserve->date}}</td>

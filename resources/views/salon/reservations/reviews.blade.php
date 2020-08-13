@@ -66,16 +66,20 @@
                                         alt="unlock-user" width="114" height="113"
                                         class="rounded-circle  center-block">
                                     <h5 class="card-title mt-1">{{$user->name}}</h5>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
+                                    @for($i=0;$i<5 ; $i++)
+                                        <span class="fa fa-star {{$i<$totalReviews?'checked':''}}"></span>
+                                    @endfor
                                 </div>
-                                @foreach($reviews as $review)
-                                    <blockquote class="blockquote border-left-primary border-left-3">
-                                        <p class="mb-0">{{$review->comment}}</p>
-                                    </blockquote>
+                                @foreach($reviews as $key=> $review)
+                                    @if($key%2==0)
+                                        <blockquote class="blockquote border-left-primary border-left-3">
+                                            <p class="mb-0">{{$review->comment}}</p>
+                                        </blockquote>
+                                    @else
+                                        <blockquote class="blockquote border-left-red border-left-3">
+                                            <p class="mb-0">{{$review->comment}}</p>
+                                        </blockquote>
+                                    @endif
                                     <hr>
                                 @endforeach
                                 <div class="card-block">
