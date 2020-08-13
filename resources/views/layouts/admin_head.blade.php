@@ -47,11 +47,12 @@
                                 <img src="{{ asset('/app-assets/images/portrait/small/12.jpg') }}" alt="avatar"><i></i></span>
                             <span class="user-name">{{Auth::user()->name}}</span></a>
                         <div class="dropdown-menu dropdown-menu-right">
-
+                            @if(Auth::user()->type == "salon")
                             <a href="{{url('salon_profile')}}" class="dropdown-item"><i class="icon-head">
                                 </i> {{trans('admin.prof_title')}}</a>
 
                             <div class="dropdown-divider"></div>
+                            @endif
                               <a class="dropdown-item" href="{{ route('logout') }}"
                                                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
