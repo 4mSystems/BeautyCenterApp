@@ -26,7 +26,7 @@ class productsController extends Controller
     }
     public function index()
     {
-        $product = Product::where('salon_id',Auth::user()->id)->get();
+        $product = Product::where('salon_id',Auth::user()->id)->paginate(10);
 //
         return view($this->folderView.'products',\compact('product'));
 
