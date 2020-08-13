@@ -9,8 +9,7 @@ return [
     'public_cancel' => 'Cancel',
     'Public_HashNum' => '#',
     'Public_See_more' => 'See more',
-    'deleteConfirmation'=>'Are you sure to delete the category and all the products and services included?',
-
+    'deleteConfirmation' => 'Are you sure to delete the category and all the products and services included?',
     // nav
     'nav_home' => 'Dashboard',
     'nav_pages' => 'Manager Controll',
@@ -39,11 +38,11 @@ return [
     'serv_cat_name' => 'Category name',
     'serv_update' => 'edit service',
     'serv_choose_Category' => 'choose Category',
-    'confirmation'=>'are you sure to delete?',
-    'offer'=>'Offer',
-    'prod_Offer'=>'product Offer',
-    'ser_Offer'=>'service Offer',
-    'CannotCancel'=>'Cannot Cancel reservation',
+    'confirmation' => 'are you sure to delete?',
+    'offer' => 'Offer',
+    'prod_Offer' => 'product Offer',
+    'ser_Offer' => 'service Offer',
+    'CannotCancel' => 'Cannot Cancel reservation',
 
     // Products
     'prod_title' => 'Products',
@@ -55,7 +54,7 @@ return [
     'prod_photos' => 'Images',
     'prod_deleteChoosen' => 'Delete Choosen',
 
-     // messages
+    // messages
     'addedsuccess' => 'Data Added Successfully',
     'statuschanged' => 'Status Changed Successfully',
     'deleteSuccess' => 'Data Deleted Successfully',
@@ -104,14 +103,14 @@ return [
     // sponsero
     'add_new_sponser' => 'add new sponser',
     'product' => 'product',
-    'service'=>'Service',
+    'service' => 'Service',
     'paymentAmount' => 'payment Amount',
     'paymentInfo' => 'payment Info',
     'status' => 'status',
     'showDetails' => 'Show Details',
     'package' => 'package',
 
-     // detailes Subscriber page
+    // detailes Subscriber page
     'Sub_Details' => 'package Details',
     'addDetail' => 'Add New Detail',
     'limit' => 'limit',
@@ -174,7 +173,7 @@ return [
     'loginRemember' => 'Remember Me',
     'logout' => 'logout',
 
-     // reservations
+    // reservations
     'client_name' => ' Client name',
     'reservation_date' => 'Date',
     'reservation_type' => 'Type',
@@ -191,7 +190,12 @@ return [
     'finishReservation' => 'Finish',
 
     // Reviews
-    'reviews'=>'Reviews',
-    'write_review'=>'Write your review',
+    'reviews' => 'Reviews',
+    'write_review' => 'Write your review',
+    //Offers
+    'nav_offers' => 'Offers',
+    'products_offers' => 'Products offers',
+    'services_offers' => 'Services offers',
+    'delete_offer' => 'Delete offer',
 ];
 

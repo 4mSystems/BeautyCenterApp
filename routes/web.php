@@ -68,6 +68,9 @@ Route::group(['middleware' => ['auth', 'salon']],
 
         Route::resource('salon_profile', 'Salons\salonProfileController');
 
+//Offers
+        Route::resource('offers', 'Salons\OffersController');
+        Route::get('offers/{id}/{type}', 'Salons\OffersController@update');
 
     });
 
