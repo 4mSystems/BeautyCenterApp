@@ -40,6 +40,7 @@ return [
     'serv_choose_Category' => 'أختر تصنيف',
     'confirmation' => 'هل انت متاكد؟',
     'offer'=>'اضافه عرض',
+    'CannotCancel'=>'لا يمكن الغاء الحجز',
 
     'prod_Offer'=>' اضافه عرض للمنتج',
     'ser_Offer'=>' اضافة عرض للخدمه',

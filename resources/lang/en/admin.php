@@ -42,6 +42,7 @@ return [
     'offer'=>'Offer',
     'prod_Offer'=>'product Offer',
     'ser_Offer'=>'service Offer',
+    'CannotCancel'=>'Cannot Cancel reservation',
 
     //    Products
     'prod_title' => 'Products',
