@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth', 'salon']],
         Route::get('products/{id}/delete', 'Salons\productsController@destroy');
         //         Reservation Page
         Route::resource('reservations', 'Salons\ReservationController');
+        Route::get('reservations/{id}/{status}', 'Salons\ReservationController@edit');
+        Route::get('reservation/{status}', 'Salons\ReservationController@getReservationByStatus');
+
         // Reviews Page
         Route::resource('reviews', 'Salons\ReviewsController');
         Route::get('product_images/{id}', 'Salons\productsController@showProductImage');

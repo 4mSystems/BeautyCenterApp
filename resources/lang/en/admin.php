@@ -173,6 +173,17 @@ return [
     'reservation_date' => 'Date',
     'reservation_type' => 'Type',
     'reservation_status' => 'Status',
+    'all' => 'All',
+    'waiting' => 'Waiting',
+    'accepted' => 'Accepted',
+    'rejected' => 'Rejected',
+    'canceled' => 'Canceled',
+    'finished' => 'Finished',
+    'acceptReservation' => 'Accept',
+    'rejectReservation' => 'Reject',
+    'cancelReservation' => 'Cancel',
+    'finishReservation' => 'Finish',
+
     // Reviews
     'reviews'=>'Reviews',
     'write_review'=>'Write your review',

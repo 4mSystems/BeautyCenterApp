@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Salons;
 
 use App\Reviews;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,6 +19,7 @@ class ReviewsController extends Controller
         $this->folderView = 'salon.reservations.';
 
     }
+
     public function index()
     {
         return view($this->folderView . 'reviews');
@@ -37,29 +39,42 @@ class ReviewsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate(\request(),
+            [
+                'comment' => 'required',
+                'user_id' => 'required|exists:users,id',
+            ]);
+        $data['rate'] = '3';
+        $this->objectName::create($data);
+        session()->flash('success', trans('admin.addedsuccess'));
+        return redirect(url('reviews/'.$request->user_id));
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $reviews = Reviews::where('user_id', $id)->get();
+        return view($this->folderView . 'reviews', compact('user', 'reviews'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,8 +85,8 @@ class ReviewsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -82,7 +97,7 @@ class ReviewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

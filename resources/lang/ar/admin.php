@@ -7,7 +7,7 @@ return [
     'public_save' => 'حفظ',
     'public_cancel' => 'الغاء',
     'Public_HashNum' => '#',
-    'deleteConfirmation'=>'هل انت متاكد من حذف التصنيف وكامل المنتجات والخدمات بداخلة؟',
+    'deleteConfirmation' => 'هل انت متاكد من حذف التصنيف وكامل المنتجات والخدمات بداخلة؟',
 
     //nav
 
@@ -38,7 +38,7 @@ return [
     'serv_cat_name' => 'اسم التصنيف',
     'serv_update' => 'تعديل الخدمة',
     'serv_choose_Category' => 'أختر تصنيف',
-    'confirmation'=>'هل انت متاكد؟',
+    'confirmation' => 'هل انت متاكد؟',
 
     //    Products
     'prod_title' => 'المنتجات',
@@ -56,6 +56,7 @@ return [
     'statuschanged' => 'تم تعديل الحالة',
     'deleteSuccess' => 'تم الحذف بنجاح',
     'updatSuccess' => 'تم التعديل بنجاح',
+    'not_found' => 'حدث خطأ ما يرجى المحاولة مره اخرى',
 
 
     //Home PAge
@@ -93,14 +94,13 @@ return [
 
     'add_new_sponser' => 'اضافة ممول جديد',
     'product' => 'منتج',
-    'service'=>'خدمة',
+    'service' => 'خدمة',
 
     'paymentAmount' => 'مبلغ الدفع',
     'paymentInfo' => 'بيانات الدفع',
     'status' => 'الحالة',
     'showDetails' => 'اظهار التفاصيل',
     'package' => 'الباقة',
-    'statuschanged' => ' تم تغيير الحاله',
 
     //    Categories page
     'cat_title' => 'التصنيفات',
@@ -177,6 +177,16 @@ return [
     'reservation_date' => 'تاريخ الحجز',
     'reservation_type' => 'النوع',
     'reservation_status' => 'الحاله',
+    'all' => 'الكل',
+    'waiting' => 'فى الانتظار',
+    'accepted' => 'تم القبول',
+    'rejected' => 'تم الرفض',
+    'canceled' => 'تم الالغاء',
+    'finished' => 'تم الانتهاء',
+    'acceptReservation' => 'قبول',
+    'rejectReservation' => 'رفض',
+    'cancelReservation' => 'إلغاء',
+    'finishReservation' => 'انتهاء',
 
 
 ];

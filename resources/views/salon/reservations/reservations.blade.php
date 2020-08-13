@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.nav_reservations')}}
+                <li class="breadcrumb-item"><a href="{{url('reservations')}}">{{trans('admin.nav_reservations')}}</a>
                 </li>
 
             </ol>
@@ -31,6 +31,24 @@
 
                     <div class="card">
                         <div class="card-header">
+                            <div class="btn-group mr-1 mb-1">
+                                <button type="button" class="btn btn-outline-secondary btn-min-width dropdown-toggle"
+                                        data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">{{trans('admin.'.session('reser_status'))}}
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item"
+                                       href="{{url('reservation/waiting')}}">{{trans('admin.waiting')}}</a>
+                                    <a class="dropdown-item"
+                                       href="{{url('reservation/accepted')}}">{{trans('admin.accepted')}}</a>
+                                    <a class="dropdown-item"
+                                       href="{{url('reservation/rejected')}}">{{trans('admin.rejected')}}</a>
+                                    <a class="dropdown-item"
+                                       href="{{url('reservation/canceled')}}">{{trans('admin.canceled')}}</a>
+                                    <a class="dropdown-item"
+                                       href="{{url('reservation/finished')}}">{{trans('admin.finished')}}</a>
+                                </div>
+                            </div>
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -52,6 +70,7 @@
                                     <table class="table table-bordered mb-0">
                                         <thead>
                                         <tr>
+                                            <th class="text-lg-center">#</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.client_name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_time')}}</th>
@@ -63,41 +82,56 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {{--                                        @foreach($categories as $cat)--}}
-                                        {{--                                            <tr>--}}
-                                        {{--                                                <th scope="row" class="text-lg-center">{{$cat->id}}</th>--}}
-                                        {{--                                                <td class="text-lg-center">{{$cat->name}}</td>--}}
-                                        {{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
-                                        {{--                                                <td class="text-lg-center">{{$cat->email}}</td>--}}
-                                        {{--                                                <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'--}}
-                                        {{--                                                                              href=" {{url('services/'.$cat->id.'/edit')}}"><i--}}
-                                        {{--                                                            class="icon-edit"></i></a>--}}
+                                        @foreach($reservations as $reserve)
+                                            <tr>
+                                                <th scope="row"
+                                                    class="text-lg-center">{{$reserve->id}}</th>
+                                                @if($reserve->service_id !=null)
+                                                    <td class="text-lg-center">{{$reserve->getService->name}}</td>
+                                                @else
+                                                    <td class="text-lg-center">{{$reserve->getProduct->name}}</td>
+                                                @endif
+                                                <td class="text-lg-center"><a href="{{url('reviews/'.$reserve->getUser->id)}}"
+                                                        class="info">{{$reserve->getUser->name}}   </a></td>
+                                                <td class="text-lg-center">{{$reserve->time}}</td>
+                                                <td class="text-lg-center">{{$reserve->date}}</td>
+                                                <td class="text-lg-center">{{trans('admin.'.$reserve->type)}}</td>
+                                                <td class="text-lg-center">{{trans('admin.'.$reserve->status)}}</td>
+                                                <td class="text-lg-center">
+                                                    @if($reserve->status=='waiting')
+                                                        <a data-toggle="tooltip"
+                                                           data-placement="top"
+                                                           title="{{trans('admin.acceptReservation')}}"
+                                                           class='btn btn-raised btn-outline-warning btn-sml'
+                                                           href=" {{url('reservations/'.$reserve->id.'/accepted')}}">
+                                                            <i class="icon-check2"></i>
+                                                        </a>
+                                                        <a data-toggle="tooltip"
+                                                           data-placement="top"
+                                                           title="{{trans('admin.rejectReservation')}}"
+                                                           class='btn btn-raised btn-outline-danger btn-sml'
+                                                           href=" {{url('reservations/'.$reserve->id.'/rejected')}}"><i
+                                                                class="icon-cancel-circle"></i></a>
+                                                    @elseif($reserve->status=='accepted')
+                                                        <a data-toggle="tooltip"
+                                                           data-placement="top"
+                                                           title="{{trans('admin.cancelReservation')}}"
+                                                           class='btn btn-raised btn-danger btn-sml'
+                                                           href=" {{url('reservations/'.$reserve->id.'/canceled')}}"><i
+                                                                class="icon-android-cancel"></i>
+                                                        </a>
+                                                        <a data-toggle="tooltip"
+                                                           data-placement="top"
+                                                           title="{{trans('admin.finishReservation')}}"
+                                                           class='btn btn-raised btn-success btn-sml'
+                                                           href=" {{url('reservations/'.$reserve->id.'/finished')}}"><i
+                                                                class="icon-check2"></i>
+                                                        </a>
+                                                    @endif
+                                                </td>
 
-                                        {{--                                                    <form method="get" id='delete-form-{{ $cat->id }}'--}}
-                                        {{--                                                          action="{{url('services/'.$cat->id.'/delete')}}"--}}
-                                        {{--                                                          style='display: none;'>--}}
-                                        {{--                                                    {{csrf_field()}}--}}
-                                        {{--                                                    <!-- {{method_field('delete')}} -->--}}
-                                        {{--                                                    </form>--}}
-                                        {{--                                                    <button onclick="if(confirm('are you sure to delete this record?'))--}}
-                                        {{--                                                        {--}}
-                                        {{--                                                        event.preventDefault();--}}
-                                        {{--                                                        document.getElementById('delete-form-{{ $cat->id }}').submit();--}}
-                                        {{--                                                        }else {--}}
-                                        {{--                                                        event.preventDefault();--}}
-                                        {{--                                                        }--}}
-
-                                        {{--                                                        "--}}
-                                        {{--                                                            class='btn btn-raised btn-danger btn-sml' href=" "><i--}}
-                                        {{--                                                            class="icon-android-delete" aria-hidden='true'>--}}
-                                        {{--                                                        </i>--}}
-
-
-                                        {{--                                                    </button>--}}
-                                        {{--                                                </td>--}}
-
-                                        {{--                                            </tr>--}}
-                                        {{--                                        @endforeach--}}
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
 
