@@ -1,16 +1,17 @@
 <?php
 
 return [
+    // Public translation
     'public_web_title' => 'عنوان الموقع',
     'public_Add' => 'أضافة',
     'public_Edit' => 'تعديل',
     'public_save' => 'حفظ',
     'public_cancel' => 'الغاء',
     'Public_HashNum' => '#',
+    'Public_See_more' => 'رؤية المزيد',
     'deleteConfirmation' => 'هل انت متاكد من حذف التصنيف وكامل المنتجات والخدمات بداخلة؟',
 
-    //nav
-
+    // nav
     'nav_home' => 'الصفحة الرئيسية',
     'nav_pages' => 'تحكم المشرفين',
     'nav_Manager' => 'المديرين',
@@ -22,13 +23,13 @@ return [
     'nav_prod' => 'المنتجات',
     'nav_reservations' => 'الحجوزات',
 
-//   payment status
+     // payment status
     'noStatus' => 'لم يتم الدفع',
     'yesStatus' => 'تم الدفع',
     'selectType' => 'اختر النوع',
 
 
-//    services
+    // services
     'serv_title' => 'الخدمات',
     'serv_add' => 'اضافة خدمة جديدة',
     'serv_time' => 'الوقت',
@@ -40,7 +41,7 @@ return [
     'serv_choose_Category' => 'أختر تصنيف',
     'confirmation' => 'هل انت متاكد؟',
 
-    //    Products
+    // Products
     'prod_title' => 'المنتجات',
     'prod_add' => 'اضافة منتج جديد',
     'prod_update' => 'تعديل المنتج',
@@ -51,7 +52,7 @@ return [
     'prod_deleteChoosen' => 'حذف المحدد',
 
 
-//messages
+    // messages
     'addedsuccess' => 'تم الاضافة بنجاح',
     'statuschanged' => 'تم تعديل الحالة',
     'deleteSuccess' => 'تم الحذف بنجاح',
@@ -59,16 +60,16 @@ return [
     'not_found' => 'حدث خطأ ما يرجى المحاولة مره اخرى',
 
 
-    //Home PAge
+    // Home PAge
     'home' => 'الصفحة الرئيسية',
-
     'name' => 'الاسم',
     'price' => 'السعر',
     'period' => 'الفترة',
     'desc' => 'الوصف',
+    'home_par_chart' => 'الشكل البيانى',
 
 
-//    Profile page
+    // Profile page
     'prof_title' => 'الصفحة الشخصية',
     'prof_basic_info' => 'المعلومات الاساسية',
     'prof_fullName' => 'الاسم بالكامل',
@@ -76,33 +77,31 @@ return [
     'prof_open_from' => 'من',
     'prof_open_to' => 'الى',
     'prof_Password' => 'الرقم السرى',
-    'prof_Your_password' => 'رقمك السرى',
+    'prof_old_password' => 'الرقم السرى القديم',
+    'prof_new_password' => 'الرقم السرى الجديد',
+    'prof_confirm_password' => 'تأكيد االرقم السرى',
 
 
-//    Subscribers page
+    // Subscribers page
     'Sub_title' => 'الباقات',
     'subAdd' => 'اضافة مشترك جديد',
     'Add_sub_title' => 'اضافة مشترك',
     'Update_Sub_title' => ' تعديل الباقة ',
     'salon' => 'صالون',
     'updated' => 'تم التعديل بنجاح',
-
     'editPackge' => 'تعديل الباقة',
 
-
-    //sponser
-
+    // sponser
     'add_new_sponser' => 'اضافة ممول جديد',
     'product' => 'منتج',
     'service' => 'خدمة',
-
     'paymentAmount' => 'مبلغ الدفع',
     'paymentInfo' => 'بيانات الدفع',
     'status' => 'الحالة',
     'showDetails' => 'اظهار التفاصيل',
     'package' => 'الباقة',
 
-    //    Categories page
+    // Categories page
     'cat_title' => 'التصنيفات',
     'add_cat' => 'اضافة تصنيف جديد',
     'type' => 'النوع',
@@ -110,8 +109,7 @@ return [
     'update_cat' => 'تعديل التصنيف',
     'cat_image' => 'صورة التصنيف',
 
-//    detailes Subscriber page
-
+    // detailes Subscriber page
     'Sub_Details' => 'تفاصيل الباقه',
     'addDetail' => 'اضافة تفاصيل جديدة',
     'limit' => 'العدد',
@@ -143,7 +141,7 @@ return [
     'description' => 'الوصف',
 
 
-//    Manager page
+    // Manager page
     'Add_Manager' => 'اضافة مدير جديد',
     'addEmployee' => 'اضافة موظف جديد',
     'managerName' => 'اسم المدير',
@@ -162,7 +160,7 @@ return [
     'deactive' => 'غير مفعل',
     'payStatus' => 'حالة الدفع',
 
-    //login page
+    // login page
     'loginTitle' => 'صفحة تسجيل الدخول',
     'loginEmail' => 'ادخل بريدك الالكترونى',
     'loginPassword' => 'ادخل الرقم السرى',
@@ -172,7 +170,8 @@ return [
     'loginSign' => 'تسجيل جديد',
     'loginRemember' => 'تذكرنى',
     'logout' => 'تسجيل الخروج',
-//reservations
+
+    // reservations
     'client_name' => 'إسم العميل',
     'reservation_date' => 'تاريخ الحجز',
     'reservation_type' => 'النوع',

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'added_by',
         'address',
         'package_id',
+        'password_confirmation',
         'salon_payment_status'
     ];
     public function  getPackage(){

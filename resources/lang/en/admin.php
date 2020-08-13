@@ -1,16 +1,17 @@
 <?php
 
 return [
+    // Public translation
     'public_web_title' => 'WebSite Title',
     'public_Add' => 'Add',
     'public_Edit' => 'Edit',
     'public_save' => 'Save',
     'public_cancel' => 'Cancel',
     'Public_HashNum' => '#',
+    'Public_See_more' => 'See more',
     'deleteConfirmation'=>'Are you sure to delete the category and all the products and services included?',
 
-    //nav
-
+    // nav
     'nav_home' => 'Dashboard',
     'nav_pages' => 'Manager Controll',
     'nav_Manager' => 'Admins',
@@ -23,12 +24,12 @@ return [
     'nav_reservations' => 'Reservations',
 
 
-//   payment status
+    // payment status
     'noStatus' => 'payment not done',
     'yesStatus' => 'payment done',
     'selectType' => 'select type',
 
-//    services
+    // services
     'serv_title' => 'Services',
     'serv_add' => 'Add New Service',
     'serv_time' => 'Time',
@@ -40,7 +41,7 @@ return [
     'serv_choose_Category' => 'choose Category',
     'confirmation'=>'are you sure to delete?',
 
-    //    Products
+    // Products
     'prod_title' => 'Products',
     'prod_add' => 'Add New Product',
     'prod_update' => 'edit product',
@@ -50,7 +51,7 @@ return [
     'prod_photos' => 'Images',
     'prod_deleteChoosen' => 'Delete Choosen',
 
-//messages
+     // messages
     'addedsuccess' => 'Data Added Successfully',
     'statuschanged' => 'Status Changed Successfully',
     'deleteSuccess' => 'Data Deleted Successfully',
@@ -58,15 +59,15 @@ return [
     'photoAddedSuccess' => 'Image added Successfuly',
 
 
-    //Home PAge
+    // Home PAge
     'home' => 'Home page',
-
     'name' => 'name',
     'price' => 'price',
     'period' => 'period',
     'desc' => 'description',
+    'home_par_chart' => 'Bar Chart',
 
-//    Profile page
+    // Profile page
     'prof_title' => 'Profile page',
     'prof_basic_info' => 'Basic info',
     'prof_fullName' => 'Full Name',
@@ -74,10 +75,12 @@ return [
     'prof_open_from' => 'From',
     'prof_open_to' => 'To',
     'prof_Password' => 'Password',
-    'prof_Your_password' => 'Your password',
+    'prof_old_password' => 'Old password',
+    'prof_new_password' => 'New password',
+    'prof_confirm_password' => 'Comfirm password',
 
 
-//    Subscribers page
+    // Subscribers page
     'Sub_title' => 'Subscribers',
     'subAdd' => 'Add new Subscriber',
     'Add_sub_title' => 'Add  Subscriber',
@@ -86,7 +89,7 @@ return [
     'updated' => 'updated succesfully',
     'editPackge' => 'edit Package',
 
-    //    Categories page
+    // Categories page
     'cat_title' => 'Categories',
     'add_cat' => 'Add New Category',
     'type' => 'type',
@@ -94,8 +97,7 @@ return [
     'update_cat' => 'edit category',
     'cat_image' => 'category image',
 
-    //sponsero
-
+    // sponsero
     'add_new_sponser' => 'add new sponser',
     'product' => 'product',
     'service'=>'Service',
@@ -105,8 +107,7 @@ return [
     'showDetails' => 'Show Details',
     'package' => 'package',
 
-//    detailes Subscriber page
-
+     // detailes Subscriber page
     'Sub_Details' => 'package Details',
     'addDetail' => 'Add New Detail',
     'limit' => 'limit',
@@ -138,7 +139,7 @@ return [
     'description' => 'Description',
 
 
-//    Manager page
+    // Manager page
     'Add_Manager' => 'Add New Admin',
     'addEmployee' => 'Add New Employee',
     'managerName' => 'Admin Name',
@@ -158,7 +159,7 @@ return [
     'payStatus' => 'Payment status',
 
 
-    //login page
+    // login page
     'loginTitle' => 'Login to your account',
     'loginEmail' => 'Your Email',
     'loginPassword' => 'Enter Password',
@@ -168,7 +169,8 @@ return [
     'loginSign' => 'Sign Up',
     'loginRemember' => 'Remember Me',
     'logout' => 'logout',
-//reservations
+
+     // reservations
     'client_name' => ' Client name',
     'reservation_date' => 'Date',
     'reservation_type' => 'Type',
