@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="form-group">
-                             {{ Form::select('cat_id',App\Category::pluck('name','id'),old('cat_id')
+                             {{ Form::select('cat_id',App\Category::where('type','product')->pluck('name','id'),old('cat_id')
                              ,["class"=>"form-control dept_id round" ,'placeholder'=>trans('admin.serv_choose_Category') ]) }}
                         </div>
 

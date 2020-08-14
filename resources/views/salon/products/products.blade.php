@@ -89,9 +89,18 @@
                                                        href=" {{url('product_images/'.$cat->id)}}"><i
                                                             class="icon-image4" data-toggle="tooltip" data-placement="top" title="{{trans('admin.prod_showImage')}}"></i></a>
 
+                                                    <a data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="{{trans('admin.setAds')}}"
+
+                                                       class='btn btn-warning btn-info btn-sml'
+                                                       href="{{url('sponser/'.$cat->id.'/product/SetAds')}}"><i
+                                                            class="icon-android-star-outline"></i></a>
+
                                                     <a class='btn btn-raised btn-success btn-sml'
                                                                               href=" {{url('products/'.$cat->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
+
 
                                                     <form method="get" id='delete-form-{{ $cat->id }}'
                                                           action="{{url('products/'.$cat->id.'/delete')}}"
@@ -99,7 +108,7 @@
                                                     {{csrf_field()}}
                                                     <!-- {{method_field('delete')}} -->
                                                     </form>
-                                                    <button onclick="if(confirm('{{trans('admin.confirmation')}}'))
+                                                    <button  onclick="if(confirm('{{trans('admin.confirmation')}}'))
                                                         {
                                                         event.preventDefault();
                                                         document.getElementById('delete-form-{{ $cat->id }}').submit();

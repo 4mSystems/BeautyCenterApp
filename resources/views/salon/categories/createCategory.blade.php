@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-group">
-                            {{ Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.type')],null ,
+                            {{ Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.service')],null ,
                            ['class'=>'form-control round' ,"required",null]) }}
                         </div>
                         <div class="form-group">

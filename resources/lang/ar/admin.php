@@ -22,6 +22,7 @@ return [
     'nav_serv' => 'الخدمات',
     'nav_prod' => 'المنتجات',
     'nav_reservations' => 'الحجوزات',
+    'nav_product_sponsered' => 'اعلانات المنتجات',
 
      // payment status
     'noStatus' => 'لم يتم الدفع',
@@ -64,7 +65,8 @@ return [
     'deleteSuccess' => 'تم الحذف بنجاح',
     'updatSuccess' => 'تم التعديل بنجاح',
     'not_found' => 'حدث خطأ ما يرجى المحاولة مره اخرى',
-
+    'adsAddedSuccess' => 'تم اضافة الاعلان بتجاح',
+    'adsExisting' => 'هذا المنتج يوجد له اعلان بالفعل',
 
     // Home PAge
     'home' => 'الصفحة الرئيسية',
@@ -84,8 +86,8 @@ return [
     'prof_open_to' => 'الى',
     'prof_Password' => 'الرقم السرى',
     'prof_old_password' => 'الرقم السرى القديم',
-    'prof_new_password' => 'الرقم السرى الجديد',
-    'prof_confirm_password' => 'تأكيد االرقم السرى',
+    'prof_new_password' => 'كلمة المرور الجديدة',
+    'prof_confirm_password' => 'تأكيد كلمة المرور',
 
 
     // Subscribers page
@@ -106,6 +108,12 @@ return [
     'status' => 'الحالة',
     'showDetails' => 'اظهار التفاصيل',
     'package' => 'الباقة',
+    'setAds' => 'اضافة اعلان',
+    'period_Lable' => 'عدد ايام اظهار الاعلان',
+    'sponser_products_title' => 'اعلانات المنتجات',
+    'sponser_services_title' => 'اعلانات الخدمات',
+    'sponser_edit' => 'تعديل اعلان لمنتج',
+
 
     // Categories page
     'cat_title' => 'التصنيفات',
@@ -192,6 +200,11 @@ return [
     'rejectReservation' => 'رفض',
     'cancelReservation' => 'إلغاء',
     'finishReservation' => 'انتهاء',
+
+    // Reviews
+    'reviews'=>'التقيمات والاراء',
+    'write_review'=>'اكتب تقييمك',
+
     //Offers
     'nav_offers' => 'العروض',
     'products_offers' => 'عروض المنتجات',
