@@ -131,6 +131,7 @@
                                     </table>
 
                                 </div>
+                                {{$product->links()}}
                             </div>
                         </div>
 

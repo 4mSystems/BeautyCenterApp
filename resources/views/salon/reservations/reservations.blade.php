@@ -135,11 +135,15 @@
                                                 </td>
 
                                             </tr>
-                                        @endforeach
+
+                                               @endforeach
                                         </tbody>
+
                                     </table>
 
                                 </div>
+                                {{ $reservations->links() }}
+
                             </div>
                         </div>
                     </div>

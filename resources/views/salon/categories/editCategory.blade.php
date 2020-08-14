@@ -31,27 +31,24 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <strong>{{trans('admin.name')}}</strong>
-                            {{ Form::text('name',$user_data->name,["class"=>"form-control"]) }}
+                            {{ Form::text('name',$user_data->name,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.name')]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.type')}}</strong>
-                            {!! Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.service')] ,$user_data->type ,['class'=>'form-control',null]) !!}
+                            {!! Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.service')] ,$user_data->type ,['class'=>'form-control round' ,"required",null]) !!}
 
                         </div>
 
 
                         <div class="form-group">
-                            <strong>{{trans('admin.cat_image')}}</strong>
-                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control round')) }}
                             @if(!empty($user_data->image))
-                                <img src="{{ url('uploads/categories/'.$user_data->image) }}" style="width:250px;height:250px;" />
+                                <img src="{{ url('uploads/categories/'.$user_data->image) }}"
+                                     style="width:250px;height:250px;"/>
 
                             @endif
 
                         </div>
-
 
 
                         {{ Form::submit( trans('admin.public_Edit') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}

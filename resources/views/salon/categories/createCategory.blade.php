@@ -30,21 +30,16 @@
                     <div class="card-block">
                         {{ Form::open( ['url' => ['categories'],'method'=>'post', 'files'=>'true'] ) }}
                         {{ csrf_field() }}
-
-
                         <div class="form-group">
-                            <strong>{{trans('admin.name')}}</strong>
-                            {{ Form::text('name',old('name'),["class"=>"form-control" ,"required"]) }}
+                            {{ Form::text('name',old('name'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.name') ]) }}
                         </div>
 
                         <div class="form-group">
-                            <strong>{{trans('admin.type')}}</strong>
                             {{ Form::select('type', ['product'=>trans('admin.product') , 'service'=>trans('admin.service')],null ,
-                            ['class'=>'form-control',null]) }}
+                           ['class'=>'form-control round' ,"required",null]) }}
                         </div>
                         <div class="form-group">
-                            <strong>{{trans('admin.cat_image')}}</strong>
-                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control round' ,"required",'placeholder'=>trans('admin.cat_image'))) }}
                         </div>
 
                         <div class="center">

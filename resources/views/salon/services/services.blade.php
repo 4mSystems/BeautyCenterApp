@@ -117,6 +117,7 @@
                                     </table>
 
                                 </div>
+                                {{$services->links()}}
                             </div>
                         </div>
 

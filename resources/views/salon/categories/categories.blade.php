@@ -100,6 +100,7 @@
                                     </table>
 
                                 </div>
+                                {{$categories->links()}}
                             </div>
                         </div>
 

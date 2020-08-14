@@ -42,6 +42,7 @@ return [
     'serv_choose_Category' => 'أختر تصنيف',
     'confirmation' => 'هل انت متاكد؟',
     'offer'=>'اضافه عرض',
+    'CannotCancel'=>'لا يمكن الغاء الحجز',
 
     'prod_Offer'=>' اضافه عرض للمنتج',
     'ser_Offer'=>' اضافة عرض للخدمه',
@@ -109,7 +110,8 @@ return [
     'package' => 'الباقة',
     'setAds' => 'اضافة اعلان',
     'period_Lable' => 'عدد ايام اظهار الاعلان',
-    'sponser_title' => 'أضافة اعلان لمنتج',
+    'sponser_products_title' => 'اعلانات المنتجات',
+    'sponser_services_title' => 'اعلانات الخدمات',
     'sponser_edit' => 'تعديل اعلان لمنتج',
 
 
@@ -203,5 +205,10 @@ return [
     'reviews'=>'التقيمات والاراء',
     'write_review'=>'اكتب تقييمك',
 
+    //Offers
+    'nav_offers' => 'العروض',
+    'products_offers' => 'عروض المنتجات',
+    'services_offers' => 'عروض الخدمات',
+    'delete_offer' => 'إلغاء العرض',
 ];
 

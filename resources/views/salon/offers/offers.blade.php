@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item"> {{trans('admin.nav_product_sponsered')}}
+                <li class="breadcrumb-item"> {{trans('admin.nav_offers')}}
                 </li>
 
             </ol>
@@ -34,7 +34,8 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <a class="card-title">{{trans('admin.sponser_products_title')}} </a>
+                            <h3
+                                class="card-title">{{trans('admin.products_offers')}} </h3>
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -54,32 +55,25 @@
                                         <tr>
                                             <th class="text-lg-center">{{trans('admin.Public_HashNum')}}</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.paymentAmount')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.paymentInfo')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.period')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.status')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.serv_price_before')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.serv_price_after')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.serv_cat_name')}}</th>
                                             <th class="text-lg-center"></th>
 
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($Sponsered_ads_products as $spon)
+                                        @foreach($products as $product)
                                             <tr>
-                                                <th scope="row" class="text-lg-center">{{$spon->id}}</th>
-                                                <td class="text-lg-center">{{$spon->getProduct->name}}</td>
-                                                <td class="text-lg-center">{{$spon->payment_amount}}</td>
-                                                <td class="text-lg-center">{{$spon->payment_info}}</td>
-                                                <td class="text-lg-center">{{$spon->period}}</td>
-                                                <td class="text-lg-center">{{$spon->status}}</td>
+                                                <th scope="row" class="text-lg-center">{{$product->id}}</th>
+                                                <td class="text-lg-center">{{$product->name}}</td>
+                                                <td class="text-lg-center">{{$product->price_before}}</td>
+                                                <td class="text-lg-center">{{$product->price_after}}</td>
+                                                <td class="text-lg-center">{{$product->getCategory->name}}</td>
                                                 <td class="text-lg-center">
 
-                                                    <a class='btn btn-raised btn-success btn-sml'
-                                                       href=" {{url('sponser_ads/'.$spon->id.'/edit')}}"><i
-                                                            class="icon-edit"></i></a>
-
-
-                                                    <form method="get" id='delete-form-{{ $spon->id }}'
-                                                          action="{{url('sponser_ads/'.$spon->id.'/delete')}}"
+                                                    <form method="get" id='delete-form-{{ $product->id }}'
+                                                          action="{{url('offers/'.$product->id.'/product')}}"
                                                           style='display: none;'>
                                                     {{csrf_field()}}
                                                     <!-- {{method_field('delete')}} -->
@@ -87,14 +81,20 @@
                                                     <button onclick="if(confirm('{{trans('admin.confirmation')}}'))
                                                         {
                                                         event.preventDefault();
-                                                        document.getElementById('delete-form-{{ $spon->id }}').submit();
+                                                        document.getElementById('delete-form-{{ $product->id }}').submit();
                                                         }else {
                                                         event.preventDefault();
                                                         }
+
                                                         "
+                                                            data-toggle="tooltip"
+                                                            data-placement="top"
+                                                            title="{{trans('admin.delete_offer')}}"
                                                             class='btn btn-raised btn-danger btn-sml' href=" "><i
                                                             class="icon-android-delete" aria-hidden='true'>
                                                         </i>
+
+
                                                     </button>
                                                 </td>
 
@@ -106,15 +106,13 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="row">
-
                     <div class="card">
                         <div class="card-header">
-                            <a
-                                class="card-title">{{trans('admin.sponser_services_title')}} </a>
+                            <h3
+                                class="card-title">{{trans('admin.services_offers')}} </h3>
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -134,32 +132,25 @@
                                         <tr>
                                             <th class="text-lg-center">{{trans('admin.Public_HashNum')}}</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.paymentAmount')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.paymentInfo')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.period')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.status')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.serv_price_before')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.serv_price_after')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.serv_cat_name')}}</th>
                                             <th class="text-lg-center"></th>
 
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($Sponsered_ads_services as $spon)
+                                        @foreach($services as $service)
                                             <tr>
-                                                <th scope="row" class="text-lg-center">{{$spon->id}}</th>
-                                                <td class="text-lg-center">{{$spon->getService->name}}</td>
-                                                <td class="text-lg-center">{{$spon->payment_amount}}</td>
-                                                <td class="text-lg-center">{{$spon->payment_info}}</td>
-                                                <td class="text-lg-center">{{$spon->period}}</td>
-                                                <td class="text-lg-center">{{$spon->status}}</td>
+                                                <th scope="row" class="text-lg-center">{{$service->id}}</th>
+                                                <td class="text-lg-center">{{$service->name}}</td>
+                                                <td class="text-lg-center">{{$service->price_before}}</td>
+                                                <td class="text-lg-center">{{$service->price_after}}</td>
+                                                <td class="text-lg-center">{{$service->getCategory->name}}</td>
                                                 <td class="text-lg-center">
 
-                                                    <a class='btn btn-raised btn-success btn-sml'
-                                                       href=" {{url('sponser_ads/'.$spon->id.'/edit')}}"><i
-                                                            class="icon-edit"></i></a>
-
-
-                                                    <form method="get" id='delete-form-{{ $spon->id }}'
-                                                          action="{{url('sponser_ads/'.$spon->id.'/delete')}}"
+                                                    <form method="get" id='delete-form-{{ $service->id }}'
+                                                          action="{{url('offers/'.$service->id.'/service')}}"
                                                           style='display: none;'>
                                                     {{csrf_field()}}
                                                     <!-- {{method_field('delete')}} -->
@@ -167,14 +158,20 @@
                                                     <button onclick="if(confirm('{{trans('admin.confirmation')}}'))
                                                         {
                                                         event.preventDefault();
-                                                        document.getElementById('delete-form-{{ $spon->id }}').submit();
+                                                        document.getElementById('delete-form-{{ $service->id }}').submit();
                                                         }else {
                                                         event.preventDefault();
                                                         }
+
                                                         "
+                                                            data-toggle="tooltip"
+                                                            data-placement="top"
+                                                            title="{{trans('admin.delete_offer')}}"
                                                             class='btn btn-raised btn-danger btn-sml' href=" "><i
                                                             class="icon-android-delete" aria-hidden='true'>
                                                         </i>
+
+
                                                     </button>
                                                 </td>
 
@@ -186,9 +183,9 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
+                </div>
+            </div>
         </div>
     </div>
 

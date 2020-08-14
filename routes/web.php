@@ -74,6 +74,9 @@ Route::group(['middleware' => ['auth', 'salon']],
         Route::resource('sponser_ads', 'Salons\SponserAdsSalonController');
         Route::get('sponser_ads/{id}/delete', 'Salons\SponserAdsSalonController@destroy');
 
+//Offers
+        Route::resource('offers', 'Salons\OffersController');
+        Route::get('offers/{id}/{type}', 'Salons\OffersController@update');
 
     });
 

@@ -27,8 +27,9 @@ class SponserAdsSalonController extends Controller
     }
     public function index()
     {
-        $Sponsered_ads = Sponsered_ads::where('salon_id',Auth::user()->id)->get();
-        return view('salon.product_ads.sponsers_ads',compact('Sponsered_ads'));
+        $Sponsered_ads_products = Sponsered_ads::where('salon_id',Auth::user()->id)->where('product_id' ,'!=',null)->get();
+        $Sponsered_ads_services = Sponsered_ads::where('salon_id',Auth::user()->id)->where('service_id' ,'!=',null)->get();
+        return view('salon.product_ads.sponsers_ads',compact('Sponsered_ads_products','Sponsered_ads_services'));
 
     }
 
