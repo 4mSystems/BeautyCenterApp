@@ -1,5 +1,4 @@
 @extends('admin_temp')
-
 @section('content')
     {{--Main Menu--}}
 
@@ -17,155 +16,155 @@
                     @if(Auth::user()->type == "manager")
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('managers')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="teal">{{ count($data['managers'])}}</h3>
-                                                <span>{{trans('admin.nav_Manager')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-users teal font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="teal">{{ count($data['managers'])}}</h3>
+                                                    <span>{{trans('admin.nav_Manager')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-users teal font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('subscribers')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="pink">{{ count($data['packages'])}}</h3>
-                                                <span>{{trans('admin.nav_Subscribers')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-briefcase4 pink font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="pink">{{ count($data['packages'])}}</h3>
+                                                    <span>{{trans('admin.nav_Subscribers')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-briefcase4 pink font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('salons')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="deep-orange">{{ count($salons)}}</h3>
-                                                <span>{{trans('admin.nav_Salons')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-weather24 deep-orange font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="deep-orange">{{ count($salons)}}</h3>
+                                                    <span>{{trans('admin.nav_Salons')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-weather24 deep-orange font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('sponsered')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="cyan">{{ count($data['ads'])}}</h3>
-                                                <span>{{trans('admin.nav_sponsered')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-cash cyan font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="cyan">{{ count($data['ads'])}}</h3>
+                                                    <span>{{trans('admin.nav_sponsered')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-cash cyan font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                     @else
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('categories')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="pink">{{ count($data['salonCategories'])}}</h3>
-                                                <span>{{trans('admin.nav_cat')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-ios-list teal font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="pink">{{ count($data['salonCategories'])}}</h3>
+                                                    <span>{{trans('admin.nav_cat')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-ios-list teal font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('services')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="teal">{{ count($data['salonServices'])}}</h3>
-                                                <span>{{trans('admin.nav_serv')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-ios-paper pink font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="teal">{{ count($data['salonServices'])}}</h3>
+                                                    <span>{{trans('admin.nav_serv')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-ios-paper pink font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('products')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="deep-orange">{{ count($data['salonProducts'])}}</h3>
-                                                <span>{{trans('admin.nav_prod')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-ios-medkit deep-orange font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="deep-orange">{{ count($data['salonProducts'])}}</h3>
+                                                    <span>{{trans('admin.nav_prod')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-ios-medkit deep-orange font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
                             <a href="{{url('reservations')}}">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="media">
-                                            <div class="media-body text-xs-left">
-                                                <h3 class="cyan">{{ count($salonReservation)}}</h3>
-                                                <span>{{trans('admin.nav_reservations')}}</span>
-                                            </div>
-                                            <div class="media-right media-middle">
-                                                <i class="icon-ios-timer cyan font-large-2 float-xs-right"></i>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media">
+                                                <div class="media-body text-xs-left">
+                                                    <h3 class="cyan">{{ count($salonReservation)}}</h3>
+                                                    <span>{{trans('admin.nav_reservations')}}</span>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                    <i class="icon-ios-timer cyan font-large-2 float-xs-right"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
                     @endif
@@ -187,7 +186,7 @@
                             </div>
                             <div class="card-body collapse in">
                                 <div class="card-block">
-                                    <div id="bar-chart" class="height-400"></div>
+                                    <div id="chart" class="height-400"></div>
                                 </div>
                             </div>
                         </div>
@@ -198,18 +197,8 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-header">
-
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <h4>{{trans('admin.nav_Salons')}}</h4>
-                                    </div>
-                                    <div class="col-md-11">
-                                        <a href="{{url('salons/create')}} "
-                                           class="btn btn-info btn-bg">{{trans('admin.Add_Salon')}} </a>
-                                    </div>
-                                </div>
-                                <br>
-
+                                <a href="{{url('salons/create')}} "
+                                   class="btn btn-info btn-bg">{{trans('admin.Add_Salon')}} </a>
                                 <a class="heading-elements-toggle"><i
                                         class="icon-ellipsis font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -271,17 +260,8 @@
                         <div class="card">
                             <div class="card-header">
 
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <h4 class="card-title">{{trans('admin.nav_reservations')}}</h4>
-                                    </div>
-                                    <div class="col-md-11">
-                                        <a href="{{url('reservations')}}"
-                                           class="btn btn-outline-secondary btn-min-width">{{trans('admin.Public_See_more')}}</a>
-
-                                    </div>
-                                </div>
-                                <br>
+                                <a href="{{url('reservations')}}"
+                                   class="btn btn-outline-secondary btn-min-width">{{trans('admin.Public_See_more')}}</a>
                                 <a class="heading-elements-toggle"><i
                                         class="icon-ellipsis font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -375,10 +355,26 @@
                     </div>
                 @endif
 
-
+                {{--                                <div id="chart" style="height: 300px;"></div>--}}
+                {{--                <canvas id="myChart" width="400" height="400"></canvas>--}}
             </div>
         </div>
     </div>
+
+
+    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
+    <!-- Your application script -->
+    <script>
+        const chart = new Chartisan({
+            el: '#chart',
+            url: "@chart('salon_chart')",
+            hooks: new ChartisanHooks()
+                .colors(['#4299E1'])
+                 .datasets([{type: 'bar', fill: true}, 'bar']),
+        });
+    </script>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 @endsection
 @section('scripts')
@@ -395,11 +391,18 @@
             type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN PAGE LEVEL JS-->
+    <script>
+        var config = {
+            charts: {
+                {{--                count_array: "{{$ut}}",--}}
+            }
+        };
+    </script>
     <script src="{{asset('app-assets/js/scripts/charts/flot/bar/bar.js') }}"
-            type="text/javascript"></script>
-    <script src="{{asset('app-assets/js/scripts/charts/flot/bar/annotations.js') }}"
             type="text/javascript"></script>
     <script src="{{asset('app-assets/js/scripts/charts/flot/bar/stacked-bar.js') }}"
             type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
+    {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>--}}
+
 @endsection

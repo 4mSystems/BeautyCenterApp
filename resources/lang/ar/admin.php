@@ -72,7 +72,7 @@ return [
     'price' => 'السعر',
     'period' => 'الفترة',
     'desc' => 'الوصف',
-    'home_par_chart' => 'الشكل البيانى',
+    'home_par_chart' => 'إجمالى الطلبات خلال الشهر',
 
 
     // Profile page

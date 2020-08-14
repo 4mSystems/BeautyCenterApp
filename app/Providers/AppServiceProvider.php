@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
-
+use ConsoleTVs\Charts\Registrar as Charts;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -22,10 +22,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Charts $charts)
     {
         date_default_timezone_set('Africa/Cairo');
 //        Paginator::useTailwind();
-
+        $charts->register([
+            \App\Charts\SalonChart::class
+        ]);
     }
 }

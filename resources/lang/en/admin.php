@@ -68,7 +68,7 @@ return [
     'price' => 'price',
     'period' => 'period',
     'desc' => 'description',
-    'home_par_chart' => 'Bar Chart',
+    'home_par_chart' => 'Total reservations per month',
 
     // Profile page
     'prof_title' => 'Profile page',

@@ -10,11 +10,11 @@
 
 // Bar chart
 // ------------------------------
-$(window).on("load", function(){
+$(window).on("load", function () {
+    console.log(config.count_array);
+    var data = [["January", 15], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9]];
 
-    var data = [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
-
-    $.plot("#bar-chart", [ data ], {
+    $.plot("#bar-chart", [data], {
         series: {
             bars: {
                 show: true,
@@ -22,7 +22,7 @@ $(window).on("load", function(){
                 align: "center",
                 lineWidth: 0,
                 fill: true,
-                fillColor: { colors: [ { opacity: 0.2 }, { opacity: 0.8 } ] }
+                fillColor: {colors: [{opacity: 0.2}, {opacity: 0.8}]}
             }
         },
         xaxis: {
