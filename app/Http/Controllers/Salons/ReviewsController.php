@@ -44,12 +44,13 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $this->validate(\request(),
             [
                 'comment' => 'required',
                 'user_id' => 'required|exists:users,id',
+                'rate' => 'required',
             ]);
-        $data['rate'] = '3';
         $this->objectName::create($data);
         session()->flash('success', trans('admin.addedsuccess'));
         return redirect(url('reviews/' . $request->user_id));
@@ -68,7 +69,7 @@ class ReviewsController extends Controller
         $user = User::where('id', $id)->first();
         $reviews = Reviews::where('user_id', $id)->get();
         $totalReviews = Reviews::where('user_id', $id)->selectRaw('SUM(rate)/COUNT(user_id) AS avg_rating')->first()->avg_rating;
-         return view($this->folderView . 'reviews', compact('user', 'reviews', 'totalReviews'));
+        return view($this->folderView . 'reviews', compact('user', 'reviews', 'totalReviews'));
 
     }
 

@@ -1,8 +1,33 @@
 @extends('admin_temp')
-
-
 @section('content')
     {{--Main Menu--}}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9f16ldYjK2x8vmMnkf_ytiM0bb2zjwc&callback=initMap&libraries=&v=weekly"
+        defer
+    ></script>
+
+    <script type="text/javascript"
+            src='{{ asset('/app-assets/js/locationpicker.jquery.js') }}'></script>
+
+
+    <script>
+        $('#us1').locationpicker({
+            location: {
+                latitude: 46.15242437752303,
+                longitude: 2.7470703125
+            },
+            radius: 300,
+            markerIcon: 'http://www.iconsdb.com/icons/preview/tropical-blue/map-marker-2-xl.png',
+            inputBinding: {
+                latitudeInput: $('#lat'),
+                longitudeInput: $('#lng'),
+                // radiusInput: $('#us2-radius'),
+                // locationNameInput: $('#us2-address')
+            }
+
+            });
+    </script>
 
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
@@ -35,8 +60,8 @@
 
                                             <img width="150" height="150"
                                                  src="{{ asset('/uploads/users/'.Auth::user()->image) }}" alt=""
-                                                 class="rounded-circle  center-block">
-                                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control')) }}
+                                                 class="rounded-circle  center-block" onclick="openFile()">
+                                            {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control','style'=>'display:none','id'=>'salon-image')) }}
                                         </a>
                                     </div>
 
@@ -90,7 +115,7 @@
 
                                         </div>
 
-
+                                        <div id="us1" style="width: 500px; height: 400px;"></div>
 
                                         {!! Form::model(Auth::user(), ['route' => ['salon_profile.show',Auth::user()->id] , 'method'=>'put']) !!}
 
@@ -106,7 +131,8 @@
                                             <div class="form-group" id="pass_pnl">
                                                 <label
                                                     for="eventRegInput4">{{trans('admin.prof_confirm_password')}}</label>
-                                                <input type="password" id="password_confirmation" name="password_confirmation" autocomplete="off"
+                                                <input type="password" id="password_confirmation"
+                                                       name="password_confirmation" autocomplete="off"
                                                        class="form-control">
                                             </div>
                                         </div>
@@ -121,6 +147,7 @@
 
 
                                 </div>
+                                <div id="map"></div>
                             </div>
                         </div>
                     </div>
@@ -133,4 +160,16 @@
     </div>
     </div>
 
+@endsection
+@section("scripts")
+
+
+
+    <script>
+        function openFile() {
+            $('#salon-image').click();
+        }
+
+
+    </script>
 @endsection

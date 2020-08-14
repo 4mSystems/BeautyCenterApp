@@ -1,4 +1,26 @@
 @extends('admin_temp')
+@section('styles')
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9f16ldYjK2x8vmMnkf_ytiM0bb2zjwc&callback=initMap&libraries=&v=weekly"
+        defer
+    ></script>
+    <style type="text/css">
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+@endsection
 @section('content')
     {{--Main Menu--}}
 
@@ -354,9 +376,7 @@
                         </div>
                     </div>
                 @endif
-
-                {{--                                <div id="chart" style="height: 300px;"></div>--}}
-                {{--                <canvas id="myChart" width="400" height="400"></canvas>--}}
+                <div id="map"></div>
             </div>
         </div>
     </div>
@@ -372,37 +392,20 @@
             url: "@chart('salon_chart')",
             hooks: new ChartisanHooks()
                 .colors(['#4299E1'])
-                 .datasets([{type: 'bar', fill: true}, 'bar']),
+                .datasets([{type: 'bar', fill: true}, 'bar']),
         });
     </script>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 @endsection
 @section('scripts')
-    <!-- BEGIN PAGE VENDOR JS-->
-    <script src="{{asset('app-assets/vendors/js/charts/flot/jquery.flot.min.js') }}"
-            type="text/javascript"></script>
-    <script src="{{asset('app-assets/vendors/js/charts/flot/jquery.flot.resize.js') }}"
-            type="text/javascript"></script>
-    <script src="{{asset('app-assets/vendors/js/charts/flot/jquery.flot.categories.js') }}"
-            type="text/javascript"></script>
-    <script src="{{asset('app-assets/vendors/js/charts/flot/jquery.flot.stack.js') }}"
-            type="text/javascript"></script>
-    <script src="{{asset('app-assets/vendors/js/charts/flot/jquery.flot.navigate.js') }}"
-            type="text/javascript"></script>
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
     <script>
-        var config = {
-            charts: {
-                {{--                count_array: "{{$ut}}",--}}
-            }
-        };
-    </script>
-    <script src="{{asset('app-assets/js/scripts/charts/flot/bar/bar.js') }}"
-            type="text/javascript"></script>
-    <script src="{{asset('app-assets/js/scripts/charts/flot/bar/stacked-bar.js') }}"
-            type="text/javascript"></script>
-    <!-- END PAGE LEVEL JS-->
-    {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>--}}
+        let map;
 
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+        }
+    </script>
 @endsection

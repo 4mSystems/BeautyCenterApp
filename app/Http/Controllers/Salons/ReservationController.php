@@ -107,14 +107,8 @@ class ReservationController extends Controller
                 $data = $this->objectName::findOrFail($id)->update($input);
             }
         } else {
-            session()->flash('danger', trans('admin.CannotCancel'));
-            return redirect(url('reservations'));
-
-        }
-        if ($data) {
+            $data = $this->objectName::findOrFail($id)->update($input);
             session()->flash('success', trans('admin.statuschanged'));
-        } else {
-            session()->flash('danger', trans('admin.not_found'));
 
         }
         return redirect(url('reservations'));
