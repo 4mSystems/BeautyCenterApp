@@ -210,5 +210,22 @@ return [
     'products_offers' => 'عروض المنتجات',
     'services_offers' => 'عروض الخدمات',
     'delete_offer' => 'إلغاء العرض',
+
+    //months
+
+    'January'=>'يناير',
+    'February'=>'فبراير',
+    'March'=>'مارس',
+    'April'=>'ابريل',
+    'May'=>'مايو',
+    'June'=>'يونيو',
+    'July'=>'يوليو',
+    'August'=>'اغسطس',
+    'September'=>'سبتمبر',
+    'October'=>'اكتوبر',
+    'December'=>'ديسمبر',
+    'November'=>'نوفمبر',
+
+    'paymentError'=>'مشكلة ف الدفع '
 ];
 

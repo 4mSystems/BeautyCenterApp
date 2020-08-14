@@ -1,33 +1,41 @@
 @extends('admin_temp')
 @section('content')
     {{--Main Menu--}}
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9f16ldYjK2x8vmMnkf_ytiM0bb2zjwc&callback=initMap&libraries=&v=weekly"
-        defer
-    ></script>
+
+
+    <script> src="https://polyfill.io/v3/polyfill.min.js?features=default"</script>
+{{--    <script type="text/javascript"--}}
+{{--    src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyBTeHavldMrAZw2kVYgXnVgLBDcE3J0fXk'></script>--}}
+
 
     <script type="text/javascript"
             src='{{ asset('/app-assets/js/locationpicker.jquery.js') }}'></script>
 
+    <?php
 
-    <script>
-        $('#us1').locationpicker({
-            location: {
-                latitude: 46.15242437752303,
-                longitude: 2.7470703125
-            },
-            radius: 300,
-            markerIcon: 'http://www.iconsdb.com/icons/preview/tropical-blue/map-marker-2-xl.png',
-            inputBinding: {
-                latitudeInput: $('#lat'),
-                longitudeInput: $('#lng'),
-                // radiusInput: $('#us2-radius'),
-                // locationNameInput: $('#us2-address')
-            }
+    $lat = !empty(Auth::user()->lat)?Auth::user()->lat:'30.044352632821397';
+    $lng = !empty(Auth::user()->lng)?Auth::user()->lng:'31.223632812499993';
 
-            });
-    </script>
+    ?>
+
+{{--    <script>--}}
+{{--        $('#us1').locationpicker({--}}
+{{--            location: {--}}
+{{--                latitude: {{$lat}},--}}
+{{--                longitude: {{$lng}}--}}
+{{--            },--}}
+{{--            radius: 300,--}}
+{{--            markerIcon: 'http://www.iconsdb.com/icons/preview/tropical-blue/map-marker-2-xl.png',--}}
+{{--            inputBinding: {--}}
+{{--                latitudeInput: $('#lat'),--}}
+{{--                longitudeInput: $('#lng'),--}}
+{{--                // radiusInput: $('#us2-radius'),--}}
+
+{{--                // locationNameInput: $('#us2-address')--}}
+{{--            }--}}
+
+{{--        });--}}
+{{--    </script>--}}
 
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
@@ -115,7 +123,11 @@
 
                                         </div>
 
-                                        <div id="us1" style="width: 500px; height: 400px;"></div>
+
+                                        <input type="hidden" value="{{$lat}}" id="lat" name="lat">
+                                        <input type="hidden" value="{{$lng}}" id="lng" name="lng">
+
+{{--                                        <div id="us1" style="width: 500px; height: 400px;"></div>--}}
 
                                         {!! Form::model(Auth::user(), ['route' => ['salon_profile.show',Auth::user()->id] , 'method'=>'put']) !!}
 

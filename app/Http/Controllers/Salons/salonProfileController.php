@@ -61,9 +61,9 @@ class salonProfileController extends Controller
                 'phone' => 'numeric|required|unique:users,phone,'.$id,
                 'address' => 'required',
                 'email' => 'required|unique:users,email,'.$id,
-
+                'lat'=>'sometimes|nullable',
+                'lng'=>'sometimes|nullable',
                 'password' => 'sometimes|nullable|confirmed|min:6',
-
                 'open_from' => '',
                 'open_to' => 'after:open_from',
             ]);

@@ -9,6 +9,7 @@ use App\User;
 use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use ConsoleTVs\Charts\Registrar as Charts;
 
@@ -21,6 +22,13 @@ class SalonChart extends BaseChart
      */
     public function handler(Request $request): Chartisan
     {
+
+        if(session()->has('lang')){
+            App::setLocale(session('lang'));
+        }else{
+            App::setLocale('ar');
+        }
+
         $users = Reservation::selectRaw('COUNT(*) as count, YEAR(created_at) year, MONTHNAME(created_at) month')
             ->groupBy('year', 'month')
             ->orderBy('created_at', 'ASC')
@@ -29,7 +37,7 @@ class SalonChart extends BaseChart
         $month_array = [];
         foreach ($users as $user) {
             $count_array[] = $user->count;
-            $month_array[] = $user->month;
+            $month_array[] = trans('admin.'.$user->month);
         }
         return Chartisan::build()
             ->labels($month_array)

@@ -11,10 +11,10 @@ use App\Reservation;
 use App\Sponsered_ads;
 use App\User;
 use http\Client\Response;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use ConsoleTVs\Charts\Registrar as Charts;
+//use Illuminate\Contracts\View\View;
+//use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\DB;
+//use ConsoleTVs\Charts\Registrar as Charts;
 
 class HomeController extends Controller
 {
@@ -55,4 +55,6 @@ class HomeController extends Controller
         }
 
     }
+
+
 }
