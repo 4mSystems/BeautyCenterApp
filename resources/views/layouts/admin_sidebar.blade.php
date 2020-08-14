@@ -68,6 +68,12 @@
                               class="menu-title">{{trans('admin.nav_reservations')}}</span></a>
 
                 </li>
+                <li class=" nav-item">
+                    <a href="{{url('sponser_ads')}}"><i class="icon-loader"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_product_sponsered')}}</span></a>
+
+                </li>
             @endif
 
         </ul>

@@ -55,6 +55,8 @@ Route::group(['middleware' => ['auth', 'salon']],
 //         Product Page
         Route::resource('products', 'Salons\productsController');
         Route::get('products/{id}/delete', 'Salons\productsController@destroy');
+        Route::get('sponser/{id}/{type}/SetAds', 'Salons\SponserAdsSalonController@show');
+        Route::post('sponser/{id}/{type}/storeSponser', 'Salons\SponserAdsSalonController@store');
         //         Reservation Page
         Route::resource('reservations', 'Salons\ReservationController');
         Route::get('reservations/{id}/{status}', 'Salons\ReservationController@edit');
@@ -67,6 +69,10 @@ Route::group(['middleware' => ['auth', 'salon']],
         Route::post('destroy_Product_images', 'Salons\productsController@destroyProductImage');
 
         Route::resource('salon_profile', 'Salons\salonProfileController');
+
+//        sponser_ads
+        Route::resource('sponser_ads', 'Salons\SponserAdsSalonController');
+        Route::get('sponser_ads/{id}/delete', 'Salons\SponserAdsSalonController@destroy');
 
 
     });

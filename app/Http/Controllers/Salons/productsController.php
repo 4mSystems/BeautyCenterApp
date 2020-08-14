@@ -74,6 +74,7 @@ class productsController extends Controller
 
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -87,17 +88,12 @@ class productsController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $user_data = Product::where('id', $id)->first();
         return view($this->folderView.'editProducts', \compact('user_data'));
     }
+
 
     public function update(Request $request, $id)
     {

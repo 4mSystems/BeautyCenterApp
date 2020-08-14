@@ -22,6 +22,7 @@ return [
     'nav_serv' => 'Services',
     'nav_prod' => 'Products',
     'nav_reservations' => 'Reservations',
+    'nav_product_sponsered' => 'Product Ads',
 
 
     // payment status
@@ -60,6 +61,8 @@ return [
     'deleteSuccess' => 'Data Deleted Successfully',
     'updatSuccess' => 'Data Updated Successfully',
     'photoAddedSuccess' => 'Image added Successfuly',
+    'adsAddedSuccess' => 'Ad added Successfuly',
+    'adsExisting' => 'This product have Ads Already',
 
 
     // Home PAge
@@ -109,6 +112,10 @@ return [
     'status' => 'status',
     'showDetails' => 'Show Details',
     'package' => 'package',
+    'setAds' => 'Make Ad',
+    'period_Lable' => 'number of days display Ad',
+    'sponser_title' => 'Add Ad to product',
+    'sponser_edit' => 'Edit Product Sponser Ads',
 
      // detailes Subscriber page
     'Sub_Details' => 'package Details',
