@@ -201,6 +201,7 @@ return [
     'rejectReservation' => 'رفض',
     'cancelReservation' => 'إلغاء',
     'finishReservation' => 'انتهاء',
+    'editDeliveryTime' => '  اوقات التوصيل',
 
     // Reviews
     'reviews'=>'التقيمات والاراء',

@@ -36,11 +36,6 @@
             });
     </script>
 
-    $lat = !empty(Auth::user()->lat)?Auth::user()->lat:'30.044352632821397';
-    $lng = !empty(Auth::user()->lng)?Auth::user()->lng:'31.223632812499993';
-
-    ?>
-
 {{--    <script>--}}
 {{--        $('#us1').locationpicker({--}}
 {{--            location: {--}}
@@ -59,7 +54,6 @@
 
 {{--        });--}}
 {{--    </script>--}}
->>>>>>> 630b4a99bb1d123e0d67a675451d3f6531300b21
 
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
@@ -186,9 +180,11 @@
                                         {!! Form::close() !!}
                                     </div>
 
-
+                                    <a href="{{url('deliverytimes')}}" class="btn btn-blue-grey">
+                                        <i class="icon-alert"></i> {{trans('admin.editDeliveryTime')}}
+                                    </a>
                                 </div>
-                                <div id="map"></div>
+{{--                                <div id="map"></div>--}}
                             </div>
                         </div>
                     </div>

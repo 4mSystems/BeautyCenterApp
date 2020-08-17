@@ -197,6 +197,7 @@ return [
     'rejectReservation' => 'Reject',
     'cancelReservation' => 'Cancel',
     'finishReservation' => 'Finish',
+    'editDeliveryTime' => 'edit Delivery Time',
 
     // Reviews
     'reviews' => 'Reviews',

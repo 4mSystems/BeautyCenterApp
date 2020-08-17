@@ -79,6 +79,7 @@
                                             <th class="text-lg-center">#</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.client_name')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.phone')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_time')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_date')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_type')}}</th>
@@ -100,6 +101,8 @@
                                                 <td class="text-lg-center"><a
                                                         href="{{url('reviews/'.$reserve->getUser->id)}}"
                                                         class="info">{{$reserve->getUser->name}}   </a></td>
+
+                                                <td class="text-lg-center">{{$reserve->getUser->phone}}</td>
                                                 <td class="text-lg-center">{{$reserve->time}}</td>
                                                 <td class="text-lg-center">{{$reserve->date}}</td>
                                                 <td class="text-lg-center">{{trans('admin.'.$reserve->type)}}</td>

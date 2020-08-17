@@ -49,6 +49,11 @@
                         </div>
 
                         <div class="form-group">
+                            {{ Form::select('deliverytime_id',App\DeliveryTimes::where('salon_id',Auth::user()->id)->pluck('delivery_time','id'),old('deliverytime_id')
+                            ,["class"=>"form-control  round" ,'placeholder'=>trans('admin.serv_choose_deliveryTime') ]) }}
+                        </div>
+
+                        <div class="form-group">
                             {{ Form::textarea('desc',old('desc'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc') ]) }}
                         </div>
                         <div class="center">
