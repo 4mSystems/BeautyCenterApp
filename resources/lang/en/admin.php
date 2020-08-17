@@ -205,5 +205,23 @@ return [
     'products_offers' => 'Products offers',
     'services_offers' => 'Services offers',
     'delete_offer' => 'Delete offer',
+
+    //months
+
+    'January'=>'January',
+    'February'=>'February',
+    'March'=>'March',
+    'April'=>'April',
+    'May'=>'May',
+    'June'=>'June',
+    'July'=>'July',
+    'August'=>'August',
+    'September'=>'September',
+    'October'=>'October',
+    'December'=>'December',
+    'November'=>'November',
+
+    //
+    'paymentError'=>'paymentError',
 ];
 

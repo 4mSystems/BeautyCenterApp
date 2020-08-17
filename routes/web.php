@@ -78,12 +78,12 @@ Route::group(['middleware' => ['auth', 'salon']],
         Route::resource('offers', 'Salons\OffersController');
         Route::get('offers/{id}/{type}', 'Salons\OffersController@update');
 
+
     });
 
 
 Route::group(['middleware' => ['auth']],
     function () {
-//lang
 
 
     });
