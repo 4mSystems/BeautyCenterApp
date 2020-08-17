@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
             $table->date('date')->nullable();
             $table->String('time')->nullable();
             $table->enum('type', ['product', 'service'])->default('product');
-            $table->enum('status', ['accepted', 'rejected', 'canceled', 'waiting'])->default('waiting');
+            $table->enum('status', ['accepted', 'rejected', 'canceled', 'pending','inprogress'])->default('waiting');
             $table->bigInteger('service_id')->unsigned()->nullable();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->bigInteger('product_id')->unsigned()->nullable();

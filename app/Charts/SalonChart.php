@@ -29,9 +29,9 @@ class SalonChart extends BaseChart
             App::setLocale('ar');
         }
 
-        $users = Reservation::selectRaw('COUNT(*) as count, YEAR(created_at) year, MONTHNAME(created_at) month')
+        $users = Reservation::selectRaw('COUNT(*) as count, YEAR(date) year, MONTHNAME(date) month')
             ->groupBy('year', 'month')
-            ->orderBy('created_at', 'ASC')
+            ->orderBy('date', 'ASC')
             ->get();
         $count_array = [];
         $month_array = [];
