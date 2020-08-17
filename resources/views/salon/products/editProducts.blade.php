@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group">
-                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control round' ,"required")) }}
+                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control round' )) }}
 
                             @if(!empty($user_data->main_image))
                                 <img src="{{ url('uploads/product/'.$user_data->main_image) }}" style="width:250px;height:250px;" />

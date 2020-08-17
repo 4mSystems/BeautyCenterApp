@@ -25,6 +25,19 @@
             @include('layouts.errors')
 
             @include('layouts.messages')
+                <div class="card-block">
+                    @php
+                    $times = App\DeliveryTimes::where('salon_id',Auth::user()->id)->first();
+                     @endphp
+                    @if($times === null)
+                        <strong style="color: red;">{{trans('admin.plzAddDeliverTime')}}</strong>
+                        <a class='btn btn-raised btn-info btn-sml'
+                           href=" {{url('deliverytimes/create')}}"><i
+                                class="icon-box-add"></i></a>
+
+                    @endif
+
+                </div>
             <!-- /.card-header -->
                 <div class="card-body">
                     <div class="card-block">

@@ -228,6 +228,15 @@ return [
     'December'=>'ديسمبر',
     'November'=>'نوفمبر',
 
-    'paymentError'=>'مشكلة ف الدفع '
+    'paymentError'=>'مشكلة ف الدفع ',
+
+
+    'serv_choose_deliveryTime'=>' اختر وقت التوصيل ',
+    'add_deliverytimes'=>'اضافه وقت للتوصيل',
+    'update_deliverytimes'=>'تعديل وقت التوصيل',
+    'times'=>'وقت التوصيل ',
+    'deliverytimes'=>'اوقات التوصيل ',
+    'plzAddDeliverTime'=>'من فضلك قم بإضافة وقت للتوصيل اولا!',
+
 ];
 

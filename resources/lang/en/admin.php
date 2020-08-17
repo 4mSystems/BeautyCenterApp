@@ -225,5 +225,12 @@ return [
 
     //
     'paymentError'=>'paymentError',
+    'serv_choose_deliveryTime'=>' choose Delivery Time',
+    'add_deliverytimes'=>'add delivery time',
+    'update_deliverytimes'=>'Edit delivery time',
+    'times'=>'delivery Time',
+    'deliverytimes'=>'delivery times',
+    'plzAddDeliverTime'=>'please add delivery time first!',
+
 ];
 
