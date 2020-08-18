@@ -236,7 +236,10 @@ return [
     'update_deliverytimes'=>'تعديل وقت التوصيل',
     'times'=>'وقت التوصيل ',
     'deliverytimes'=>'اوقات التوصيل ',
+    'nav_Servicereservations'=>'الخدمات المحجوزة',
+    'nav_Productreservations'=>'المنتجات المحجوزة',
     'plzAddDeliverTime'=>'من فضلك قم بإضافة وقت للتوصيل اولا!',
+    'chairs'=>'عدد الكراسي'
 
 ];
 

@@ -20,7 +20,7 @@ return [
     'nav_cat' => 'Categories',
     'nav_serv' => 'Services',
     'nav_prod' => 'Products',
-    'nav_reservations' => 'Reservations',
+    'nav_reservations' => 'Booking',
     'nav_product_sponsered' => 'Product Ads',
 
 
@@ -231,6 +231,10 @@ return [
     'times'=>'delivery Time',
     'deliverytimes'=>'delivery times',
     'plzAddDeliverTime'=>'please add delivery time first!',
+
+    'nav_Servicereservations'=>'services bookings ',
+    'nav_Productreservations'=>'product bookings ',
+    'chairs'=>'number of chairs',
 
 ];
 

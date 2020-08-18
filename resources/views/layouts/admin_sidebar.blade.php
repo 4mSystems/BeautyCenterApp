@@ -62,11 +62,23 @@
                               class="menu-title">{{trans('admin.nav_prod')}}</span></a>
 
                 </li>
-                <li class=" nav-item">
-                    <a href="{{url('reservations')}}"><i class="icon-ios-timer"></i>
-                        <span data-i18n="nav.dash.main"
-                              class="menu-title">{{trans('admin.nav_reservations')}}</span></a>
+                <li class=" nav-item"><a href="#"><i class="icon-ios-timer"></i><span data-i18n="nav.project.main"
+                                                                                      class="menu-title">{{trans('admin.nav_reservations')}}</span></a>
+                    <ul class="menu-content">
 
+                        <li class=" nav-item">
+                            <a href="{{url('reservations')}}"><i class="icon-ios-timer"></i>
+                                <span data-i18n="nav.dash.main"
+                                      class="menu-title">{{trans('admin.nav_Servicereservations')}}</span></a>
+
+                        </li>
+                        <li class=" nav-item">
+                            <a href="{{url('productreservations')}}"><i class="icon-ios-timer"></i>
+                                <span data-i18n="nav.dash.main"
+                                      class="menu-title">{{trans('admin.nav_Productreservations')}}</span></a>
+
+                        </li>
+                    </ul>
                 </li>
                 <li class=" nav-item">
                     <a href="{{url('sponser_ads')}}"><i class="icon-loader"></i>

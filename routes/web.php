@@ -58,9 +58,20 @@ Route::group(['middleware' => ['auth', 'salon']],
         Route::get('sponser/{id}/{type}/SetAds', 'Salons\SponserAdsSalonController@show');
         Route::post('sponser/{id}/{type}/storeSponser', 'Salons\SponserAdsSalonController@store');
         //         Reservation Page
+
+
         Route::resource('reservations', 'Salons\ReservationController');
         Route::get('reservations/{id}/{status}', 'Salons\ReservationController@edit');
         Route::get('reservation/{status}', 'Salons\ReservationController@getReservationByStatus');
+
+
+
+        Route::resource('productreservations', 'Salons\productReservationController');
+        Route::get('productreservations/{id}/{status}', 'Salons\productReservationController@edit');
+        Route::get('productreservation/{status}', 'Salons\productReservationController@getReservationByStatus');
+
+
+
 
         // Reviews Page
         Route::resource('reviews', 'Salons\ReviewsController');
