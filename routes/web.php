@@ -79,6 +79,12 @@ Route::group(['middleware' => ['auth', 'salon']],
         Route::get('offers/{id}/{type}', 'Salons\OffersController@update');
 
 
+
+//Delivery times
+        Route::resource('deliverytimes', 'Salons\deliveryTime');
+        Route::get('deliverytimes/{id}/delete', 'Salons\deliveryTime@destroy');
+
+
     });
 
 

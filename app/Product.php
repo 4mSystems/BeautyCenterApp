@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'desc', 'main_image', 'price_after','price_before','cat_id','salon_id'];
+    protected $fillable = ['name', 'desc', 'main_image',
+        'price_after','price_before','cat_id','salon_id','deliverytime_id'];
 
     public function getCategory()
     {
@@ -19,6 +20,13 @@ class Product extends Model
     {
 
         return $this->hasOne('App\User', 'id', 'salon_id');
+
+    }
+
+    public function getdeliveryTime()
+    {
+
+        return $this->hasOne('App\DeliveryTimes', 'id', 'deliverytime_id');
 
     }
 

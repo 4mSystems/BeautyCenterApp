@@ -64,6 +64,9 @@ class salonProfileController extends Controller
                 'lat'=>'sometimes|nullable',
                 'lng'=>'sometimes|nullable',
                 'password' => 'sometimes|nullable|confirmed|min:6',
+                'lat'=>'sometimes|nullable',
+                'lng'=>'sometimes|nullable',
+
                 'open_from' => '',
                 'open_to' => 'after:open_from',
             ]);

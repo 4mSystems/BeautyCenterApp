@@ -191,15 +191,17 @@ return [
     'reservation_type' => 'النوع',
     'reservation_status' => 'الحاله',
     'all' => 'الكل',
-    'waiting' => 'فى الانتظار',
+    'pending' => 'فى الانتظار',
     'accepted' => 'تم القبول',
     'rejected' => 'تم الرفض',
     'canceled' => 'تم الالغاء',
     'finished' => 'تم الانتهاء',
+    'inprogress' => 'قيد التنفيذ',
     'acceptReservation' => 'قبول',
     'rejectReservation' => 'رفض',
     'cancelReservation' => 'إلغاء',
     'finishReservation' => 'انتهاء',
+    'editDeliveryTime' => '  اوقات التوصيل',
 
     // Reviews
     'reviews' => 'التقيمات والاراء',
@@ -213,26 +215,29 @@ return [
 
     //months
 
-    'January' => 'يناير',
-    'February' => 'فبراير',
-    'March' => 'مارس',
-    'April' => 'ابريل',
-    'May' => 'مايو',
-    'June' => 'يونيو',
-    'July' => 'يوليو',
-    'August' => 'اغسطس',
-    'September' => 'سبتمبر',
-    'October' => 'اكتوبر',
-    'December' => 'ديسمبر',
-    'November' => 'نوفمبر',
 
-    'paymentError' => 'مشكلة ف الدفع ',
-    'completed_booking' =>'حجوزات مكتمله',
-    'pending_booking' =>'حجوزات فى الانتظار',
-    'approved_booking' =>'حجوزات المعتمده',
-    'inProgress_booking' =>'حجوزات قيد التنفيذ',
-    'canceled_booking' =>'حجوزات ملغيه',
-    'total_customers' =>'مجموع العملاء',
-    'total_earnings' =>'مجموع الارباح',
+    'January'=>'يناير',
+    'February'=>'فبراير',
+    'March'=>'مارس',
+    'April'=>'ابريل',
+    'May'=>'مايو',
+    'June'=>'يونيو',
+    'July'=>'يوليو',
+    'August'=>'اغسطس',
+    'September'=>'سبتمبر',
+    'October'=>'اكتوبر',
+    'December'=>'ديسمبر',
+    'November'=>'نوفمبر',
+
+    'paymentError'=>'مشكلة ف الدفع ',
+
+
+    'serv_choose_deliveryTime'=>' اختر وقت التوصيل ',
+    'add_deliverytimes'=>'اضافه وقت للتوصيل',
+    'update_deliverytimes'=>'تعديل وقت التوصيل',
+    'times'=>'وقت التوصيل ',
+    'deliverytimes'=>'اوقات التوصيل ',
+    'plzAddDeliverTime'=>'من فضلك قم بإضافة وقت للتوصيل اولا!',
+
 ];
 

@@ -22,7 +22,7 @@ class User extends Authenticatable
         'address',
         'package_id',
         'password_confirmation',
-        'salon_payment_status'
+        'salon_payment_status',
     ];
     public function  getPackage(){
 

@@ -187,15 +187,17 @@ return [
     'reservation_type' => 'Type',
     'reservation_status' => 'Status',
     'all' => 'All',
-    'waiting' => 'Waiting',
+    'pending' => 'pending',
     'accepted' => 'Accepted',
     'rejected' => 'Rejected',
     'canceled' => 'Canceled',
     'finished' => 'Finished',
+    'inprogress' => 'in Progress',
     'acceptReservation' => 'Accept',
     'rejectReservation' => 'Reject',
     'cancelReservation' => 'Cancel',
     'finishReservation' => 'Finish',
+    'editDeliveryTime' => 'edit Delivery Time',
 
     // Reviews
     'reviews' => 'Reviews',
@@ -222,14 +224,13 @@ return [
     'November' => 'November',
 
     //
-    'paymentError' => 'paymentError',
-    'completed_booking' => 'Completed booking',
-    'pending_booking' => 'Pending booking',
-    'approved_booking' => 'Approved booking',
-    'inProgress_booking' => 'InProgress booking',
-    'canceled_booking' => 'Canceled booking',
-    'total_customers' => 'Total customers',
-    'total_earnings' => 'Total earnings',
+    'paymentError'=>'paymentError',
+    'serv_choose_deliveryTime'=>' choose Delivery Time',
+    'add_deliverytimes'=>'add delivery time',
+    'update_deliverytimes'=>'Edit delivery time',
+    'times'=>'delivery Time',
+    'deliverytimes'=>'delivery times',
+    'plzAddDeliverTime'=>'please add delivery time first!',
 
 ];
 

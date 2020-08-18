@@ -40,7 +40,7 @@
                                     <a class="dropdown-item"
                                        href="{{url('reservations')}}">{{trans('admin.all')}}</a><a
                                         class="dropdown-item"
-                                        href="{{url('reservation/waiting')}}">{{trans('admin.waiting')}}</a>
+                                        href="{{url('reservation/pending')}}">{{trans('admin.pending')}}</a>
                                     <a class="dropdown-item"
                                        href="{{url('reservation/accepted')}}">{{trans('admin.accepted')}}</a>
                                     <a class="dropdown-item"
@@ -49,6 +49,9 @@
                                        href="{{url('reservation/canceled')}}">{{trans('admin.canceled')}}</a>
                                     <a class="dropdown-item"
                                        href="{{url('reservation/finished')}}">{{trans('admin.finished')}}</a>
+                                    <a class="dropdown-item"
+                                       href="{{url('reservation/inprogress')}}">{{trans('admin.inprogress')}}</a>
+
                                 </div>
                             </div>
                             <a class="heading-elements-toggle">
@@ -76,6 +79,7 @@
                                             <th class="text-lg-center">#</th>
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.client_name')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.phone')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_time')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_date')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_type')}}</th>
@@ -97,12 +101,14 @@
                                                 <td class="text-lg-center"><a
                                                         href="{{url('reviews/'.$reserve->getUser->id)}}"
                                                         class="info">{{$reserve->getUser->name}}   </a></td>
+
+                                                <td class="text-lg-center">{{$reserve->getUser->phone}}</td>
                                                 <td class="text-lg-center">{{$reserve->time}}</td>
                                                 <td class="text-lg-center">{{$reserve->date}}</td>
                                                 <td class="text-lg-center">{{trans('admin.'.$reserve->type)}}</td>
                                                 <td class="text-lg-center">{{trans('admin.'.$reserve->status)}}</td>
                                                 <td class="text-lg-center">
-                                                    @if($reserve->status=='waiting')
+                                                    @if($reserve->status=='pending')
                                                         <a data-toggle="tooltip"
                                                            data-placement="top"
                                                            title="{{trans('admin.acceptReservation')}}"
@@ -124,13 +130,24 @@
                                                            href=" {{url('reservations/'.$reserve->id.'/canceled')}}"><i
                                                                 class="icon-android-cancel"></i>
                                                         </a>
+                                                            <a data-toggle="tooltip"
+                                                               data-placement="top"
+                                                               title="{{trans('admin.inprogress')}}"
+                                                               class='btn btn-raised btn-info btn-sml'
+                                                               href=" {{url('reservations/'.$reserve->id.'/inprogress')}}"><i
+                                                                    class="icon-add_to_queue"></i>
+                                                            </a>
+                                                    @elseif($reserve->status=='inprogress')
                                                         <a data-toggle="tooltip"
                                                            data-placement="top"
                                                            title="{{trans('admin.finishReservation')}}"
                                                            class='btn btn-raised btn-success btn-sml'
                                                            href=" {{url('reservations/'.$reserve->id.'/finished')}}"><i
                                                                 class="icon-check2"></i>
+
                                                         </a>
+
+
                                                     @endif
                                                 </td>
 

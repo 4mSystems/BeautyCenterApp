@@ -3,13 +3,13 @@
     {{--Main Menu--}}
 
 
-    <script> src="https://polyfill.io/v3/polyfill.min.js?features=default"</script>
+{{--    <script> src="https://polyfill.io/v3/polyfill.min.js?features=default"</script>--}}
 {{--    <script type="text/javascript"--}}
 {{--    src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyBTeHavldMrAZw2kVYgXnVgLBDcE3J0fXk'></script>--}}
 
 
-    <script type="text/javascript"
-            src='{{ asset('/app-assets/js/locationpicker.jquery.js') }}'></script>
+{{--    <script type="text/javascript"--}}
+{{--            src='{{ asset('/app-assets/js/locationpicker.jquery.js') }}'></script>--}}
 
     <?php
 
@@ -17,6 +17,24 @@
     $lng = !empty(Auth::user()->lng)?Auth::user()->lng:'31.223632812499993';
 
     ?>
+
+    <script>
+        $('#us1').locationpicker({
+            location: {
+                latitude: {{$lat}},
+                longitude: {{$lng}}
+            },
+            radius: 300,
+            markerIcon: 'http://www.iconsdb.com/icons/preview/tropical-blue/map-marker-2-xl.png',
+            inputBinding: {
+                latitudeInput: $('#lat'),
+                longitudeInput: $('#lng'),
+                // radiusInput: $('#us2-radius'),
+                // locationNameInput: $('#us2-address')
+            }
+
+            });
+    </script>
 
 {{--    <script>--}}
 {{--        $('#us1').locationpicker({--}}
@@ -65,6 +83,11 @@
                                     {!! Form::model(Auth::user(), ['route' => ['salon_profile.update',Auth::user()->id] , 'method'=>'put' ,'files'=> true]) !!}
                                     <div class="card-header  text-xs-center">
                                         <a href="#">
+
+
+
+                                            <input type="hidden" value="{{$lat}}" id="lat" name="lat">
+                                            <input type="hidden" value="{{$lng}}" id="lng" name="lng">
 
                                             <img width="150" height="150"
                                                  src="{{ asset('/uploads/users/'.Auth::user()->image) }}" alt=""
@@ -157,9 +180,11 @@
                                         {!! Form::close() !!}
                                     </div>
 
-
+                                    <a href="{{url('deliverytimes')}}" class="btn btn-blue-grey">
+                                        <i class="icon-alert"></i> {{trans('admin.editDeliveryTime')}}
+                                    </a>
                                 </div>
-                                <div id="map"></div>
+{{--                                <div id="map"></div>--}}
                             </div>
                         </div>
                     </div>
