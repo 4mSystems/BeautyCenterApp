@@ -24,7 +24,7 @@ return [
     'nav_reservations' => 'الحجوزات',
     'nav_product_sponsered' => 'اعلانات المنتجات',
 
-     // payment status
+    // payment status
     'noStatus' => 'لم يتم الدفع',
     'yesStatus' => 'تم الدفع',
     'selectType' => 'اختر النوع',
@@ -41,11 +41,11 @@ return [
     'serv_update' => 'تعديل الخدمة',
     'serv_choose_Category' => 'أختر تصنيف',
     'confirmation' => 'هل انت متاكد؟',
-    'offer'=>'اضافه عرض',
-    'CannotCancel'=>'لا يمكن الغاء الحجز',
+    'offer' => 'اضافه عرض',
+    'CannotCancel' => 'لا يمكن الغاء الحجز',
 
-    'prod_Offer'=>' اضافه عرض للمنتج',
-    'ser_Offer'=>' اضافة عرض للخدمه',
+    'prod_Offer' => ' اضافه عرض للمنتج',
+    'ser_Offer' => ' اضافة عرض للخدمه',
 
 
     // Products
@@ -204,8 +204,8 @@ return [
     'editDeliveryTime' => '  اوقات التوصيل',
 
     // Reviews
-    'reviews'=>'التقيمات والاراء',
-    'write_review'=>'اكتب تقييمك',
+    'reviews' => 'التقيمات والاراء',
+    'write_review' => 'اكتب تقييمك',
 
     //Offers
     'nav_offers' => 'العروض',
@@ -214,6 +214,7 @@ return [
     'delete_offer' => 'إلغاء العرض',
 
     //months
+
 
     'January'=>'يناير',
     'February'=>'فبراير',
