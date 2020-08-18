@@ -236,5 +236,13 @@ return [
     'nav_Productreservations'=>'product bookings ',
     'chairs'=>'number of chairs',
 
+    'completed_booking' => 'completed booking',
+    'pending_booking' => 'pending booking  ',
+    'approved_booking' => ' approved booking  ',
+    'inProgress_booking' => ' InProgress booking  ',
+    'canceled_booking' => ' canceled booking  ',
+    'total_customers' => '   total customers',
+    'total_earnings' => '   total earnings',
+
 ];
 

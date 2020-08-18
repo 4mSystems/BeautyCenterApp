@@ -240,7 +240,16 @@ return [
     'nav_Servicereservations'=>'الخدمات المحجوزة',
     'nav_Productreservations'=>'المنتجات المحجوزة',
     'plzAddDeliverTime'=>'من فضلك قم بإضافة وقت للتوصيل اولا!',
-    'chairs'=>'عدد الكراسي'
+    'chairs'=>'عدد الكراسي',
+
+    'completed_booking' => 'الحجوزات المكتملة',
+    'pending_booking' => 'الحجوزات المنتظرة  ',
+    'approved_booking' => 'الحجوزات الموافق عليها',
+    'inProgress_booking' => 'الحجوزات قيد التنفيذ',
+    'canceled_booking' => 'الحجوزات الملغيه',
+    'total_customers' => 'اجمالي العملاء',
+    'total_earnings' => '   اجمالى الدخل  ',
+
 
 ];
 
