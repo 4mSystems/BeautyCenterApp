@@ -11,6 +11,8 @@ use App\Reservation;
 use App\Sponsered_ads;
 use App\User;
 use http\Client\Response;
+use phpDocumentor\Reflection\Types\Array_;
+
 //use Illuminate\Contracts\View\View;
 //use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\DB;
@@ -42,15 +44,11 @@ class HomeController extends Controller
 
             return view('Home', compact('salons', 'data'));
         } else {
+            $arr = null;
             // Data For Salon
-            $salonProducts = Product::where('salon_id', $salon_id)->get();
-            $salonCategories = Category::where('salon_id', $salon_id)->get();
-            $salonServices = Service::where('salon_id', $salon_id)->get();
+            $booking = Reservation::where('salon_id', $salon_id)->get();
             $salonReservation = Reservation::where('salon_id', $salon_id)->limit(10)->orderBy('created_at', 'asc')->get();
-
-            $data['salonProducts'] = $salonProducts;
-            $data['salonCategories'] = $salonCategories;
-            $data['salonServices'] = $salonServices;
+             $data['booking'] = $booking;
             return view('Home', compact('data', 'salonReservation'));
         }
 

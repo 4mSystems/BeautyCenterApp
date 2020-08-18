@@ -208,20 +208,28 @@ return [
 
     //months
 
-    'January'=>'January',
-    'February'=>'February',
-    'March'=>'March',
-    'April'=>'April',
-    'May'=>'May',
-    'June'=>'June',
-    'July'=>'July',
-    'August'=>'August',
-    'September'=>'September',
-    'October'=>'October',
-    'December'=>'December',
-    'November'=>'November',
+    'January' => 'January',
+    'February' => 'February',
+    'March' => 'March',
+    'April' => 'April',
+    'May' => 'May',
+    'June' => 'June',
+    'July' => 'July',
+    'August' => 'August',
+    'September' => 'September',
+    'October' => 'October',
+    'December' => 'December',
+    'November' => 'November',
 
     //
-    'paymentError'=>'paymentError',
+    'paymentError' => 'paymentError',
+    'completed_booking' => 'Completed booking',
+    'pending_booking' => 'Pending booking',
+    'approved_booking' => 'Approved booking',
+    'inProgress_booking' => 'InProgress booking',
+    'canceled_booking' => 'Canceled booking',
+    'total_customers' => 'Total customers',
+    'total_earnings' => 'Total earnings',
+
 ];
 

@@ -24,7 +24,7 @@ return [
     'nav_reservations' => 'الحجوزات',
     'nav_product_sponsered' => 'اعلانات المنتجات',
 
-     // payment status
+    // payment status
     'noStatus' => 'لم يتم الدفع',
     'yesStatus' => 'تم الدفع',
     'selectType' => 'اختر النوع',
@@ -41,11 +41,11 @@ return [
     'serv_update' => 'تعديل الخدمة',
     'serv_choose_Category' => 'أختر تصنيف',
     'confirmation' => 'هل انت متاكد؟',
-    'offer'=>'اضافه عرض',
-    'CannotCancel'=>'لا يمكن الغاء الحجز',
+    'offer' => 'اضافه عرض',
+    'CannotCancel' => 'لا يمكن الغاء الحجز',
 
-    'prod_Offer'=>' اضافه عرض للمنتج',
-    'ser_Offer'=>' اضافة عرض للخدمه',
+    'prod_Offer' => ' اضافه عرض للمنتج',
+    'ser_Offer' => ' اضافة عرض للخدمه',
 
 
     // Products
@@ -202,8 +202,8 @@ return [
     'finishReservation' => 'انتهاء',
 
     // Reviews
-    'reviews'=>'التقيمات والاراء',
-    'write_review'=>'اكتب تقييمك',
+    'reviews' => 'التقيمات والاراء',
+    'write_review' => 'اكتب تقييمك',
 
     //Offers
     'nav_offers' => 'العروض',
@@ -213,19 +213,26 @@ return [
 
     //months
 
-    'January'=>'يناير',
-    'February'=>'فبراير',
-    'March'=>'مارس',
-    'April'=>'ابريل',
-    'May'=>'مايو',
-    'June'=>'يونيو',
-    'July'=>'يوليو',
-    'August'=>'اغسطس',
-    'September'=>'سبتمبر',
-    'October'=>'اكتوبر',
-    'December'=>'ديسمبر',
-    'November'=>'نوفمبر',
+    'January' => 'يناير',
+    'February' => 'فبراير',
+    'March' => 'مارس',
+    'April' => 'ابريل',
+    'May' => 'مايو',
+    'June' => 'يونيو',
+    'July' => 'يوليو',
+    'August' => 'اغسطس',
+    'September' => 'سبتمبر',
+    'October' => 'اكتوبر',
+    'December' => 'ديسمبر',
+    'November' => 'نوفمبر',
 
-    'paymentError'=>'مشكلة ف الدفع '
+    'paymentError' => 'مشكلة ف الدفع ',
+    'completed_booking' =>'حجوزات مكتمله',
+    'pending_booking' =>'حجوزات فى الانتظار',
+    'approved_booking' =>'حجوزات المعتمده',
+    'inProgress_booking' =>'حجوزات قيد التنفيذ',
+    'canceled_booking' =>'حجوزات ملغيه',
+    'total_customers' =>'مجموع العملاء',
+    'total_earnings' =>'مجموع الارباح',
 ];
 
