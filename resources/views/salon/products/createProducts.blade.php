@@ -25,6 +25,19 @@
             @include('layouts.errors')
 
             @include('layouts.messages')
+                <div class="card-block">
+                    @php
+                    $times = App\DeliveryTimes::where('salon_id',Auth::user()->id)->first();
+                     @endphp
+                    @if($times === null)
+                        <strong style="color: red;">{{trans('admin.plzAddDeliverTime')}}</strong>
+                        <a class='btn btn-raised btn-info btn-sml'
+                           href=" {{url('deliverytimes/create')}}"><i
+                                class="icon-box-add"></i></a>
+
+                    @endif
+
+                </div>
             <!-- /.card-header -->
                 <div class="card-body">
                     <div class="card-block">
@@ -46,6 +59,11 @@
                         <div class="form-group">
                              {{ Form::select('cat_id',App\Category::where('type','product')->pluck('name','id'),old('cat_id')
                              ,["class"=>"form-control dept_id round" ,'placeholder'=>trans('admin.serv_choose_Category') ]) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::select('deliverytime_id',App\DeliveryTimes::where('salon_id',Auth::user()->id)->pluck('delivery_time','id'),old('deliverytime_id')
+                            ,["class"=>"form-control  round" ,'placeholder'=>trans('admin.serv_choose_deliveryTime') ]) }}
                         </div>
 
                         <div class="form-group">

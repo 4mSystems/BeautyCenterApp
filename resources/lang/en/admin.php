@@ -20,7 +20,7 @@ return [
     'nav_cat' => 'Categories',
     'nav_serv' => 'Services',
     'nav_prod' => 'Products',
-    'nav_reservations' => 'Reservations',
+    'nav_reservations' => 'Booking',
     'nav_product_sponsered' => 'Product Ads',
 
 
@@ -187,15 +187,17 @@ return [
     'reservation_type' => 'Type',
     'reservation_status' => 'Status',
     'all' => 'All',
-    'waiting' => 'Waiting',
+    'pending' => 'pending',
     'accepted' => 'Accepted',
     'rejected' => 'Rejected',
     'canceled' => 'Canceled',
     'finished' => 'Finished',
+    'inprogress' => 'in Progress',
     'acceptReservation' => 'Accept',
     'rejectReservation' => 'Reject',
     'cancelReservation' => 'Cancel',
     'finishReservation' => 'Finish',
+    'editDeliveryTime' => 'edit Delivery Time',
 
     // Reviews
     'reviews' => 'Reviews',
@@ -208,20 +210,39 @@ return [
 
     //months
 
-    'January'=>'January',
-    'February'=>'February',
-    'March'=>'March',
-    'April'=>'April',
-    'May'=>'May',
-    'June'=>'June',
-    'July'=>'July',
-    'August'=>'August',
-    'September'=>'September',
-    'October'=>'October',
-    'December'=>'December',
-    'November'=>'November',
+    'January' => 'January',
+    'February' => 'February',
+    'March' => 'March',
+    'April' => 'April',
+    'May' => 'May',
+    'June' => 'June',
+    'July' => 'July',
+    'August' => 'August',
+    'September' => 'September',
+    'October' => 'October',
+    'December' => 'December',
+    'November' => 'November',
 
     //
     'paymentError'=>'paymentError',
+    'serv_choose_deliveryTime'=>' choose Delivery Time',
+    'add_deliverytimes'=>'add delivery time',
+    'update_deliverytimes'=>'Edit delivery time',
+    'times'=>'delivery Time',
+    'deliverytimes'=>'delivery times',
+    'plzAddDeliverTime'=>'please add delivery time first!',
+
+    'nav_Servicereservations'=>'services bookings ',
+    'nav_Productreservations'=>'product bookings ',
+    'chairs'=>'number of chairs',
+
+    'completed_booking' => 'completed booking',
+    'pending_booking' => 'pending booking  ',
+    'approved_booking' => ' approved booking  ',
+    'inProgress_booking' => ' InProgress booking  ',
+    'canceled_booking' => ' canceled booking  ',
+    'total_customers' => '   total customers',
+    'total_earnings' => '   total earnings',
+
 ];
 

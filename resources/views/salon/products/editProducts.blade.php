@@ -44,11 +44,15 @@
                         </div>
 
                         <div class="form-group">
+                            {{ Form::select('deliverytime_id',App\DeliveryTimes::where('salon_id',Auth::user()->id)->pluck('delivery_time','id'),$user_data->deliverytime_id
+                            ,["class"=>"form-control  round" ,'placeholder'=>trans('admin.serv_choose_deliveryTime') ]) }}
+                        </div>
+                        <div class="form-group">
                             {{ Form::textarea('desc',$user_data->desc,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc')]) }}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control round' ,"required")) }}
+                            {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control round' )) }}
 
                             @if(!empty($user_data->main_image))
                                 <img src="{{ url('uploads/product/'.$user_data->main_image) }}" style="width:250px;height:250px;" />

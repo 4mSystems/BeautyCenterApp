@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{url('home')}}">{{trans('admin.home')}}</a>
                 </li>
-                <li class="breadcrumb-item">{{trans('admin.nav_Servicereservations')}}
+                <li class="breadcrumb-item">{{trans('admin.nav_Productreservations')}}
                 </li>
 
             </ol>
@@ -38,19 +38,19 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"
-                                       href="{{url('reservations')}}">{{trans('admin.all')}}</a><a
+                                       href="{{url('productreservations')}}">{{trans('admin.all')}}</a><a
                                         class="dropdown-item"
-                                        href="{{url('reservation/pending')}}">{{trans('admin.pending')}}</a>
+                                        href="{{url('productreservation/pending')}}">{{trans('admin.pending')}}</a>
                                     <a class="dropdown-item"
-                                       href="{{url('reservation/accepted')}}">{{trans('admin.accepted')}}</a>
+                                       href="{{url('productreservation/accepted')}}">{{trans('admin.accepted')}}</a>
                                     <a class="dropdown-item"
-                                       href="{{url('reservation/rejected')}}">{{trans('admin.rejected')}}</a>
+                                       href="{{url('productreservation/rejected')}}">{{trans('admin.rejected')}}</a>
                                     <a class="dropdown-item"
-                                       href="{{url('reservation/canceled')}}">{{trans('admin.canceled')}}</a>
+                                       href="{{url('productreservation/canceled')}}">{{trans('admin.canceled')}}</a>
                                     <a class="dropdown-item"
-                                       href="{{url('reservation/finished')}}">{{trans('admin.finished')}}</a>
+                                       href="{{url('productreservation/finished')}}">{{trans('admin.finished')}}</a>
                                     <a class="dropdown-item"
-                                       href="{{url('reservation/inprogress')}}">{{trans('admin.inprogress')}}</a>
+                                       href="{{url('productreservation/inprogress')}}">{{trans('admin.inprogress')}}</a>
 
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
 
                                             <th class="text-lg-center">{{trans('admin.serv_time')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_date')}}</th>
-                                             <th class="text-lg-center">{{trans('admin.reservation_status')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.reservation_status')}}</th>
                                             <th class="text-lg-center"></th>
 
                                         </tr>

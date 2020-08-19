@@ -47,6 +47,7 @@ class productsController extends Controller
                 'price_after' => 'sometimes|nullable|numeric',
                 'price_before' => 'required|numeric',
                 'cat_id' => 'required|exists:categories,id',
+                'deliverytime_id' => 'required|exists:delivery_times,id',
 
             ]);
 
@@ -105,6 +106,8 @@ class productsController extends Controller
                 'price_after' => 'sometimes|nullable|numeric',
                 'price_before' => 'required|numeric',
                 'cat_id' => 'required|exists:categories,id',
+                'deliverytime_id' => 'required|exists:delivery_times,id',
+
 
             ]);
 

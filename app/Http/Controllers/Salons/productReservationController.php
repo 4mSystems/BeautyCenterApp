@@ -9,7 +9,7 @@ use DateInterval;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ReservationController extends Controller
+class productReservationController extends Controller
 {
     public $objectName;
     public $folderView;
@@ -26,8 +26,8 @@ class ReservationController extends Controller
     {
         session()->put('reser_status', 'all');
 
-        $reservations = $this->objectName::where('salon_id', auth()->user()->id)->where('type','service')->simplePaginate(10);
-        return view($this->folderView . 'reservations', compact('reservations'));
+        $reservations = $this->objectName::where('salon_id', auth()->user()->id)->where('type','product')->simplePaginate(10);
+        return view($this->folderView . 'reservationsProduct', compact('reservations'));
     }
 
 
@@ -39,9 +39,9 @@ class ReservationController extends Controller
     {
         session()->put('reser_status', $status);
 
-        $reservations = $this->objectName::where('salon_id', auth()->user()->id)->where('type','service')->where('status', $status)->paginate(10);
+        $reservations = $this->objectName::where('salon_id', auth()->user()->id)->where('type','product')->where('status', $status)->paginate(10);
 
-        return view($this->folderView . 'reservations', compact('reservations'));
+        return view($this->folderView . 'reservationsProduct', compact('reservations'));
 
     }
 
@@ -102,11 +102,11 @@ class ReservationController extends Controller
                 if ($delay >= $cancelTime) {
                     $data = $this->objectName::findOrFail($id)->update($input);
                     session()->flash('success', trans('admin.statuschanged'));
-                    return redirect(url('reservations'));
+                    return redirect(url('productreservations'));
 
                 } else {
                     session()->flash('danger', trans('admin.CannotCancel'));
-                    return redirect(url('reservations'));
+                    return redirect(url('productreservations'));
 
                 }
 //
@@ -118,7 +118,7 @@ class ReservationController extends Controller
             session()->flash('success', trans('admin.statuschanged'));
 
         }
-        return redirect(url('reservations'));
+        return redirect(url('productreservations'));
 
     }
 

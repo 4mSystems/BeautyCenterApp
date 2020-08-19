@@ -1,25 +1,25 @@
 @extends('admin_temp')
 @section('styles')
-{{--    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>--}}
-{{--    <script--}}
-{{--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9f16ldYjK2x8vmMnkf_ytiM0bb2zjwc&callback=initMap&libraries=&v=weekly"--}}
-{{--        defer--}}
-{{--    ></script>--}}
-{{--    <style type="text/css">--}}
-{{--        /* Always set the map height explicitly to define the size of the div--}}
-{{--         * element that contains the map. */--}}
-{{--        #map {--}}
-{{--            height: 100%;--}}
-{{--        }--}}
+    {{--    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>--}}
+    {{--    <script--}}
+    {{--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9f16ldYjK2x8vmMnkf_ytiM0bb2zjwc&callback=initMap&libraries=&v=weekly"--}}
+    {{--        defer--}}
+    {{--    ></script>--}}
+    {{--    <style type="text/css">--}}
+    {{--        /* Always set the map height explicitly to define the size of the div--}}
+    {{--         * element that contains the map. */--}}
+    {{--        #map {--}}
+    {{--            height: 100%;--}}
+    {{--        }--}}
 
-{{--        /* Optional: Makes the sample page fill the window. */--}}
-{{--        html,--}}
-{{--        body {--}}
-{{--            height: 100%;--}}
-{{--            margin: 0;--}}
-{{--            padding: 0;--}}
-{{--        }--}}
-{{--    </style>--}}
+    {{--        /* Optional: Makes the sample page fill the window. */--}}
+    {{--        html,--}}
+    {{--        body {--}}
+    {{--            height: 100%;--}}
+    {{--            margin: 0;--}}
+    {{--            padding: 0;--}}
+    {{--        }--}}
+    {{--    </style>--}}
 @endsection
 @section('content')
     {{--Main Menu--}}
@@ -114,81 +114,125 @@
                         </div>
                     @else
                         <div class="col-xl-3 col-lg-6 col-xs-12">
-                            <a href="{{url('categories')}}">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-block">
-                                            <div class="media">
-                                                <div class="media-body text-xs-left">
-                                                    <h3 class="pink">{{ count($data['salonCategories'])}}</h3>
-                                                    <span>{{trans('admin.nav_cat')}}</span>
-                                                </div>
-                                                <div class="media-right media-middle">
-                                                    <i class="icon-ios-list teal font-large-2 float-xs-right"></i>
-                                                </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="media">
+                                            <div class="media-body text-xs-left">
+                                                <h3 class="pink">{{ count($data['booking']->where('status','finished'))}}</h3>
+                                                <span>{{trans('admin.completed_booking')}}</span>
+                                            </div>
+                                            <div class="media-right media-middle">
+                                                <i class="icon-shopping-basket cyan font-large-2 float-xs-right"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
-                            <a href="{{url('services')}}">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-block">
-                                            <div class="media">
-                                                <div class="media-body text-xs-left">
-                                                    <h3 class="teal">{{ count($data['salonServices'])}}</h3>
-                                                    <span>{{trans('admin.nav_serv')}}</span>
-                                                </div>
-                                                <div class="media-right media-middle">
-                                                    <i class="icon-ios-paper pink font-large-2 float-xs-right"></i>
-                                                </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="media">
+                                            <div class="media-body text-xs-left">
+                                                <h3 class="teal">{{ count($data['booking']->where('status','pending'))}}</h3>
+                                                <span>{{trans('admin.pending_booking')}}</span>
+                                            </div>
+                                            <div class="media-right media-middle">
+                                                <i class="icon-arrow3 pink font-large-2 float-xs-right"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
-                            <a href="{{url('products')}}">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-block">
-                                            <div class="media">
-                                                <div class="media-body text-xs-left">
-                                                    <h3 class="deep-orange">{{ count($data['salonProducts'])}}</h3>
-                                                    <span>{{trans('admin.nav_prod')}}</span>
-                                                </div>
-                                                <div class="media-right media-middle">
-                                                    <i class="icon-ios-medkit deep-orange font-large-2 float-xs-right"></i>
-                                                </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="media">
+                                            <div class="media-body text-xs-left">
+                                                <h3 class="teal">{{ count($data['booking']->where('status','accepted'))}}</h3>
+                                                <span>{{trans('admin.approved_booking')}}</span>
+                                            </div>
+                                            <div class="media-right media-middle">
+                                                <i class="icon-check green font-large-2 float-xs-right"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-xs-12">
-                            <a href="{{url('reservations')}}">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-block">
-                                            <div class="media">
-                                                <div class="media-body text-xs-left">
-                                                    <h3 class="cyan">{{ count($salonReservation)}}</h3>
-                                                    <span>{{trans('admin.nav_reservations')}}</span>
-                                                </div>
-                                                <div class="media-right media-middle">
-                                                    <i class="icon-ios-timer cyan font-large-2 float-xs-right"></i>
-                                                </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="media">
+                                            <div class="media-body text-xs-left">
+                                                <h3 class="cyan">{{ count($data['booking']->where('status','inprogress'))}}</h3>
+                                                <span>{{trans('admin.inProgress_booking')}}</span>
+                                            </div>
+                                            <div class="media-right media-middle">
+                                                <i class="icon-book2 cyan font-large-2 float-xs-right"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
+                        <div class="col-xl-3 col-lg-6 col-xs-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="media">
+                                            <div class="media-body text-xs-left">
+                                                <h3 class="cyan">{{ count($data['booking']->where('status','canceled'))}}</h3>
+                                                <span>{{trans('admin.canceled_booking')}}</span>
+                                            </div>
+                                            <div class="media-right media-middle">
+                                                <i class="icon-times red font-large-2 float-xs-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-xs-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="media">
+                                            <div class="media-body text-xs-left">
+                                                <h3 class="cyan">{{ count($data['booking']->unique('customer_id'))}}</h3>
+                                                <span>{{trans('admin.total_customers')}}</span>
+                                            </div>
+                                            <div class="media-right media-middle">
+                                                <i class="icon-user4 blue font-large-2 float-xs-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-xs-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="media">
+                                            <div class="media-body text-xs-left">
+                                                <h3 class="cyan">{{ $data['booking']->where('status','!=','canceled')->sum('price')}}</h3>
+                                                <span>{{trans('admin.total_earnings')}}</span>
+                                            </div>
+                                            <div class="media-right media-middle">
+                                                <i class="icon-money1 blue font-large-2 float-xs-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     @endif
                 </div>
                 <!--/ stats -->
@@ -398,14 +442,14 @@
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 @endsection
 @section('scripts')
-{{--    <script>--}}
-{{--        let map;--}}
+    {{--    <script>--}}
+    {{--        let map;--}}
 
-{{--        function initMap() {--}}
-{{--            map = new google.maps.Map(document.getElementById("map"), {--}}
-{{--                center: {lat: -34.397, lng: 150.644},--}}
-{{--                zoom: 8--}}
-{{--            });--}}
-{{--        }--}}
-{{--    </script>--}}
+    {{--        function initMap() {--}}
+    {{--            map = new google.maps.Map(document.getElementById("map"), {--}}
+    {{--                center: {lat: -34.397, lng: 150.644},--}}
+    {{--                zoom: 8--}}
+    {{--            });--}}
+    {{--        }--}}
+    {{--    </script>--}}
 @endsection

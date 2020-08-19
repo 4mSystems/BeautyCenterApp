@@ -26,13 +26,13 @@
                             @if(session('lang')=='en')
                                 <i class="flag-icon flag-icon-gb"></i><span class="selected-language">English</span></a>
                         @else
-                            <i class="flag-icon flag-icon-eg"></i><span class="selected-language">العربيه</span></a>
+                            <i class="flag-icon flag-icon-kw"></i><span class="selected-language">العربيه</span></a>
                         @endif
                         <div aria-labelledby="dropdown-flag" class="dropdown-menu">
                             <a href="{{url('lang/en')}}" class="dropdown-item">
                                 <i class="flag-icon flag-icon-gb"></i> English</a>
                             <a href="{{url('lang/ar')}}" class="dropdown-item">
-                                <i class="flag-icon flag-icon-eg"></i> العربيه</a>
+                                <i class="flag-icon flag-icon-kw"></i> العربيه</a>
 
 
                         </div>
