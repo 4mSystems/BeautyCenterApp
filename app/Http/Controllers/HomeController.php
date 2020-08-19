@@ -51,7 +51,7 @@ class HomeController extends Controller
             $salonReservation = Reservation::where('salon_id', $salon_id)->limit(10)->orderBy('created_at', 'asc')->get();
              $data['booking'] = $booking;
 
-            return view('home', compact('data', 'salonReservation'));
+            return view('Home', compact('data', 'salonReservation'));
         }
 
     }
