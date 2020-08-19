@@ -32,7 +32,7 @@ class User extends Authenticatable
 //
 //    public function getSalon_payment_statusAttribute($value)
 //    {
-//
+
 //        if ($value == 'yes') {
 //            return trans('admin.yesStatus');
 //        } else if ($value == 'no'){

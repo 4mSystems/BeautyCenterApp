@@ -42,7 +42,7 @@ class HomeController extends Controller
             $data['ads'] = $ads;
             $data['packages'] = $packages;
 
-            return view('Home', compact('salons', 'data'));
+            return view('home', compact('salons', 'data'));
         } else {
 
             $arr = null;
@@ -50,8 +50,7 @@ class HomeController extends Controller
             $booking = Reservation::where('salon_id', $salon_id)->get();
             $salonReservation = Reservation::where('salon_id', $salon_id)->limit(10)->orderBy('created_at', 'asc')->get();
              $data['booking'] = $booking;
-
-            return view('Home', compact('data', 'salonReservation'));
+            return view('home', compact('data', 'salonReservation'));
         }
 
     }

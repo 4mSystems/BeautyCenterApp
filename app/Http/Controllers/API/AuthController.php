@@ -77,7 +77,7 @@ class AuthController extends Controller
                 $user->save();
 
 
-                return $this->sendResponse(200, 'تم تسجيل الدخول بنجاح',array('user'=>$user));
+                return $this->sendResponse(200, 'تم تسجيل الدخول بنجاح',$user);
             }
             else
             {
@@ -112,6 +112,7 @@ class AuthController extends Controller
 
             $user->api_token = null;
             if($user->save()){
+                Auth::logout();
                 return $this->sendResponse(200, 'تم تسجيل الخروج بنجاح',null);
             }else{
                 return $this->sendResponse(401, 'يرجى تسجيل الدخول ',null);
