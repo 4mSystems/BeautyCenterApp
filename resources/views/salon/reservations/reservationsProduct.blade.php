@@ -117,28 +117,28 @@
                                                            data-placement="top"
                                                            title="{{trans('admin.acceptReservation')}}"
                                                            class='btn btn-raised btn-outline-warning btn-sml'
-                                                           href=" {{url('reservations/'.$reserve->id.'/accepted')}}">
+                                                           href=" {{url('productreservations/'.$reserve->id.'/accepted')}}">
                                                             <i class="icon-check2"></i>
                                                         </a>
                                                         <a data-toggle="tooltip"
                                                            data-placement="top"
                                                            title="{{trans('admin.rejectReservation')}}"
                                                            class='btn btn-raised btn-outline-danger btn-sml'
-                                                           href=" {{url('reservations/'.$reserve->id.'/rejected')}}"><i
+                                                           href=" {{url('productreservations/'.$reserve->id.'/rejected')}}"><i
                                                                 class="icon-cancel-circle"></i></a>
                                                     @elseif($reserve->status=='accepted')
                                                         <a data-toggle="tooltip"
                                                            data-placement="top"
                                                            title="{{trans('admin.cancelReservation')}}"
                                                            class='btn btn-raised btn-danger btn-sml'
-                                                           href=" {{url('reservations/'.$reserve->id.'/canceled')}}"><i
+                                                           href=" {{url('productreservations/'.$reserve->id.'/canceled')}}"><i
                                                                 class="icon-android-cancel"></i>
                                                         </a>
                                                             <a data-toggle="tooltip"
                                                                data-placement="top"
                                                                title="{{trans('admin.inprogress')}}"
                                                                class='btn btn-raised btn-info btn-sml'
-                                                               href=" {{url('reservations/'.$reserve->id.'/inprogress')}}"><i
+                                                               href=" {{url('productreservations/'.$reserve->id.'/inprogress')}}"><i
                                                                     class="icon-add_to_queue"></i>
                                                             </a>
                                                     @elseif($reserve->status=='inprogress')
@@ -146,7 +146,7 @@
                                                            data-placement="top"
                                                            title="{{trans('admin.finishReservation')}}"
                                                            class='btn btn-raised btn-success btn-sml'
-                                                           href=" {{url('reservations/'.$reserve->id.'/finished')}}"><i
+                                                           href=" {{url('productreservations/'.$reserve->id.'/finished')}}"><i
                                                                 class="icon-check2"></i>
 
                                                         </a>

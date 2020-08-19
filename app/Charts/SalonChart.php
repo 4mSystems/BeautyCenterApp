@@ -31,7 +31,7 @@ class SalonChart extends BaseChart
 
         $users = Reservation::selectRaw('COUNT(*) as count, YEAR(date) year, MONTHNAME(date) month')
             ->groupBy('year', 'month')
-            ->orderBy('date', 'ASC')
+//            ->orderBy('date', 'ASC')
             ->get();
         $count_array = [];
         $month_array = [];

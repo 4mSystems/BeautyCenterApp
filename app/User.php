@@ -29,16 +29,16 @@ class User extends Authenticatable
         return $this->hasOne('App\package','id','package_id');
 
     }
-
-    public function getSalon_payment_statusAttribute($value)
-    {
-
-        if ($value == 'yes') {
-            return trans('admin.yesStatus');
-        } else if ($value == 'no'){
-            return trans('admin.noStatus');
-        }
-    }
+//
+//    public function getSalon_payment_statusAttribute($value)
+//    {
+//
+//        if ($value == 'yes') {
+//            return trans('admin.yesStatus');
+//        } else if ($value == 'no'){
+//            return trans('admin.noStatus');
+//        }
+//    }
 
     protected $hidden = [
         'password', 'remember_token',

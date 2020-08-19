@@ -44,12 +44,14 @@ class HomeController extends Controller
 
             return view('Home', compact('salons', 'data'));
         } else {
+
             $arr = null;
             // Data For Salon
             $booking = Reservation::where('salon_id', $salon_id)->get();
             $salonReservation = Reservation::where('salon_id', $salon_id)->limit(10)->orderBy('created_at', 'asc')->get();
              $data['booking'] = $booking;
-            return view('Home', compact('data', 'salonReservation'));
+
+            return view('home', compact('data', 'salonReservation'));
         }
 
     }
