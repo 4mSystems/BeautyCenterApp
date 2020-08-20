@@ -49,6 +49,8 @@ Route::group(['middleware' => ['auth', 'salon']],
 //        category routes
         Route::resource('categories', 'Salons\CategoryController');
         Route::get('categories/{id}/delete', 'Salons\CategoryController@destroy');
+
+
 //         Service Page
         Route::resource('services', 'Salons\serviceController');
         Route::get('services/{id}/delete', 'Salons\serviceController@destroy');
@@ -93,6 +95,9 @@ Route::group(['middleware' => ['auth', 'salon']],
 
 //SalonUsers
         Route::resource('salonUsers', 'Salons\SalonUsersController');
+
+        Route::resource('chairs', 'Salons\ChairsController');
+        Route::get('chairs/{id}/delete', 'Salons\ChairsController@destroy');
 
     });
 

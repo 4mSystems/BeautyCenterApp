@@ -204,7 +204,7 @@
                                     <div class="card-block">
                                         <div class="media">
                                             <div class="media-body text-xs-left">
-                                                <h3 class="cyan">{{ count($data['booking']->unique('customer_id'))}}</h3>
+                                                <h3 class="cyan">{{$totalCustomer}}</h3>
                                                 <span>{{trans('admin.total_customers')}}</span>
                                             </div>
                                             <div class="media-right media-middle">

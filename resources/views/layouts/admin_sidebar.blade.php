@@ -97,6 +97,13 @@
                               class="menu-title">{{trans('admin.nav_users')}}</span></a>
 
                 </li>
+
+                <li class=" nav-item">
+                    <a href="{{url('chairs')}}"><i class="icon-chain-broken"></i>
+                        <span data-i18n="nav.dash.main"
+                              class="menu-title">{{trans('admin.nav_chairs')}}</span></a>
+
+                </li>
             @endif
 
         </ul>

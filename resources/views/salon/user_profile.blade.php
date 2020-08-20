@@ -122,11 +122,7 @@
                                             <input type="text" id="address" class="form-control"
                                                    value="{{Auth::user()->address}}" autocomplete="off" name="address">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="eventRegInput4">{{trans('admin.chairs')}}</label>
-                                            <input type="number" id="num_chairs" class="form-control"
-                                                   value="{{Auth::user()->num_chairs}}" autocomplete="off" name="num_chairs">
-                                        </div>
+
                                         <h4 class="form-section"><i
                                                 class="icon-pie-graph2"></i> {{trans('admin.prof_Opening_Time')}}</h4>
                                         <div class="row">

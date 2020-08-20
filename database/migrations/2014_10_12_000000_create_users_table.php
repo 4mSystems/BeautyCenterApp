@@ -28,8 +28,7 @@ class CreateUsersTable extends Migration
 
             $table->enum('type',['manager','salon','customer'])->default('customer');
             $table->enum('salon_payment_status',['yes','no'])->default('no');
-            $table->integer(' num_chairs');
-            $table->string('lat')->nullable();
+             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
             $table->time('open_from')->nullable();
             $table->time('open_to')->nullable();

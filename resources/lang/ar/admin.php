@@ -253,6 +253,12 @@ return [
 
     'nav_users' => 'العملاء',
     'salon_user_title' => 'جميع العملاء',
+    //chairs
+    'nav_chairs' => 'الكراسي',
+    'update_chairs' => 'تعديل بيانات الكرسي',
+    'add_chair' => 'إضافة كرسي جديد',
+    'add_chairs' => 'إضافة كرسي جديد',
+    'chair_name' => 'إسم الكرسي',
 
 ];
 

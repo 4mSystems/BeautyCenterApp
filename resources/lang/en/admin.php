@@ -245,5 +245,13 @@ return [
     // users
     'nav_users' => 'Clients',
     'salon_user_title' => 'Registered Clients',
+
+    // Chairs
+
+    'nav_chairs' => 'Chairs',
+    'update_chairs' => 'Edit Chairs',
+    'add_chair' => 'Add Chairs',
+    'add_chairs' => 'Add Chairs',
+    'chair_name' => 'Chair Name',
 ];
 

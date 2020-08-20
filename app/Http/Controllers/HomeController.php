@@ -11,6 +11,7 @@ use App\Reservation;
 use App\Sponsered_ads;
 use App\User;
 use http\Client\Response;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\Array_;
 
 //use Illuminate\Contracts\View\View;
@@ -50,7 +51,9 @@ class HomeController extends Controller
             $booking = Reservation::where('salon_id', $salon_id)->get();
             $salonReservation = Reservation::where('salon_id', $salon_id)->limit(10)->orderBy('created_at', 'asc')->get();
              $data['booking'] = $booking;
-            return view('home', compact('data', 'salonReservation'));
+             $totalCustomer = User::where('type','customer')->where('added_by',Auth::user()->id)->count();
+//             dd($totalCustomer);
+            return view('home', compact('data', 'salonReservation','totalCustomer'));
         }
 
     }
