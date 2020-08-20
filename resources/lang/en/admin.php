@@ -224,17 +224,27 @@ return [
     'November' => 'November',
 
     //
-    'paymentError'=>'paymentError',
-    'serv_choose_deliveryTime'=>' choose Delivery Time',
-    'add_deliverytimes'=>'add delivery time',
-    'update_deliverytimes'=>'Edit delivery time',
-    'times'=>'delivery Time',
-    'deliverytimes'=>'delivery times',
-    'plzAddDeliverTime'=>'please add delivery time first!',
+    'paymentError' => 'paymentError',
+    'serv_choose_deliveryTime' => ' choose Delivery Time',
+    'add_deliverytimes' => 'add delivery time',
+    'update_deliverytimes' => 'Edit delivery time',
+    'times' => 'delivery Time',
+    'deliverytimes' => 'delivery times',
+    'plzAddDeliverTime' => 'please add delivery time first!',
 
-    'nav_Servicereservations'=>'services bookings ',
-    'nav_Productreservations'=>'product bookings ',
-    'chairs'=>'number of chairs',
+    'nav_Servicereservations' => 'services bookings ',
+    'nav_Productreservations' => 'product bookings ',
+    'chairs' => 'number of chairs',
 
+    'completed_booking' => 'completed booking',
+    'pending_booking' => 'pending booking  ',
+    'approved_booking' => ' approved booking  ',
+    'inProgress_booking' => ' InProgress booking  ',
+    'canceled_booking' => ' canceled booking  ',
+    'total_customers' => '   total customers',
+    'total_earnings' => '   total earnings',
+// users
+    'nav_users' => 'Clients',
+    'salon_user_title' => 'Registered Clients',
 ];
 
