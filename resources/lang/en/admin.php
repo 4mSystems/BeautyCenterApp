@@ -223,7 +223,9 @@ return [
     'December' => 'December',
     'November' => 'November',
 
-    //
+    'nav_Servicereservations' => 'services bookings ',
+    'nav_Productreservations' => 'product bookings ',
+    'chairs' => 'number of chairs',
     'paymentError' => 'paymentError',
     'serv_choose_deliveryTime' => ' choose Delivery Time',
     'add_deliverytimes' => 'add delivery time',
@@ -232,9 +234,6 @@ return [
     'deliverytimes' => 'delivery times',
     'plzAddDeliverTime' => 'please add delivery time first!',
 
-    'nav_Servicereservations' => 'services bookings ',
-    'nav_Productreservations' => 'product bookings ',
-    'chairs' => 'number of chairs',
 
     'completed_booking' => 'completed booking',
     'pending_booking' => 'pending booking  ',
@@ -243,7 +242,7 @@ return [
     'canceled_booking' => ' canceled booking  ',
     'total_customers' => '   total customers',
     'total_earnings' => '   total earnings',
-// users
+    // users
     'nav_users' => 'Clients',
     'salon_user_title' => 'Registered Clients',
 ];

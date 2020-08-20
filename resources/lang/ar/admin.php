@@ -216,31 +216,31 @@ return [
     //months
 
 
-    'January'=>'يناير',
-    'February'=>'فبراير',
-    'March'=>'مارس',
-    'April'=>'ابريل',
-    'May'=>'مايو',
-    'June'=>'يونيو',
-    'July'=>'يوليو',
-    'August'=>'اغسطس',
-    'September'=>'سبتمبر',
-    'October'=>'اكتوبر',
-    'December'=>'ديسمبر',
-    'November'=>'نوفمبر',
+    'January' => 'يناير',
+    'February' => 'فبراير',
+    'March' => 'مارس',
+    'April' => 'ابريل',
+    'May' => 'مايو',
+    'June' => 'يونيو',
+    'July' => 'يوليو',
+    'August' => 'اغسطس',
+    'September' => 'سبتمبر',
+    'October' => 'اكتوبر',
+    'December' => 'ديسمبر',
+    'November' => 'نوفمبر',
 
-    'paymentError'=>'مشكلة ف الدفع ',
+    'paymentError' => 'مشكلة ف الدفع ',
 
 
-    'serv_choose_deliveryTime'=>' اختر وقت التوصيل ',
-    'add_deliverytimes'=>'اضافه وقت للتوصيل',
-    'update_deliverytimes'=>'تعديل وقت التوصيل',
-    'times'=>'وقت التوصيل ',
-    'deliverytimes'=>'اوقات التوصيل ',
-    'nav_Servicereservations'=>'الخدمات المحجوزة',
-    'nav_Productreservations'=>'المنتجات المحجوزة',
-    'plzAddDeliverTime'=>'من فضلك قم بإضافة وقت للتوصيل اولا!',
-    'chairs'=>'عدد الكراسي',
+    'serv_choose_deliveryTime' => ' اختر وقت التوصيل ',
+    'add_deliverytimes' => 'اضافه وقت للتوصيل',
+    'update_deliverytimes' => 'تعديل وقت التوصيل',
+    'times' => 'وقت التوصيل ',
+    'deliverytimes' => 'اوقات التوصيل ',
+    'nav_Servicereservations' => 'الخدمات المحجوزة',
+    'nav_Productreservations' => 'المنتجات المحجوزة',
+    'plzAddDeliverTime' => 'من فضلك قم بإضافة وقت للتوصيل اولا!',
+    'chairs' => 'عدد الكراسي',
 
     'completed_booking' => 'الحجوزات المكتملة',
     'pending_booking' => 'الحجوزات المنتظرة  ',
@@ -253,7 +253,6 @@ return [
 
     'nav_users' => 'العملاء',
     'salon_user_title' => 'جميع العملاء',
-
 
 ];
 
