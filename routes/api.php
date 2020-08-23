@@ -12,3 +12,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login', 'API\AuthController@login');
 Route::post('logout','API\AuthController@logout');
+
+Route::post('register','API\UserApiController@store');
+Route::post('salonHome','API\HomeApiController@index');
+
