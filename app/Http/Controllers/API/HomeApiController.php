@@ -68,7 +68,7 @@ class HomeApiController extends Controller
             if ($user != null) {
            
             $data['services'] = $services;
-            $data['products'] = $productsads;
+            $data['products'] = $products;
             $data['product_offers'] = $product_offers;
             $data['service_offers'] = $service_offers;
 
