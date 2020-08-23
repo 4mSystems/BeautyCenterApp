@@ -67,12 +67,12 @@ class HomeApiController extends Controller
 
             if ($user != null) {
            
-            $data['services'] = $services;
-            $data['products'] = $products;
-            $data['product_offers'] = $product_offers;
-            $data['service_offers'] = $service_offers;
+            // $data[] = $services;
+            // $data['products'] = $products;
+            // $data['product_offers'] = $product_offers;
+            // $data['service_offers'] = $service_offers;
 
-            return $this->sendResponse(200, ' ', array('data' => $data));
+            return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services,'products' => $products,'product_offers' => $product_offers,'service_offers' => $service_offers));
               
             } else {
                 return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
