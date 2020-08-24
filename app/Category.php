@@ -16,4 +16,12 @@ class Category extends Model
 
     }
 
+    public function getImageAttribute($img)
+    {
+        if ($img)
+            return asset('/uploads/categories') . '/' . $img;
+        else
+            return "";
+    }
+
 }

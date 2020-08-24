@@ -80,70 +80,57 @@ class HomeApiController extends Controller
         }
 
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function allProducts(Request $request)
     {
-        //
+        $rules = [
+            'api_token' => 'required',
+            'salon_id' => 'required',
+
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $salon_id = $request->input('salon_id');
+            $user = User::where('api_token', $api_token)->first();
+            $products =Product::where('salon_id', $salon_id)->get();
+
+            if ($user != null) {
+
+            return $this->sendResponse(200, 'تم اظهار المعلومات', array('products' => $products));
+              
+            } else {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+        }
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function allServices(Request $request)
     {
-        //
-    }
+        $rules = [
+            'api_token' => 'required',
+            'salon_id' => 'required',
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $salon_id = $request->input('salon_id');
+            $user = User::where('api_token', $api_token)->first();
+            $services =Service::where('salon_id', $salon_id)->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+            if ($user != null) {
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+            return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services));
+              
+            } else {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -16,3 +16,7 @@ Route::post('logout','API\AuthController@logout');
 Route::post('register','API\UserApiController@store');
 Route::post('salonHome','API\HomeApiController@index');
 
+Route::post('products','API\HomeApiController@allProducts');
+
+Route::post('services','API\HomeApiController@allServices');
+

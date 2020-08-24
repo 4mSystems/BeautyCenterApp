@@ -26,4 +26,12 @@ class Service extends Model
         return $this->hasOne('App\User', 'id', 'salon_id');
 
     }
+
+    public function getImageAttribute($img)
+    {
+        if ($img)
+            return asset('/uploads/services') . '/' . $img;
+        else
+            return "";
+    }
 }

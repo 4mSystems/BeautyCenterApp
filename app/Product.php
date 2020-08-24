@@ -30,4 +30,12 @@ class Product extends Model
 
     }
 
+    public function getMainImageAttribute($img)
+    {
+        if ($img)
+            return asset('/uploads/product') . '/' . $img;
+        else
+            return "";
+    }
+
 }

@@ -56,7 +56,7 @@
                             {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control round')) }}
 
                             @if(!empty($user_data->image))
-                                <img src="{{ url('uploads/services/'.$user_data->image) }}"
+                                <img src="{{ url($user_data->image) }}"
                                      style="width:250px;height:250px;"/>
 
                             @endif

@@ -73,7 +73,7 @@
 
                                             <div class="col-md-2"
                                                  style="display: inline-block;">
-                                                <img src="{{asset('/uploads/product/Detailimage/'.$row->image) }}" width="160" height="160">
+                                                <img src="{{asset($row->image) }}" width="160" height="160">
                                                 {!! Form::checkbox('deleteImages[]',$row->id,false,['class'=>'form-control']) !!}
                                             </div>
                                         @endforeach
