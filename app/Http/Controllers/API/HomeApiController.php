@@ -133,4 +133,52 @@ class HomeApiController extends Controller
         }
 
     }
+
+    public function servicesWithCat(Request $request)
+    {
+        $rules = [
+            'salon_id' => 'required',
+            'cat_id' => 'required',            
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+
+            $salon_id = $request->input('salon_id');
+            $cat_id = $request->input('cat_id');
+            
+
+            $servicesWithCat =Service::where('salon_id', $salon_id)->where('cat_id', $cat_id)->get();
+
+            return $this->sendResponse(200, 'تم اظهار الخدمات بالتصنيف', $servicesWithCat);
+              
+            
+        }
+
+    }
+
+    public function productsWithCat(Request $request)
+    {
+        $rules = [
+            'salon_id' => 'required',
+            'cat_id' => 'required',            
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+
+            $salon_id = $request->input('salon_id');
+            $cat_id = $request->input('cat_id');
+            
+
+            $productsWithCat =Product::where('salon_id', $salon_id)->where('cat_id', $cat_id)->get();
+
+            return $this->sendResponse(200, 'تم اظهار المنتجات بالتصنيف', $productsWithCat);
+              
+            
+        }
+
+    }
 }
