@@ -98,7 +98,7 @@ class HomeApiController extends Controller
 
             if ($user != null) {
 
-            return $this->sendResponse(200, 'تم اظهار المعلومات', array('products' => $products));
+            return $this->sendResponse(200, 'تم اظهار المعلومات',$products);
               
             } else {
                 return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
@@ -125,7 +125,7 @@ class HomeApiController extends Controller
 
             if ($user != null) {
 
-            return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services));
+            return $this->sendResponse(200, 'تم اظهار المعلومات', $services);
               
             } else {
                 return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
