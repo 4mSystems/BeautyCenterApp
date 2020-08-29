@@ -16,14 +16,27 @@ Route::post('logout','API\AuthController@logout');
 Route::post('register','API\UserApiController@store');
 Route::post('salonHome','API\HomeApiController@index');
 
-Route::post('products','API\HomeApiController@allProducts');
+Route::post('products','API\productApiController@allProducts');
 
-Route::post('services','API\HomeApiController@allServices');
+Route::post('services','API\serviceApiController@allServices');
 
-Route::post('servicesWithCat','API\HomeApiController@servicesWithCat');
-Route::post('productsWithCat','API\HomeApiController@productsWithCat');
+Route::post('servicesWithCat','API\serviceApiController@servicesWithCat');
+Route::post('productsWithCat','API\productApiController@productsWithCat');
+
+Route::post('selectedSalon','API\HomeApiController@selectedSalon');
+
+
+Route::post('service_offers','API\serviceApiController@service_offers');
+
+Route::post('products_offers','API\productApiController@products_offers');
+
+
+Route::post('categoryProduct','API\productApiController@CategoryProduct');
+Route::post('categoryService','API\serviceApiController@CategoryService');
 
 Route::post('updateProfil','API\UserApiController@updateProfil');
+
+
 
 
 

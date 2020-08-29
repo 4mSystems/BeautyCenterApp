@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Service;
 use App\Product;
+use App\Category;
 use Validator;
 
 class HomeApiController extends Controller
@@ -48,7 +49,6 @@ class HomeApiController extends Controller
     public function index(Request $request)
     {
         $rules = [
-            'api_token' => 'required',
             'salon_id' => 'required',
 
         ];
@@ -56,92 +56,31 @@ class HomeApiController extends Controller
         if ($validator->fails()) {
             return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
         } else {
-            $api_token = $request->input('api_token');
+
             $salon_id = $request->input('salon_id');
-            $user = User::where('api_token', $api_token)->first();
-            $services =Service::where('salon_id', $salon_id)->get();
-            $products =Product::where('salon_id', $salon_id)->get();
+        
+        
+            $cat_service =Category::where('salon_id', $salon_id)->where('type','service')->get();
+            $cat_product =Category::where('salon_id', $salon_id)->where('type','product')->get();
 
-            $product_offers =Product::where('salon_id', $salon_id)->where('price_after','!=',null)->get();
-            $service_offers =Service::where('salon_id', $salon_id)->where('price_after','!=',null)->get();
 
-            if ($user != null) {
-           
-            // $data[] = $services;
-        //    $data['products'] = $products;
+            $product_offers =Product::where('salon_id', $salon_id)->where('price_after','!=',null)->with('category')->get();
+            $service_offers =Service::where('salon_id', $salon_id)->where('price_after','!=',null)->with('category')->get();
+
             $offers['product_offers'] = $product_offers;
             $offers['service_offers'] = $service_offers;
 
             return $this->sendResponse(200, 'تم اظهار المعلومات', array('cat_service' => $cat_service ,'cat_product' => $cat_product,
-            'offers' => $offers));
-
-            
-              
-            } else {
-                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
-            }
-        }
-
-    }
-    public function allProducts(Request $request)
-    {
-        $rules = [
-            'api_token' => 'required',
-            'salon_id' => 'required',
-
-        ];
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
-        } else {
-            $api_token = $request->input('api_token');
-            $salon_id = $request->input('salon_id');
-            $user = User::where('api_token', $api_token)->first();
-            $products =Product::where('salon_id', $salon_id)->get();
-
-            if ($user != null) {
-
-            return $this->sendResponse(200, 'تم اظهار المعلومات',$products);
-              
-            } else {
-                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
-            }
+            'offers' => $offers));         
         }
 
     }
 
-    public function allServices(Request $request)
+    public function selectedSalon(Request $request)
     {
-        $rules = [
-            'api_token' => 'required',
-            'salon_id' => 'required',
-
-        ];
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
-        } else {
-            $api_token = $request->input('api_token');
-            $salon_id = $request->input('salon_id');
-            $user = User::where('api_token', $api_token)->first();
-            $services =Service::where('salon_id', $salon_id)->get();
-
-            if ($user != null) {
-
-            return $this->sendResponse(200, 'تم اظهار المعلومات', $services);
-              
-            } else {
-                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
-            }
-        }
-
-    }
-
-    public function servicesWithCat(Request $request)
-    {
+        // dd('here');
         $rules = [
             'salon_id' => 'required',
-            'cat_id' => 'required',            
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
@@ -149,39 +88,13 @@ class HomeApiController extends Controller
         } else {
 
             $salon_id = $request->input('salon_id');
-            $cat_id = $request->input('cat_id');
+            $salon =User::where('id', $salon_id)->get();
             
-
-            $servicesWithCat =Service::where('salon_id', $salon_id)->where('cat_id', $cat_id)->get();
-
-            return $this->sendResponse(200, 'تم اظهار الخدمات بالتصنيف', $servicesWithCat);
-              
-            
+            return $this->sendResponse(200, 'تم اظهار معلومات الصالون', $salon);
+         
         }
 
     }
 
-    public function productsWithCat(Request $request)
-    {
-        $rules = [
-            'salon_id' => 'required',
-            'cat_id' => 'required',            
-        ];
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
-        } else {
 
-            $salon_id = $request->input('salon_id');
-            $cat_id = $request->input('cat_id');
-            
-
-            $productsWithCat =Product::where('salon_id', $salon_id)->where('cat_id', $cat_id)->get();
-
-            return $this->sendResponse(200, 'تم اظهار المنتجات بالتصنيف', $productsWithCat);
-              
-            
-        }
-
-    }
 }
