@@ -23,5 +23,7 @@ Route::post('services','API\HomeApiController@allServices');
 Route::post('servicesWithCat','API\HomeApiController@servicesWithCat');
 Route::post('productsWithCat','API\HomeApiController@productsWithCat');
 
+Route::post('updateProfil','API\UserApiController@updateProfil');
+
 
 

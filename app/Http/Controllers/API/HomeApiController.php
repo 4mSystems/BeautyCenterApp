@@ -72,7 +72,10 @@ class HomeApiController extends Controller
             $offers['product_offers'] = $product_offers;
             $offers['service_offers'] = $service_offers;
 
-            return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services,'products' => $products,'offers' => $offers));
+            return $this->sendResponse(200, 'تم اظهار المعلومات', array('cat_service' => $cat_service ,'cat_product' => $cat_product,
+            'offers' => $offers));
+
+            
               
             } else {
                 return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
