@@ -87,6 +87,7 @@ class serviceApiController extends Controller
               $CategoryServices =Category::where('salon_id', $salon_id)->where('type', 'service')->get();
 
            return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services ,'CategoryServices' => $CategoryServices));
+       
         }
 
     }

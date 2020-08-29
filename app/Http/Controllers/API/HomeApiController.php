@@ -63,6 +63,8 @@ class HomeApiController extends Controller
             $cat_service =Category::where('salon_id', $salon_id)->where('type','service')->get();
             $cat_product =Category::where('salon_id', $salon_id)->where('type','product')->get();
 
+            $products =Product::where('salon_id', $salon_id)->with('category')->get();
+            $services =Service::where('salon_id', $salon_id)->with('category')->get();
 
             $product_offers =Product::where('salon_id', $salon_id)->where('price_after','!=',null)->with('category')->get();
             $service_offers =Service::where('salon_id', $salon_id)->where('price_after','!=',null)->with('category')->get();
@@ -70,8 +72,9 @@ class HomeApiController extends Controller
             $offers['product_offers'] = $product_offers;
             $offers['service_offers'] = $service_offers;
 
-            return $this->sendResponse(200, 'تم اظهار المعلومات', array('cat_service' => $cat_service ,'cat_product' => $cat_product,
-            'offers' => $offers));         
+             return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services ,'products' => $products ,
+           'cat_service' => $cat_service ,'cat_product' => $cat_product,
+           'offers' => $offers));         
         }
 
     }
