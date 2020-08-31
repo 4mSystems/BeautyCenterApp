@@ -82,9 +82,9 @@ class productApiController extends Controller
             $salon_id = $request->input('salon_id');
 
             $products =Product::where('salon_id', $salon_id)->with('category')->get();
+            $CategoryProduct =Category::where('salon_id', $salon_id)->where('type', 'product')->get();
 
-            return $this->sendResponse(200, 'تم اظهار المعلومات',$products);
-          
+           return $this->sendResponse(200, 'تم اظهار المعلومات', array('products' => $products ,'CategoryProduct' => $CategoryProduct));
         }
 
     }

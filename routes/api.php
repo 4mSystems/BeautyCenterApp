@@ -34,6 +34,8 @@ Route::post('products_offers','API\productApiController@products_offers');
 Route::post('categoryProduct','API\productApiController@CategoryProduct');
 Route::post('categoryService','API\serviceApiController@CategoryService');
 
+Route::post('updateProfil','API\UserApiController@updateProfil');
+
 
 
 

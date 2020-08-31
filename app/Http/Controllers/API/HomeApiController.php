@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Service;
 use App\Product;
+use App\Category;
 use Validator;
 
 class HomeApiController extends Controller
@@ -57,17 +58,23 @@ class HomeApiController extends Controller
         } else {
 
             $salon_id = $request->input('salon_id');
-            $services =Service::where('salon_id', $salon_id)->get();
-            $products =Product::where('salon_id', $salon_id)->get();
+        
+        
+            $cat_service =Category::where('salon_id', $salon_id)->where('type','service')->get();
+            $cat_product =Category::where('salon_id', $salon_id)->where('type','product')->get();
 
-            $product_offers =Product::where('salon_id', $salon_id)->where('price_after','!=',null)->get();
-            $service_offers =Service::where('salon_id', $salon_id)->where('price_after','!=',null)->get();
+            $products =Product::where('salon_id', $salon_id)->with('category')->get();
+            $services =Service::where('salon_id', $salon_id)->with('category')->get();
+
+            $product_offers =Product::where('salon_id', $salon_id)->where('price_after','!=',null)->with('category')->get();
+            $service_offers =Service::where('salon_id', $salon_id)->where('price_after','!=',null)->with('category')->get();
 
             $offers['product_offers'] = $product_offers;
             $offers['service_offers'] = $service_offers;
 
-            return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services,'products' => $products,'offers' => $offers));
-         
+             return $this->sendResponse(200, 'تم اظهار المعلومات', array('services' => $services ,'products' => $products ,
+           'cat_service' => $cat_service ,'cat_product' => $cat_product,
+           'offers' => $offers));         
         }
 
     }
