@@ -36,6 +36,10 @@ Route::post('categoryService','API\serviceApiController@CategoryService');
 
 Route::post('updateProfil','API\UserApiController@updateProfil');
 
+//Cart 
+Route::post('addtocart','API\CartController@addToCart');
+
+
 
 
 
