@@ -15,7 +15,7 @@ class Reservation extends Model
         'product_id',
         'customer_id',
         'salon_id',
-
+        'quantity'
 
     ];
 

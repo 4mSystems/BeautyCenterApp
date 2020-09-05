@@ -83,7 +83,7 @@
                                             <th class="text-lg-center">{{trans('admin.address')}}</th>
                                             <th class="text-lg-center">{{trans('admin.times')}}</th>
 
-                                            <th class="text-lg-center">{{trans('admin.serv_time')}}</th>
+                                            <th class="text-lg-center">{{trans('admin.stock')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_date')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_status')}}</th>
                                             <th class="text-lg-center"></th>
@@ -108,7 +108,7 @@
                                                 <td class="text-lg-center">{{$reserve->getUser->address}}</td>
                                                 <td class="text-lg-center">{{$reserve->getproduct->getdeliveryTime->delivery_time}}</td>
 
-                                                <td class="text-lg-center">{{$reserve->time}}</td>
+                                                <td class="text-lg-center">{{$reserve->quantity}}</td>
                                                 <td class="text-lg-center">{{$reserve->date}}</td>
                                                  <td class="text-lg-center">{{trans('admin.'.$reserve->status)}}</td>
                                                 <td class="text-lg-center">

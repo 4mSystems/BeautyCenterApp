@@ -10,9 +10,9 @@ class CreateCartsTable extends Migration
      * Run the migrations.
      *
      * @return void
-     *  
-   * 
-   * 
+     *
+   *
+   *
     *
      */
     public function up()
@@ -26,6 +26,9 @@ class CreateCartsTable extends Migration
             $table->bigInteger('service_id')->unsigned()->nullable();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->bigInteger('count')->nullable();
+
+            $table->date('date')->nullable();
+            $table->time('time')->nullable();
 
 
             $table->timestamps();

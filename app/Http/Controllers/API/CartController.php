@@ -86,6 +86,7 @@ class CartController extends Controller
                 $rule['service_id'] = $request->service_id;
                 $rule['salon_id'] = $request->salon_id;
 
+
                 // $product_details=null;
                 // $service_details=null;
                 $cart = null;
@@ -93,6 +94,7 @@ class CartController extends Controller
                 if ($request->product_id != null) {
                     $cart = Cart::where('product_id', $request->product_id)->where('user_id', $request->user_id)->first();
                     //   $product_details['count'] = $cart->count;
+
                     if ($cart != null) {
                         $cart->count = $cart->count + 1;
                         $cart->save();
@@ -110,6 +112,8 @@ class CartController extends Controller
                         return $this->sendResponse(400, 'الخدمه موجوده بالفعل', null);
 
                     } else {
+                        $rule['date'] = $request->date;
+                        $rule['time'] = $request->time;
                         Cart::create($rule);
                     }
                     // $service_details =   Service::where('id',$request->service_id)->first();
@@ -203,8 +207,7 @@ class CartController extends Controller
                 $reservation_count = Reservation::where('date', $request->date)
                     ->where('time', $value)->where('type', 'service')->where('salon_id', $request->salon_id)
                     ->count();
-                    
-                    
+
 
                 if ($reservation_count < $chairs_num) {
                     $available_times[] = $value;
@@ -214,12 +217,117 @@ class CartController extends Controller
 
             }
 
-            return $this->sendResponse(200, 'تم عرض بيتانات السلة', $available_times);
+            return $this->sendResponse(200, 'تم عرض الاوقات المتاحه ', $available_times);
 
         }
 
 
     }
+
+
+    public function checkout(Request $request)
+    {
+        $rules = [
+
+            'api_token' => 'required',
+
+        ];
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+
+
+            $carts = Cart::where('user_id', $user->id)->get();
+//            dd($carts);
+            $data = null;
+            $reservation = null;
+            if ($carts->isEmpty()) {
+                return $this->sendResponse(401, ' لا يوجد منتجات او خدمات فى السله', null);
+
+            } else {
+                foreach ($carts as $cart) {
+                    if ($cart->product_id != null) {
+                        $data['type'] = "product";
+                        $data['product_id'] = $cart->product_id;
+                        $data['customer_id'] = $cart->user_id;
+                        $data['salon_id'] = $request->salon_id;
+                        $data['quantity'] = $cart->count;
+                        $data['date'] = Carbon::now();
+
+                        $product = Product::where('id',$cart->product_id)->first();
+
+                        if($cart->count > $product->stock){
+                            return $this->sendResponse(200, 'الكميه المطلوبة لا تكفى', $product->name);
+
+                        }
+                        $d['stock']= $product->stock - $cart->count;
+                        $product->update($d);
+
+                    } else {
+                        $data['type'] = "service";
+                        $data['service_id'] = $cart->service_id;
+                        $data['customer_id'] = $cart->user_id;
+                        $data['salon_id'] = $request->salon_id;
+                        $data['date'] = $cart->date;
+                        $data['time'] = $cart->time;
+                    }
+
+                    $reservation = Reservation::create($data);
+                    $data=null;
+                }
+                $reservations = Reservation::where('customer_id', $user->id)->get();
+
+               $cart_delete = Cart::where('user_id', $user->id)->get();
+               foreach ($cart_delete as $value){
+                   $value->delete();
+               }
+                return $this->sendResponse(200, 'تم الحجز بنجاح', $reservations);
+
+            }
+        }
+
+    }
+
+
+
+
+    public function reservation(Request $request)
+    {
+        $rules = [
+
+            'api_token' => 'required',
+
+        ];
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+//getService
+//getProduct
+            $reservations = Reservation::where('customer_id', $user->id)->with('getService')->with('getProduct')->get();
+
+            return $this->sendResponse(200, 'تم عرض حجوزات العميل  ', $reservations);
+
+        }
+
+
+    }
+
 
 
 }

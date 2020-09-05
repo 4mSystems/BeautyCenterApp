@@ -45,6 +45,10 @@ Route::post('allCart','API\CartController@allCart');
 Route::post('availabletime','API\CartController@availabletime');
 
 
+Route::post('checkout','API\CartController@checkout');
+Route::post('reservation','API\CartController@reservation');
+
+
 
 Route::post('productsWithName','API\productApiController@products_with_Name');
 Route::post('servicesWithName','API\serviceApiController@service_with_Name');
