@@ -81,7 +81,7 @@ class CartController extends Controller
             if ($validator->fails()) {
                 return $this->sendResponse(401, 'يرجى ارسال رقم  تعريف العميل', null);
             } else {
-                $rule['user_id'] = $request->user_id;
+                $rule['user_id'] = $user->id;
                 $rule['product_id'] = $request->product_id;
                 $rule['service_id'] = $request->service_id;
                 $rule['salon_id'] = $request->salon_id;
@@ -92,7 +92,7 @@ class CartController extends Controller
                 $cart = null;
 
                 if ($request->product_id != null) {
-                    $cart = Cart::where('product_id', $request->product_id)->where('user_id', $request->user_id)->first();
+                    $cart = Cart::where('product_id', $request->product_id)->where('user_id', $user->id)->first();
                     //   $product_details['count'] = $cart->count;
 
                     if ($cart != null) {
@@ -103,7 +103,7 @@ class CartController extends Controller
                     } else {
                         $rule['count'] = 1;
                         Cart::create($rule);
-                        
+
                     }
 
                 } else {
@@ -231,13 +231,13 @@ class CartController extends Controller
         $rules = [
 
             'api_token' => 'required',
-            'payment'=>'required'
+            'payment' => 'required|in:cash,online'
 
         ];
         $user = null;
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+            return $this->sendResponse(401, 'يرجى التأكد من البيانات اوﻻ', null);
         } else {
             $api_token = $request->input('api_token');
             $user = User::where('api_token', $api_token)->first();
@@ -263,15 +263,13 @@ class CartController extends Controller
                         $data['salon_id'] = $request->salon_id;
                         $data['quantity'] = $cart->count;
                         $data['date'] = Carbon::now();
-                        $data['payment']=$request->payment;
-
-                        $product = Product::where('id',$cart->product_id)->first();
-
-                        if($cart->count > $product->stock){
+                        $data['payment'] = $request->payment;
+                        $product = Product::where('id', $cart->product_id)->first();
+                        if ($cart->count > $product->stock) {
                             return $this->sendResponse(200, 'الكميه المطلوبة لا تكفى', $product->name);
 
                         }
-                        $d['stock']= $product->stock - $cart->count;
+                        $d['stock'] = $product->stock - $cart->count;
                         $product->update($d);
 
                     } else {
@@ -281,27 +279,29 @@ class CartController extends Controller
                         $data['salon_id'] = $request->salon_id;
                         $data['date'] = $cart->date;
                         $data['time'] = $cart->time;
-                        $data['payment']=$request->payment;
+                        $data['payment'] = $request->payment;
+                        if ($cart->date == null || $cart->time == null) {
+                            return $this->sendResponse(200, 'يرجى اختيار الوقت والتاريخ للخدمه المطلوبه', $cart->getService->name);
+
+                        }
 
                     }
 
                     $reservation = Reservation::create($data);
-                    $data=null;
+                    $data = null;
                 }
                 $reservations = Reservation::where('customer_id', $user->id)->get();
 
-               $cart_delete = Cart::where('user_id', $user->id)->get();
-               foreach ($cart_delete as $value){
-                   $value->delete();
-               }
+                $cart_delete = Cart::where('user_id', $user->id)->get();
+                foreach ($cart_delete as $value) {
+                    $value->delete();
+                }
                 return $this->sendResponse(200, 'تم الحجز بنجاح', $reservations);
 
             }
         }
 
     }
-
-
 
 
     public function reservation(Request $request)
@@ -354,17 +354,16 @@ class CartController extends Controller
             }
 
 
-            $carts= Cart::where('id', $request->cart_id)->first();
+            $carts = Cart::where('id', $request->cart_id)->first();
 
             $data['count'] = $carts->count + 1;
-            $product = Product::where('id',$carts->product_id)->first();
+            $product = Product::where('id', $carts->product_id)->first();
 
-            if($data['count'] > $product->stock){
+            if ($data['count'] > $product->stock) {
                 return $this->sendResponse(200, 'الكميه المطلوبة لا تكفى', null);
 
             }
             Cart::where('id', $request->cart_id)->update($data);
-
 
 
             return $this->sendResponse(200, 'تم زياده عدد المنتج المطلوب', $data);
@@ -374,7 +373,7 @@ class CartController extends Controller
 
     }
 
- public function minuscount(Request $request)
+    public function minuscount(Request $request)
     {
         $rules = [
 
@@ -395,12 +394,12 @@ class CartController extends Controller
             }
 
 
-            $carts= Cart::where('id', $request->cart_id)->first();
+            $carts = Cart::where('id', $request->cart_id)->first();
 
             $data['count'] = $carts->count - 1;
-            if($data['count']  > 0){
-            Cart::where('id', $request->cart_id)->update($data);
-            }else{
+            if ($data['count'] > 0) {
+                Cart::where('id', $request->cart_id)->update($data);
+            } else {
                 return $this->sendResponse(400, 'لا يمكن ان يقل عن واحد', $carts->count);
 
             }
@@ -413,6 +412,80 @@ class CartController extends Controller
 
     }
 
+    public function editServiceCart(Request $request)
+    {
+        $rules = [
+            'api_token' => 'required',
+            'date' => 'required ',
+            'time' => 'required',
+            'cart_id' => 'required'
 
+
+        ];
+//        after_or_equal:now
+        //ToDo  date validations
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, '', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+
+
+            $cart = Cart::where('id', $request->cart_id)->first();
+            if ($cart->product_id != null) {
+                return $this->sendResponse(403, 'لا يمكن تعديل تاريح ووقت لمنتج', null);
+
+            } else {
+                $data['time'] = $request->time;
+                $data['date'] = $request->date;
+                $cart->update($data);
+            }
+
+            return $this->sendResponse(200, 'تم   تعديل بيانات الخدمه', $cart);
+
+        }
+
+
+    }
+
+
+    public function deleteCart(Request $request)
+    {
+        $rules = [
+            'api_token' => 'required',
+            'cart_id' => 'required'
+        ];
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+
+
+            $cart = Cart::where('id', $request->cart_id)->first();
+            if ($cart == null) {
+                return $this->sendResponse(401, 'الخدمه او المنتج غير موجود بالسله', null);
+
+            } else {
+                $cart->delete();
+
+            }
+
+            return $this->sendResponse(200, 'تم الحذف', null);
+
+        }
+    }
 }
 

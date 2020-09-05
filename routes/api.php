@@ -43,12 +43,12 @@ Route::post('service_offers_withCat','API\serviceApiController@service_offers_wi
 Route::post('addtocart','API\CartController@addToCart');
 Route::post('allCart','API\CartController@allCart');
 Route::post('availabletime','API\CartController@availabletime');
-
-
 Route::post('checkout','API\CartController@checkout');
 Route::post('reservation','API\CartController@reservation');
 Route::post('addcount','API\CartController@addcount');
 Route::post('minuscount','API\CartController@minuscount');
+Route::post('editServiceCart','API\CartController@editServiceCart');
+Route::post('deleteCart','API\CartController@deleteCart');
 
 
 
