@@ -36,7 +36,7 @@
 
 
                         <div class="form-group">
-                            {{ Form::text('time',$user_data->time,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.serv_time')]) }}
+                            {{ Form::number('time',$user_data->time,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.serv_time')]) }}
                         </div>
 
                         <div class="form-group">

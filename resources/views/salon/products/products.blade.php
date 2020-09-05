@@ -58,8 +58,9 @@
                                             <th class="text-lg-center">{{trans('admin.name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_price_before')}}</th>
                                             <th class="text-lg-center">{{trans('admin.serv_cat_name')}}</th>
-{{--                                            <th class="text-lg-center">{{trans('admin.salon')}}</th>--}}
-                                            <th class="text-lg-center"></th>
+                                            <th class="text-lg-center">{{trans('admin.stock')}}</th>
+
+                                             <th class="text-lg-center"></th>
 
                                         </tr>
                                         </thead>
@@ -70,7 +71,8 @@
                                                 <td class="text-lg-center">{{$cat->name}}</td>
                                                 <td class="text-lg-center">{{$cat->price_before}}</td>
                                                 <td class="text-lg-center">{{$cat->getCategory->name}}</td>
-{{--                                                <td class="text-lg-center">{{$cat->getSalon->name}}</td>--}}
+                                                <td class="text-lg-center">{{$cat->stock}}</td>
+
 
                                                 <td class="text-lg-center">
 

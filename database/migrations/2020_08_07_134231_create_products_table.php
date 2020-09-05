@@ -28,6 +28,7 @@ class CreateProductsTable extends Migration
 
             $table->bigInteger('salon_id')->unsigned();
             $table->foreign('salon_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('stock');
 
 
             $table->timestamps();

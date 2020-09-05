@@ -28,6 +28,7 @@ return [
     'noStatus' => 'لم يتم الدفع',
     'yesStatus' => 'تم الدفع',
     'selectType' => 'اختر النوع',
+    'stock'=>'الكمية',
 
 
     // services
