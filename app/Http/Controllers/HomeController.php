@@ -29,6 +29,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        
         $salon_id = auth()->user()->id;
 
         if (auth()->user()->type == 'manager') {

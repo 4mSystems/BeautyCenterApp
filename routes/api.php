@@ -47,6 +47,8 @@ Route::post('availabletime','API\CartController@availabletime');
 
 Route::post('checkout','API\CartController@checkout');
 Route::post('reservation','API\CartController@reservation');
+Route::post('addcount','API\CartController@addcount');
+Route::post('minuscount','API\CartController@minuscount');
 
 
 

@@ -11,6 +11,7 @@ class Cart extends Model
 
     public function getUser()
     {
+       
 
         return $this->hasOne('App\User', 'id', 'salon_id');
 

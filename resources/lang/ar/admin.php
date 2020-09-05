@@ -259,7 +259,8 @@ return [
     'update_chairs' => 'تعديل بيانات الكرسي',
     'add_chair' => 'إضافة كرسي جديد',
     'add_chairs' => 'إضافة كرسي جديد',
-    'chair_name' => 'إسم الكرسيp',
-
+    'chair_name' => 'إسم الكرسي',
+    'product_name' => 'إسم المنتج',
+    'service_name' => 'إسم الخدمة',
 ];
 

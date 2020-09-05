@@ -230,6 +230,7 @@ class CartController extends Controller
         $rules = [
 
             'api_token' => 'required',
+            'payment'=>'required'
 
         ];
         $user = null;
@@ -261,6 +262,7 @@ class CartController extends Controller
                         $data['salon_id'] = $request->salon_id;
                         $data['quantity'] = $cart->count;
                         $data['date'] = Carbon::now();
+                        $data['payment']=$request->payment;
 
                         $product = Product::where('id',$cart->product_id)->first();
 
@@ -278,6 +280,8 @@ class CartController extends Controller
                         $data['salon_id'] = $request->salon_id;
                         $data['date'] = $cart->date;
                         $data['time'] = $cart->time;
+                        $data['payment']=$request->payment;
+
                     }
 
                     $reservation = Reservation::create($data);
@@ -328,6 +332,85 @@ class CartController extends Controller
 
     }
 
+    public function addcount(Request $request)
+    {
+        $rules = [
+
+            'api_token' => 'required',
+            'cart_id' => 'required',
+
+        ];
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+
+
+            $carts= Cart::where('id', $request->cart_id)->first();
+
+            $data['count'] = $carts->count + 1;
+            $product = Product::where('id',$carts->product_id)->first();
+
+            if($data['count'] > $product->stock){
+                return $this->sendResponse(200, 'الكميه المطلوبة لا تكفى', null);
+
+            }
+            Cart::where('id', $request->cart_id)->update($data);
+
+
+
+            return $this->sendResponse(200, 'تم زياده عدد المنتج المطلوب', $data);
+
+        }
+
+
+    }
+
+ public function minuscount(Request $request)
+    {
+        $rules = [
+
+            'api_token' => 'required',
+            'cart_id' => 'required',
+
+        ];
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
+            }
+
+
+            $carts= Cart::where('id', $request->cart_id)->first();
+
+            $data['count'] = $carts->count - 1;
+            if($data['count']  > 0){
+            Cart::where('id', $request->cart_id)->update($data);
+            }else{
+                return $this->sendResponse(400, 'لا يمكن ان يقل عن واحد', $carts->count);
+
+            }
+
+
+            return $this->sendResponse(200, 'تم تقليل عدد المنتج المطلوب', $data);
+
+        }
+
+
+    }
 
 
 }
