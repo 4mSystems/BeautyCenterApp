@@ -90,7 +90,7 @@
                                             <input type="hidden" value="{{$lng}}" id="lng" name="lng">
 
                                             <img width="150" height="150"
-                                                 src="{{ asset('/uploads/users/'.Auth::user()->image) }}" alt=""
+                                                 src="{{ asset('Auth::user()->image) }}" alt=""
                                                  class="rounded-circle  center-block" onclick="openFile()">
                                             {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control','style'=>'display:none','id'=>'salon-image')) }}
                                         </a>

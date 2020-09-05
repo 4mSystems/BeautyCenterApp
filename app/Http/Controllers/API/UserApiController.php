@@ -56,11 +56,11 @@ class UserApiController extends Controller
 
      public function store(Request $request)
     {
+        \App::setLocale('ar');
         $input = $request->all();
-
         $validate = $this->makeValidate($input,
             [
-                'name' => 'required',
+                'name' => 'required|unique:users',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|numeric|unique:users',
                 'address' => 'required',
@@ -82,10 +82,12 @@ class UserApiController extends Controller
 
             // Move Image To Folder ..
             $fileNewName = 'img_'.time().'.'.$ext;
-            $file->move(public_path('uploads/Register_images'), $fileNewName);
+            $file->move(public_path('uploads/users'), $fileNewName);
 
             $input['image'] = $fileNewName;
         
+     }else{
+           $input['image'] = 'Default.png';
      }
      
 
@@ -103,17 +105,77 @@ class UserApiController extends Controller
 
             return $this->sendResponse(200, 'تم الاضافه بنجاح', $user);
         } else {
-            return $this->sendResponse(403, $validate, null);
+              return $this->sendResponse(403, $validate, null);
         }
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+     public function updateProfil(Request $request)
+    {
+        $input = $request->all();
+        $id = $request->salon_id;
+        $salon_image = $request->image;
+   
+        
+        if(request('password') != null){
+        $validate  =   $this->makeValidate($input,
+            [
+                'name' => 'required',
+                'email' => 'required|unique:users,email,'.$id,
+                'phone' => 'numeric|required|unique:users,phone,'.$id,
+                'address' => 'required',
+                'password' => 'min:6',
+                'salon_id' => 'required|exists:users,id'
+            ]);
+            }else{
+                $validate  =   $this->makeValidate($input,
+                [
+                    'name' => 'required',
+                    'email' => 'required|unique:users,email,'.$id,
+                    'phone' => 'numeric|required|unique:users,phone,'.$id,
+                    'address' => 'required',
+                    'salon_id' => 'required|exists:users,id'
+                ]); 
+            }
+        if (!is_array($validate))
+        {
+            if(request('image') != null){
+                // This is Image Information ...
+                $file	 = $request->file('image');
+                $name    = $file->getClientOriginalName();
+                $ext 	 = $file->getClientOriginalExtension();
+                $size 	 = $file->getSize();
+                $path 	 = $file->getRealPath();
+                $mime 	 = $file->getMimeType();
+    
+                // Move Image To Folder ..
+                $fileNewName = 'img_'.time().'.'.$ext;
+                $file->move(public_path('uploads/Register_images'), $fileNewName);
+    
+                $input['image'] = $fileNewName;
+            
+         }else{
+            unset($input['image']);
+         }
+
+         if(request('password') != null){
+            $input['password'] = bcrypt(request('password'));
+         }else{
+            unset($input['password']);
+         }
+
+       
+
+            $User = User::find(intval($id))->update($input);
+
+            return $this->sendResponse(200, 'تم التعديل  بنجاح' ,$User);
+        }
+        else
+        {
+            return $this->sendResponse(403, $validate ,null);
+        }
+
+    }
     public function show($id)
     {
         //
