@@ -103,6 +103,7 @@ class CartController extends Controller
                     } else {
                         $rule['count'] = 1;
                         Cart::create($rule);
+                        
                     }
 
                 } else {
