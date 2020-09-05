@@ -16,7 +16,6 @@ class Reservation extends Model
         'customer_id',
         'salon_id',
 
-
     ];
 
     public function getSalon()
