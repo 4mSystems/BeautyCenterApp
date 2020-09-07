@@ -49,6 +49,7 @@ Route::post('addcount','API\CartController@addcount');
 Route::post('minuscount','API\CartController@minuscount');
 Route::post('editServiceCart','API\CartController@editServiceCart');
 Route::post('deleteCart','API\CartController@deleteCart');
+Route::post('cancelreservation','API\CartController@cancelReservation');
 
 
 

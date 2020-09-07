@@ -487,5 +487,70 @@ class CartController extends Controller
 
         }
     }
+
+
+    public function cancelReservation(Request $request)
+    {
+        $rules = [
+
+            'api_token' => 'required',
+            'reservation_id' => 'required|exists:reservations,id'
+        ];
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+            }
+
+            $input['status'] = "canceled";
+
+            $reservation = Reservation::where('id', $request->reservation_id)->first();
+            if ($reservation->product_id != null) {
+                $reservation->update($input);
+                $reservation->save();
+            } else {
+                $today_date = Carbon::now();
+                $today_string = $today_date->toDateString();
+                if ($today_string == $reservation->date) {
+                    $time = date('H:i:s', strtotime($reservation->time));
+                    $time = (new Carbon($time))->toDateTime();
+                    $delay = $time->diff($today_date);
+                    $delay = $delay->format('%H:%i');
+                    $cancelTime = "02:00";
+                    $cancelTime = date('H:i:s', strtotime($cancelTime));
+                    $cancelTime = (new Carbon($cancelTime))->toDateTime();
+                    $cancelTime = $cancelTime->diff((new Carbon("00:00:00")));
+                    $cancelTime = $cancelTime->format('%H:%i');
+                    if ($delay >= $cancelTime) {
+                        $reservation->update($input);
+                        $reservation->save();
+                    } else {
+                        return $this->sendResponse(401, 'لا يمكن الغاء لانه تعدى الوقت المتاح للالغاء', null);
+                    }
+//
+                } elseif ($today_string <= $reservation->date) {
+                    $reservation->update($input);
+                    $reservation->save();
+                }else{
+                    return $this->sendResponse(401, 'لا يمكن الغاء لانه تعدى الوقت المتاح للالغاء', null);
+
+                }
+
+
+            }
+
+            return $this->sendResponse(200, ' تم الغاء الحجز', null);
+
+        }
+
+
+    }
+
 }
 

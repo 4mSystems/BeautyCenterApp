@@ -78,46 +78,11 @@ class productReservationController extends Controller
     public function edit($id, $status)
     {
         $input['status'] = $status;
-        if ($status == 'canceled') {
-            $today_date = Carbon::now();
-            $today_string = $today_date->toDateString();
-            $reserve = $this->objectName::where('id', $id)->first();
-            if ($today_string == $reserve->date) {
-//                dd($today_date->toTimeString());
-                $time = date('H:i:s', strtotime($reserve->time));
-                $time = (new Carbon($time))->toDateTime();
 
-                $delay = $time->diff($today_date);
-                $delay = $delay->format('%H:%i');
-//
-                $cancelTime = "02:00";
-                $cancelTime = date('H:i:s', strtotime($cancelTime));
-                $cancelTime = (new Carbon($cancelTime))->toDateTime();
-
-                $cancelTime = $cancelTime->diff((new Carbon("00:00:00")));
-
-                $cancelTime = $cancelTime->format('%H:%i');
-
-
-                if ($delay >= $cancelTime) {
-                    $data = $this->objectName::findOrFail($id)->update($input);
-                    session()->flash('success', trans('admin.statuschanged'));
-                    return redirect(url('productreservations'));
-
-                } else {
-                    session()->flash('danger', trans('admin.CannotCancel'));
-                    return redirect(url('productreservations'));
-
-                }
-//
-            } elseif ($today_string <= $reserve->date) {
-                $data = $this->objectName::findOrFail($id)->update($input);
-            }
-        } else {
             $data = $this->objectName::findOrFail($id)->update($input);
             session()->flash('success', trans('admin.statuschanged'));
 
-        }
+
         return redirect(url('productreservations'));
 
     }

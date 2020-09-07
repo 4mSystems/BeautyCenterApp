@@ -66,7 +66,7 @@
                                             <tr>
                                                 <th scope="row" class="text-lg-center">{{$cat->id}}</th>
                                                 <td class="text-lg-center">{{$cat->chair_name}}</td>
-                                                <td class="text-lg-center">{{trans('admin.'.$cat->desc)}}</td>
+                                                <td class="text-lg-center">{{$cat->desc}}</td>
                                                 <td class="text-lg-center"><a class='btn btn-raised btn-success btn-sml'
                                                                               href=" {{url('chairs/'.$cat->id.'/edit')}}"><i
                                                             class="icon-edit"></i></a>
