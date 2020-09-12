@@ -10,7 +10,7 @@ use App\User;
 
 class UserApiController extends Controller
 {
-   
+
     public function sendResponse($code = null, $msg = null, $data = null)
     {
 
@@ -85,11 +85,11 @@ class UserApiController extends Controller
             $file->move(public_path('uploads/users'), $fileNewName);
 
             $input['image'] = $fileNewName;
-        
+
      }else{
            $input['image'] = 'Default.png';
      }
-     
+
 
             $input['password'] = bcrypt(request('password'));
             $input['added_by'] = request('salon_id');
@@ -97,7 +97,7 @@ class UserApiController extends Controller
 
             $user = User::create($input);
 
-           
+
             $user->api_token = Str::random(60);
 
             $api_token = $user->api_token;
@@ -113,10 +113,12 @@ class UserApiController extends Controller
      public function updateProfil(Request $request)
     {
         $input = $request->all();
-        $id = $request->salon_id;
-        $salon_image = $request->image;
-   
-        
+
+        $user = User::where('api_token',$request->api_token)->first();
+        $id = $user->id;
+//        $salon_image = $request->image;
+
+
         if(request('password') != null){
         $validate  =   $this->makeValidate($input,
             [
@@ -125,7 +127,7 @@ class UserApiController extends Controller
                 'phone' => 'numeric|required|unique:users,phone,'.$id,
                 'address' => 'required',
                 'password' => 'min:6',
-                'salon_id' => 'required|exists:users,id'
+                'api_token' => 'required'
             ]);
             }else{
                 $validate  =   $this->makeValidate($input,
@@ -134,8 +136,8 @@ class UserApiController extends Controller
                     'email' => 'required|unique:users,email,'.$id,
                     'phone' => 'numeric|required|unique:users,phone,'.$id,
                     'address' => 'required',
-                    'salon_id' => 'required|exists:users,id'
-                ]); 
+                    'api_token' => 'required'
+                ]);
             }
         if (!is_array($validate))
         {
@@ -147,13 +149,13 @@ class UserApiController extends Controller
                 $size 	 = $file->getSize();
                 $path 	 = $file->getRealPath();
                 $mime 	 = $file->getMimeType();
-    
+
                 // Move Image To Folder ..
                 $fileNewName = 'img_'.time().'.'.$ext;
                 $file->move(public_path('uploads/Register_images'), $fileNewName);
-    
+
                 $input['image'] = $fileNewName;
-            
+
          }else{
             unset($input['image']);
          }
@@ -163,8 +165,6 @@ class UserApiController extends Controller
          }else{
             unset($input['password']);
          }
-
-       
 
             $User = User::find(intval($id))->update($input);
 

@@ -81,7 +81,7 @@
                                             <th class="text-lg-center">{{trans('admin.client_name')}}</th>
                                             <th class="text-lg-center">{{trans('admin.phone')}}</th>
                                             <th class="text-lg-center">{{trans('admin.address')}}</th>
-                                            <th class="text-lg-center">{{trans('admin.times')}}</th>
+{{--                                            <th class="text-lg-center">{{trans('admin.times')}}</th>--}}
 
                                             <th class="text-lg-center">{{trans('admin.serv_time')}}</th>
                                             <th class="text-lg-center">{{trans('admin.reservation_date')}}</th>
@@ -106,7 +106,7 @@
 
                                                 <td class="text-lg-center">{{$reserve->getUser->phone}}</td>
                                                 <td class="text-lg-center">{{$reserve->getUser->address}}</td>
-                                                <td class="text-lg-center">{{$reserve->getproduct->getdeliveryTime->delivery_time}}</td>
+{{--                                                <td class="text-lg-center">{{$reserve->getproduct->getdeliveryTime->delivery_time}}</td>--}}
 
                                                 <td class="text-lg-center">{{$reserve->time}}</td>
                                                 <td class="text-lg-center">{{$reserve->date}}</td>

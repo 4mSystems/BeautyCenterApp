@@ -16,7 +16,7 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->date('date')->nullable();
-            $table->String('time')->nullable();
+            $table->time('time')->nullable();
             $table->bigInteger('quantity')->nullable();
             $table->enum('type', ['product', 'service'])->default('product');
             $table->enum('status', ['accepted', 'rejected', 'canceled', 'pending','inprogress','finished'])->default('pending');
