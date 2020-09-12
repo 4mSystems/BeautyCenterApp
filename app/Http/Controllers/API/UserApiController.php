@@ -63,7 +63,7 @@ class UserApiController extends Controller
                 'name' => 'required|unique:users',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|numeric|unique:users',
-                'address' => 'required',
+                // 'address' => 'required',
                 // 'image' => 'required',
                 'password' => 'required|min:6',
                 'salon_id' => 'required|exists:users,id'

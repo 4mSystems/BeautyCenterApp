@@ -24,7 +24,6 @@ class CartController extends Controller
     public function __construct(User $model)
     {
         $this->objectName = $model;
-
     }
 
     public function sendResponse($code = null, $msg = null, $data = null)
@@ -37,7 +36,6 @@ class CartController extends Controller
                 'data' => $data
             ]
         );
-
     }
 
     public function validationErrorsToString($errArray)
@@ -96,19 +94,15 @@ class CartController extends Controller
                     if ($cart != null) {
                         $cart->count = $cart->count + 1;
                         $cart->save();
-
-
                     } else {
                         $rule['count'] = 1;
                         Cart::create($rule);
                     }
-
                 } else {
                     $cart = Cart::where('service_id', $request->service_id)->where('user_id', $request->user_id)->first();
                     if ($cart != null) {
 
                         return $this->sendResponse(400, 'الخدمه موجوده بالفعل', null);
-
                     } else {
                         Cart::create($rule);
                     }
@@ -125,12 +119,42 @@ class CartController extends Controller
 
 
                 return $this->sendResponse(200, 'تم الاضافه الى السلة ', $total);
+            }
+        }
+    }
 
+    public function cartcount(Request $request)
+    {
+        $rules = [
+
+            'api_token' => 'required',
+
+        ];
+        $user = null;
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendResponse(401, 'يرجى تسجيل الدخول ', null);
+        } else {
+            $api_token = $request->input('api_token');
+            $user = User::where('api_token', $api_token)->first();
+
+            if (empty($user)) {
+                return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
             }
 
 
+            $total = 0;
+            $carts_services = Cart::where('user_id', $user->id)->where('product_id', null)->count();
+            $carts_products = Cart::where('user_id', $user->id)->where('service_id', null)->get();
+            foreach ($carts_products as $carts_product) {
+                $total = $total + $carts_product->count;
+            }
+            $total = $total + $carts_services;
+
+            return $this->sendResponse(200, 'تم عرض عدد  الخدمات والمنتجات فى السلة', $total);
         }
     }
+
 
     public function allCart(Request $request)
     {
@@ -158,10 +182,7 @@ class CartController extends Controller
             $carts['carts_products'] = $carts_products;
 
             return $this->sendResponse(200, 'تم عرض بيتانات السلة', $carts);
-
         }
-
-
     }
 
     public function availabletime(Request $request)
@@ -203,24 +224,12 @@ class CartController extends Controller
                 $reservation_count = Reservation::where('date', $request->date)
                     ->where('time', $value)->where('type', 'service')->where('salon_id', $request->salon_id)
                     ->count();
-                    
-                    
-
                 if ($reservation_count < $chairs_num) {
                     $available_times[] = $value;
-
                 }
-
-
             }
 
-            return $this->sendResponse(200, 'تم عرض بيتانات السلة', $available_times);
-
+            return $this->sendResponse(200, 'تم عرض بيانات السلة', $available_times);
         }
-
-
     }
-
-
 }
-
