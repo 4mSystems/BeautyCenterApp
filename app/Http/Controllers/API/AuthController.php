@@ -43,6 +43,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        
         $rules = [
             'email' => 'required|email',
             'password' => 'required',
@@ -60,7 +61,9 @@ class AuthController extends Controller
 
 
                 $user = auth()->user();
-                if ($user->type != 'customer') {
+                if($user->type !='customer'){
+
+                    return $this->sendResponse(401, 'غير مصرح لك الدخول',null);
 
                     return $this->sendResponse(401, 'البريد الالكترونى او الرقم السري غير صحيح', null);
                 }

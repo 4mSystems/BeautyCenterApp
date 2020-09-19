@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Validator;
@@ -63,7 +64,6 @@ class UserApiController extends Controller
                 'name' => 'required|unique:users',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|numeric|unique:users',
-                // 'address' => 'required',
                 // 'image' => 'required',
                 'password' => 'required|min:6',
                 'salon_id' => 'required|exists:users,id'
@@ -176,42 +176,110 @@ class UserApiController extends Controller
         }
 
     }
-    public function show($id)
+
+    public function changePass(Request $request)
     {
-        //
+        $input = $request->all();
+        $id = $request->input('user_id');
+       
+
+            $validate = $this->makeValidate($input,
+            [
+                
+               
+                'api_token' => 'required',
+                'user_id' => 'required',
+                'old_password' => 'required',
+                'new_password' => 'required|min:6',
+                'confirm_password' => 'required|same:new_password',
+            ]);
+
+
+            if (!is_array($validate)) {
+
+            $api_token = $request->input('api_token');
+          
+            $user = User::where('api_token',$api_token)->first();
+            if($user != null){
+
+                if($request->input('old_password') != null  && $request->input('confirm_password')!= null ){
+
+                    try {
+                        if ((Hash::check(request('old_password'), $user->password)) == false) {
+                            return $this->sendResponse(403, 'الرقم السرى القديم خطأ', null);
+
+                        } else if ((Hash::check(request('new_password'),  $user->password)) == true) {
+                            return $this->sendResponse(403, 'ادخل رقم سرى جديد غير الموجود مسبقا', null);
+
+                        } else {
+                            $User= User::where('id', $id)->update(['password' => Hash::make($input['new_password'])]);
+                            return $this->sendResponse(200, ' تم تغير الرقم السرى بنجاح', $User);
+                        }
+                    } catch (\Exception $ex) {
+                        if (isset($ex->errorInfo[2])) {
+                            $msg = $ex->errorInfo[2];
+                        } else {
+                            $msg = $ex->getMessage();
+                        }
+                        $arr = array("status" => 400, "message" => $msg, "data" => array());
+                    }
+                }else
+                {
+                    return $this->sendResponse(200, 'يجب ملئ الحقول', $User);
+                }
+                // $User = User::where('id', $id)->update($data);
+
+     
+        }else{
+            return $this->sendResponse(403, 'يرجى تسجيل الدخول ',null);
+        }
+       
+        }else {
+            return $this->sendResponse(403, $validate, null);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update_logo(Request $request)
     {
-        //
-    }
+        $input = $request->all();
+        $id = $request->user_id;
+   
+        $validate  =   $this->makeValidate($input,
+            [
+                'api_token' => 'required',
+                'user_id' => 'required',
+                'image' => 'required',
+            ]);
+     
+        if (!is_array($validate))
+        {
+            if(request('image') != null){
+                // This is Image Information ...
+                $file	 = $request->file('image');
+                $name    = $file->getClientOriginalName();
+                $ext 	 = $file->getClientOriginalExtension();
+                $size 	 = $file->getSize();
+                $path 	 = $file->getRealPath();
+                $mime 	 = $file->getMimeType();
+    
+                // Move Image To Folder ..
+                $fileNewName = 'img_'.time().'.'.$ext;
+                $file->move(public_path('uploads/Register_images'), $fileNewName);
+    
+                $input['image'] = $fileNewName;
+         $User = User::find(intval($id))->update($input);
+         return $this->sendResponse(200, 'تم تعديل الصورة الشخصية بنجاح' ,$User);
+         
+         }else{
+            return $this->sendResponse(403, 'You should Choose Images' ,null);
+         }
+           
+        }
+        else
+        {
+            return $this->sendResponse(403, $validate ,null);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+  
 }

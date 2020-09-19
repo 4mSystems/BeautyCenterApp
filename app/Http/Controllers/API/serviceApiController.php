@@ -70,7 +70,7 @@ class serviceApiController extends Controller
 
     }
 
-public function service_offers_withCat(Request $request)
+    public function service_offers_withCat(Request $request)
     {
    
         $rules = [
@@ -161,8 +161,8 @@ public function service_offers_withCat(Request $request)
         }
 
     }
-    
-     public function service_with_Name(Request $request)
+
+    public function service_with_Name(Request $request)
     {
    
         $rules = [

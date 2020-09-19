@@ -41,6 +41,19 @@ Route::post('service_offers_withCat', 'API\serviceApiController@service_offers_w
 Route::post('products_offers_withCat','API\productApiController@products_offers_withCat');
 Route::post('service_offers_withCat','API\serviceApiController@service_offers_withCat');
 
+Route::post('productsWithName','API\productApiController@products_with_Name');
+Route::post('servicesWithName','API\serviceApiController@service_with_Name');
+
+Route::post('changePass','API\UserApiController@changePass');
+Route::post('update_logo','API\UserApiController@update_logo');
+
+
+Route::post('user_reservation','API\ReservationController@user_reservation');
+Route::post('reservation_with_status','API\ReservationController@reservation_with_status');
+
+
+
+
 
 Route::post('addtocart','API\CartController@addToCart');
 Route::post('allCart','API\CartController@allCart');
