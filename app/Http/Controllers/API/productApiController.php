@@ -67,7 +67,6 @@ class productApiController extends Controller
         }
 
     }
-
     public function products_offers_withCat(Request $request)
     {
         $rules = [

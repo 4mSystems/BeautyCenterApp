@@ -48,9 +48,13 @@
                             ,["class"=>"form-control  round" ,'placeholder'=>trans('admin.serv_choose_deliveryTime') ]) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::textarea('desc',$user_data->desc,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc')]) }}
+                            {{ Form::number('stock',$user_data->stock,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.stock')]) }}
                         </div>
 
+                        <div class="form-group">
+                            {{ Form::textarea('desc',$user_data->desc,["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc')]) }}
+                        </div>
+                        
                         <div class="form-group">
                             {{ Form::file('main_image',array('accept'=>'image/*','class'=>'form-control round' )) }}
 

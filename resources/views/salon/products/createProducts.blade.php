@@ -67,8 +67,14 @@
                         </div>
 
                         <div class="form-group">
+                            {{ Form::number('stock',old('stock'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.stock') ]) }}
+                        </div>
+                        <div class="form-group">
                             {{ Form::textarea('desc',old('desc'),["class"=>"form-control round" ,"required",'placeholder'=>trans('admin.desc') ]) }}
                         </div>
+
+                        
+                        <!--  -->
                         <div class="center">
                             {{ Form::submit( trans('admin.public_Add') ,['class'=>'btn btn-success btn-min-width mr-1 mb-1','style'=>'margin:10px']) }}
 

@@ -14,11 +14,6 @@ use http\Client\Response;
 use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\Array_;
 
-//use Illuminate\Contracts\View\View;
-//use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\DB;
-//use ConsoleTVs\Charts\Registrar as Charts;
-
 class HomeController extends Controller
 {
 
@@ -29,6 +24,7 @@ class HomeController extends Controller
 
     public function index()
     {
+
         $salon_id = auth()->user()->id;
 
         if (auth()->user()->type == 'manager') {
@@ -50,13 +46,10 @@ class HomeController extends Controller
             // Data For Salon
             $booking = Reservation::where('salon_id', $salon_id)->get();
             $salonReservation = Reservation::where('salon_id', $salon_id)->limit(10)->orderBy('created_at', 'asc')->get();
-             $data['booking'] = $booking;
-             $totalCustomer = User::where('type','customer')->where('added_by',Auth::user()->id)->count();
-//             dd($totalCustomer);
-            return view('home', compact('data', 'salonReservation','totalCustomer'));
+            $data['booking'] = $booking;
+            $totalCustomer = User::where('type', 'customer')->where('added_by', Auth::user()->id)->count();
+            //             dd($totalCustomer);
+            return view('home', compact('data', 'salonReservation', 'totalCustomer'));
         }
-
     }
-
-
 }

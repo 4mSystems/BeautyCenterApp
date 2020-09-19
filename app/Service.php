@@ -19,13 +19,14 @@ class Service extends Model
         return $this->hasOne('App\Category', 'id', 'cat_id');
 
     }
-
     public function category()
     {
 
         return $this->hasOne('App\Category', 'id', 'cat_id');
 
     }
+
+     
 
     public function getSalon()
     {

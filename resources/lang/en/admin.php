@@ -253,5 +253,9 @@ return [
     'add_chair' => 'Add Chairs',
     'add_chairs' => 'Add Chairs',
     'chair_name' => 'Chair Name',
+    'product_name' => 'Product name',
+    'service_name' => 'Service name',
+
+
 ];
 
