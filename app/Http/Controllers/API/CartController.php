@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Address;
 use App\Chair;
 use App\Http\Controllers\Controller;
 use App\Reservation;
@@ -99,7 +100,6 @@ class CartController extends Controller
                     } else {
                         $rule['count'] = 1;
                         Cart::create($rule);
-
                     }
                 } else {
                     $cart = Cart::where('service_id', $request->service_id)->where('user_id', $request->user_id)->first();
@@ -107,8 +107,8 @@ class CartController extends Controller
 
                         return $this->sendResponse(400, 'الخدمه موجوده بالفعل', null);
                     } else {
-                        $rule['date'] = $request->date;
-                        $rule['time'] = $request->time;
+                        // $rule['date'] = $request->date;
+                        // $rule['time'] = $request->time;
                         Cart::create($rule);
                     }
                     // $service_details =   Service::where('id',$request->service_id)->first();
@@ -216,12 +216,10 @@ class CartController extends Controller
             $close_time = $salon_data->open_to;
             $close_time = Carbon::parse($close_time);
 
-            $cart_Services_id = Cart::where('user_id',$user->id)->select('id');
-            
-            dd($cart_Services_id);
+            $cart_Services_id = Cart::where('user_id', $user->id)->where('service_id', '!=', null)->pluck('service_id');
 
-            $service_data = Service::where('id', $request->service_id)->first();
-            $service_time = $service_data->time;
+            $service_time = Service::whereIn('id', $cart_Services_id)->sum('time');
+            // $service_time = $service_data->time;
             $salon_times = null;
             while ($open_time <= $close_time) {
                 $salon_times[] = $open_time->format('H:i');
@@ -235,16 +233,14 @@ class CartController extends Controller
                     ->count();
 
 
+
                 if ($reservation_count < $chairs_num) {
                     $available_times[] = $value;
                 }
             }
 
             return $this->sendResponse(200, 'تم عرض الاوقات المتاحه ', $available_times);
-
         }
-
-
     }
 
 
@@ -253,8 +249,10 @@ class CartController extends Controller
         $rules = [
 
             'api_token' => 'required',
-            'payment' => 'required|in:cash,online'
-
+            'payment' => 'required|in:cash,online',
+            'type' => 'required|in:service,product',
+            'date' => '',
+            'time' => '',
         ];
         $user = null;
         $validator = Validator::make($request->all(), $rules);
@@ -269,60 +267,111 @@ class CartController extends Controller
             }
 
 
-            $carts = Cart::where('user_id', $user->id)->get();
-//            dd($carts);
+            $carts = null;
+            $type = $request->type;
+            if ($type == 'service') {
+                $carts = Cart::where('user_id', $user->id)->where('service_id', '!=', null)->get();
+            } else {
+                $carts = Cart::where('user_id', $user->id)->where('product_id', '!=', null)->get();
+            }
             $data = null;
             $reservation = null;
             if ($carts->isEmpty()) {
                 return $this->sendResponse(401, ' لا يوجد منتجات او خدمات فى السله', null);
-
             } else {
-                foreach ($carts as $cart) {
+                foreach ($carts as $key => $cart) {
                     if ($cart->product_id != null) {
-                        $data['type'] = "product";
+
+
                         $data['product_id'] = $cart->product_id;
                         $data['customer_id'] = $cart->user_id;
                         $data['salon_id'] = $request->salon_id;
                         $data['quantity'] = $cart->count;
                         $data['date'] = Carbon::now();
                         $data['payment'] = $request->payment;
+                        $data['type'] = 'product';
                         $product = Product::where('id', $cart->product_id)->first();
                         if ($cart->count > $product->stock) {
                             return $this->sendResponse(200, 'الكميه المطلوبة لا تكفى', $product->name);
+                        }
+                        $rules = [
 
+                            'government' => 'required',
+                            'region' => 'required',
+                            'piece' => 'required',
+                            'street' => 'required',
+                            'house_number' => 'required',
+                            'boulevard' => 'required'
+
+                        ];
+                        $validator = Validator::make($request->all(), $rules);
+                        if ($validator->fails()) {
+                            return $this->sendResponse(401, 'يرجى التأكد من البيانات العنوان', null);
+                        } else {
+
+                            $address['user_id'] = $user->id;
+                            $address['government'] = $request->government;
+                            $address['region'] = $request->region;
+                            $address['piece'] = $request->piece;
+                            $address['street'] = $request->street;
+                            $address['house_number'] = $request->house_number;
+                            $address['boulevard'] = $request->boulevard;
+
+                            $old_address = Address::where('user_id', $user->id)->delete();
+                            Address::create($address);
                         }
                         $d['stock'] = $product->stock - $cart->count;
                         $product->update($d);
-
                     } else {
-                        $data['type'] = "service";
+                        $service_previous_time = $request->time;
+                        if ($key == 0) {
+                            $service_previous_time = $request->time;
+                        } else {
+                            $service_previous_time = (new Carbon($service_previous_time));
+                            $ser_time = Service::where('id', $carts[$key - 1]->service_id)->first('time');
+
+                            $service_previous_time = $service_previous_time->addMinutes($ser_time->time);
+                            $service_previous_time = $service_previous_time->toTimeString();
+                        }
+
                         $data['service_id'] = $cart->service_id;
                         $data['customer_id'] = $cart->user_id;
                         $data['salon_id'] = $request->salon_id;
-                        $data['date'] = $cart->date;
-                        $data['time'] = $cart->time;
+                        $data['date'] = $request->date;
+                        $data['time'] = $service_previous_time;
                         $data['payment'] = $request->payment;
-                        if ($cart->date == null || $cart->time == null) {
-                            return $this->sendResponse(200, 'يرجى اختيار الوقت والتاريخ للخدمه المطلوبه', $cart->getService->name);
+                        $data['type'] = 'service';
 
-                        }
-
+                        // if ($cart->date == null || $cart->time == null) {
+                        //     return $this->sendResponse(200, 'يرجى اختيار الوقت والتاريخ للخدمه المطلوبه', null);
+                        // }
                     }
 
                     $reservation = Reservation::create($data);
                     $data = null;
                 }
-                $reservations = Reservation::where('customer_id', $user->id)->get();
+                if ($type == 'service') {
+                    $reservations = Reservation::where('customer_id', $user->id)
+                        ->where('service_id', '!=', null)->get();
 
-                $cart_delete = Cart::where('user_id', $user->id)->get();
-                foreach ($cart_delete as $value) {
-                    $value->delete();
+                    $cart_delete = Cart::where('user_id', $user->id)->where('service_id', '!=', null)->get();
+                    foreach ($cart_delete as $value) {
+                        $value->delete();
+                    }
+                } else {
+                    $reservations = Reservation::where('customer_id', $user->id)
+                        ->where('product_id', '!=', null)->get();
+
+                    $cart_delete = Cart::where('user_id', $user->id)->where('product_id', '!=', null)->get();
+                    foreach ($cart_delete as $value) {
+                        $value->delete();
+                    }
                 }
-                return $this->sendResponse(200, 'تم الحجز بنجاح', $reservations);
 
+
+                return $this->sendResponse(200, 'تم الحجز بنجاح', $reservations);
             }
         }
-
     }
 
 
@@ -344,15 +393,12 @@ class CartController extends Controller
             if (empty($user)) {
                 return $this->sendResponse(403, 'يرجى تسجيل الدخول ', null);
             }
-//getService
-//getProduct
+            //getService
+            //getProduct
             $reservations = Reservation::where('customer_id', $user->id)->with('getService')->with('getProduct')->get();
 
             return $this->sendResponse(200, 'تم عرض حجوزات العميل  ', $reservations);
-
         }
-
-
     }
 
     public function addcount(Request $request)
@@ -383,16 +429,12 @@ class CartController extends Controller
 
             if ($data['count'] > $product->stock) {
                 return $this->sendResponse(200, 'الكميه المطلوبة لا تكفى', null);
-
             }
             Cart::where('id', $request->cart_id)->update($data);
 
 
             return $this->sendResponse(200, 'تم زياده عدد المنتج المطلوب', $data);
-
         }
-
-
     }
 
     public function minuscount(Request $request)
@@ -423,15 +465,11 @@ class CartController extends Controller
                 Cart::where('id', $request->cart_id)->update($data);
             } else {
                 return $this->sendResponse(400, 'لا يمكن ان يقل عن واحد', $carts->count);
-
             }
 
 
             return $this->sendResponse(200, 'تم تقليل عدد المنتج المطلوب', $data);
-
         }
-
-
     }
 
     public function editServiceCart(Request $request)
@@ -444,7 +482,7 @@ class CartController extends Controller
 
 
         ];
-//        after_or_equal:now
+        //        after_or_equal:now
         //ToDo  date validations
         $user = null;
         $validator = Validator::make($request->all(), $rules);
@@ -462,7 +500,6 @@ class CartController extends Controller
             $cart = Cart::where('id', $request->cart_id)->first();
             if ($cart->product_id != null) {
                 return $this->sendResponse(403, 'لا يمكن تعديل تاريح ووقت لمنتج', null);
-
             } else {
                 $data['time'] = $request->time;
                 $data['date'] = $request->date;
@@ -470,7 +507,6 @@ class CartController extends Controller
             }
 
             return $this->sendResponse(200, 'تم   تعديل بيانات الخدمه', $cart);
-
         }
     }
 
@@ -497,14 +533,11 @@ class CartController extends Controller
             $cart = Cart::where('id', $request->cart_id)->first();
             if ($cart == null) {
                 return $this->sendResponse(401, 'الخدمه او المنتج غير موجود بالسله', null);
-
             } else {
                 $cart->delete();
-
             }
 
             return $this->sendResponse(200, 'تم الحذف', null);
-
         }
     }
 
@@ -553,23 +586,16 @@ class CartController extends Controller
                     } else {
                         return $this->sendResponse(401, 'لا يمكن الغاء لانه تعدى الوقت المتاح للالغاء', null);
                     }
-//
+                    //
                 } elseif ($today_string <= $reservation->date) {
                     $reservation->update($input);
                     $reservation->save();
-                }else{
+                } else {
                     return $this->sendResponse(401, 'لا يمكن الغاء لانه تعدى الوقت المتاح للالغاء', null);
-
                 }
-
-
             }
 
             return $this->sendResponse(200, ' تم الغاء الحجز', null);
-
         }
-
-
     }
-
 }
