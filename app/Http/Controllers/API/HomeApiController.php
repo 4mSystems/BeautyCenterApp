@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\UserDettails;
 use App\Service;
 use App\Product;
 use App\Category;
@@ -92,8 +93,11 @@ class HomeApiController extends Controller
 
             $salon_id = $request->input('salon_id');
             $salon =User::where('id', $salon_id)->get();
+
+            $salonDettails =UserDettails::where('user_id', $salon_id)->get();
             
-            return $this->sendResponse(200, 'تم اظهار معلومات الصالون', $salon);
+            
+            return $this->sendResponse(200, 'تم اظهار معلومات الصالون',  array('salon' => $salon ,'salonDettails' => $salonDettails));
          
         }
 

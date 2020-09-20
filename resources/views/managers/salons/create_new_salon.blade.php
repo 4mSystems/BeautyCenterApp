@@ -49,6 +49,11 @@
                                         <strong>{{trans('admin.email')}}</strong>
                                         {{ Form::email('email',old('email'),["class"=>"form-control" ,"required" ]) }}
                                     </div>
+                                    <div class="form-group">
+                                        <strong>{{trans('admin.password')}}</strong><br>
+                                        <input type="password" name="password" class="form-control"
+                                               required>
+                                    </div>
 
                                     <div class="form-group">
                                         <strong>{{trans('admin.phone')}}</strong>
@@ -61,11 +66,7 @@
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <strong>{{trans('admin.password')}}</strong><br>
-                                        <input type="password" name="password" class="form-control"
-                                               required>
-                                    </div>
+                                   
 
                                     <div class="form-group">
                                         <strong>{{trans('admin.package')}}</strong><br>
@@ -82,7 +83,7 @@
                                             <option value="no">{{trans('admin.noStatus')}}</option>
                                             <option value="yes">{{trans('admin.yesStatus')}}</option>
                                         </select>
-                                        <span class="text-danger" id=type_error"></span>
+                                        <span class="text-danger" id="type_error"></span>
                                     </div>
 
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Salons;
 
 use App\Http\Controllers\Controller;
+use App\UserDettails;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class salonProfileController extends Controller
@@ -25,35 +27,18 @@ class salonProfileController extends Controller
     }
     public function index()
     {
-
-        return view($this->folderView.'user_profile');
-
+        $details = UserDettails::where('user_id',Auth::user()->id)->first();
+        // dd($details);
+        return view($this->folderView.'user_profile',\compact('details'));
     }
 
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
     public function show($id)
     {
         //
     }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
     public function update(Request $request, $id)
     {
+        // dd($request);
         $data = $this->validate(\request(),
             [
                 'name' => 'required|unique:users,name,' . $id,
@@ -65,6 +50,7 @@ class salonProfileController extends Controller
                 'lng'=>'sometimes|nullable',
                 'password' => 'sometimes|nullable|confirmed|min:6',
                 'open_from' => '',
+                'description' => '',
                 'open_to' => 'after:open_from',
             ]);
 
@@ -93,7 +79,17 @@ class salonProfileController extends Controller
             unset($data['password']);
             unset($data['password_confirmation']);
         }
-        User::where('id', $id)->update($data);
+        $user =User::where('id', $id)->update($data);
+        
+
+
+        $dataDetails['facebook'] = $request['facebook'];
+        $dataDetails['twitter'] = $request['twitter'];
+        $dataDetails['whatsapp'] = $request['whatsapp'];
+        $dataDetails['instgram'] = $request['instgram'];
+        $dataDetails['start_working'] = $request['start_working'];
+        $dataDetails['end_working'] = $request['end_working'];
+        UserDettails::where('user_id', $id)->update($dataDetails);
 
         return redirect()->route('salon_profile.index')->with('success',trans('admin.updatSuccess'));
     }

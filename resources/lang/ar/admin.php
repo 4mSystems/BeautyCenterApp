@@ -90,6 +90,29 @@ return [
     'prof_new_password' => 'كلمة المرور الجديدة',
     'prof_confirm_password' => 'تأكيد كلمة المرور',
 
+    'prof_social_links' => 'روابط التواصل الاجتماعى',
+    'prof_facebook' => 'فيس بوك',
+    'prof_twitter' => 'تويتر',
+    'prof_watsapp' => 'واتساب',
+    'prof_instegram' => 'انستجرام',
+    'desc' => 'الوصف',
+
+    'prof_working_daies' => 'ايام الفتح',
+    'prof_from_sday' => 'من يوم',
+    'prof_to_day' => 'الى يوم',
+
+    'Saturday' => 'السبت',
+    'Sunday' => 'الأحد',
+    'Monday' => 'الاثنين',
+    'Tuesday' => 'الثلاثاء',
+    'Wednesday' => 'الاربعاء',
+    'Thursday' => 'الخميس',
+    'Friday' => 'الجمعة',
+
+    
+    
+    
+
 
     // Subscribers page
     'Sub_title' => 'الباقات',

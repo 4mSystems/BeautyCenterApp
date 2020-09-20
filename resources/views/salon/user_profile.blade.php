@@ -90,7 +90,7 @@
                                             <input type="hidden" value="{{$lng}}" id="lng" name="lng">
 
                                             <img width="150" height="150"
-                                                 src="{{ asset('Auth::user()->image) }}" alt=""
+                                                 src="{{ asset(Auth::user()->image) }}" alt=""
                                                  class="rounded-circle  center-block" onclick="openFile()">
                                             {{ Form::file('image',array('accept'=>'image/*','class'=>'form-control','style'=>'display:none','id'=>'salon-image')) }}
                                         </a>
@@ -122,6 +122,14 @@
                                             <input type="text" id="address" class="form-control"
                                                    value="{{Auth::user()->address}}" autocomplete="off" name="address">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="eventRegInput4">{{trans('admin.desc')}}</label>
+                                            <textarea  id="description" class="form-control"
+                                                    autocomplete="off" name="description">
+                                                    {{Auth::user()->description}}
+                                                   </textarea>
+                                        </div>
+
 
                                         <h4 class="form-section"><i
                                                 class="icon-pie-graph2"></i> {{trans('admin.prof_Opening_Time')}}</h4>
@@ -147,6 +155,90 @@
 
                                         </div>
 
+                                        <h4 class="form-section"><i
+                                                class="icon-pie-graph2"></i> {{trans('admin.prof_working_daies')}}</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="userinput1">{{trans('admin.prof_from_sday')}}</label>
+                                                    <select id="start_working" name="start_working" required
+                                                class="form-control">
+                                            <option value="{{$details->start_working}}">{{trans('admin.'.$details->start_working)}}</option>
+                                            <option value="Saturday">{{trans('admin.Saturday')}}</option>
+                                            <option value="Sunday">{{trans('admin.Sunday')}}</option>
+                                            <option value="Monday">{{trans('admin.Monday')}}</option>
+                                            <option value="Tuesday">{{trans('admin.Tuesday')}}</option>
+                                            <option value="Wednesday">{{trans('admin.Wednesday')}}</option>
+                                            <option value="Thursday">{{trans('admin.Thursday')}}</option>
+                                            <option value="Friday">{{trans('admin.Friday')}}</option>
+                                        </select>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="userinput2">{{trans('admin.prof_to_day')}}</label>
+                                                    <select id="end_working" name="end_working" required
+                                                    class="form-control" sele="{{$details->end_working}}">
+                                            <option value="{{$details->end_working}}">{{trans('admin.'.$details->end_working)}}</option>                                                    
+                                                <option value="Saturday">{{trans('admin.Saturday')}}</option>
+                                                <option value="Sunday">{{trans('admin.Sunday')}}</option>
+                                                <option value="Monday">{{trans('admin.Monday')}}</option>
+                                                <option value="Tuesday">{{trans('admin.Tuesday')}}</option>
+                                                <option value="Wednesday">{{trans('admin.Wednesday')}}</option>
+                                                <option value="Thursday">{{trans('admin.Thursday')}}</option>
+                                                <option value="Friday">{{trans('admin.Friday')}}</option>
+                                            </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <h4 class="form-section"><i
+                                                class="icon-pie-graph2"></i> {{trans('admin.prof_social_links')}}</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="userinput1">{{trans('admin.prof_facebook')}}</label>
+                                                    <input type="url" id="facebook"
+                                                           class="form-control border-primary"
+                                                           value="{{$details->facebook}}"
+                                                           name="facebook">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="userinput2">{{trans('admin.prof_twitter')}}</label>
+                                                    <input type="url" id="twitter"
+                                                           class="form-control border-primary"
+                                                           value="{{$details->twitter}}"
+                                                           name="twitter">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="userinput1">{{trans('admin.prof_watsapp')}}</label>
+                                                    <input type="text" id="whatsapp"
+                                                           class="form-control border-primary"
+                                                           value="{{$details->whatsapp}}"
+                                                           name="whatsapp">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="userinput2">{{trans('admin.prof_instegram')}}</label>
+                                                    <input type="url" id="instgram"
+                                                           class="form-control border-primary"
+                                                           value="{{$details->instgram}}"
+                                                           name="instgram">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
 
                                         <input type="hidden" value="{{$lat}}" id="lat" name="lat">
                                         <input type="hidden" value="{{$lng}}" id="lng" name="lng">
@@ -160,8 +252,8 @@
                                         <div id="pass_pnl">
                                             <div class="form-group">
                                                 <label for="eventRegInput4">{{trans('admin.prof_new_password')}}</label>
-                                                <input type="password" id="password" name="password" autocomplete="off"
-                                                       class="form-control">
+                                                <input type="password" id="password" name="password" 
+                                                       class="form-control" >
                                             </div>
 
                                             <div class="form-group" id="pass_pnl">

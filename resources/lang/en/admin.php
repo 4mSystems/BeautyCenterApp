@@ -85,6 +85,25 @@ return [
     'prof_new_password' => 'New password',
     'prof_confirm_password' => 'Comfirm password',
 
+    'prof_social_links' => 'Social Media Links',
+    'prof_facebook' => 'Facebook',
+    'prof_twitter' => 'Twitter',
+    'prof_watsapp' => 'Wats App',
+    'prof_instegram' => 'Instegram',
+    'desc' => 'Desciption',
+
+    'prof_working_daies' => 'Open Days',
+    'prof_from_sday' => 'From Day',
+    'prof_to_day' => 'To Day',
+
+    'Saturday' => 'Saturday',
+    'Sunday' => 'Sunday',
+    'Monday' => 'Monday',
+    'Tuesday' => 'Tuesday',
+    'Wednesday' => 'Wednesday',
+    'Thursday' => 'Thursday',
+    'Friday' => 'Friday',
+
 
     // Subscribers page
     'Sub_title' => 'Subscribers',

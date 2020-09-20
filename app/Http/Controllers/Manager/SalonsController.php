@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\UserDettails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -44,6 +45,10 @@ class SalonsController extends Controller
         $data['type'] = "salon";
         $user = User::create($data);
         $user->save();
+
+        $Detail_data['user_id'] = $user->id;
+        $userDetailDone = UserDettails::create($Detail_data);
+
         session()->flash('success', trans('admin.addedsuccess'));
         return redirect(url('salons'));
 
